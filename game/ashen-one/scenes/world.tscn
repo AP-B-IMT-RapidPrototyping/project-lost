@@ -5,7 +5,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e5uuo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nnsk1"]
-size = Vector3(12.211426, 1, 15.577881)
+size = Vector3(72.76874, 1, 56.473816)
 
 [node name="Node3D" type="Node3D" unique_id=1263606105]
 
@@ -19,5 +19,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7727017, 0)
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=221903586]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=529650810]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.576416, -0.54724085, -0.38342285)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4030457, -0.54724085, -9.734894)
 shape = SubResource("BoxShape3D_nnsk1")

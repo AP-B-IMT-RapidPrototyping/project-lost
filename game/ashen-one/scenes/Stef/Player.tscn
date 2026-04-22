@@ -2,20 +2,43 @@
 
 [ext_resource type="Script" uid="uid://duytv51hfhcx8" path="res://scripts/Stef/PlayerMovement.cs" id="1_8sl8y"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xr6re"]
+albedo_color = Color(1, 0, 1, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_5ngn4"]
+material = SubResource("StandardMaterial3D_xr6re")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8sl8y"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xr6re"]
+material = SubResource("StandardMaterial3D_8sl8y")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8sl8y"]
 
-[node name="Player" type="CharacterBody3D" unique_id=474202964]
+[node name="Player" type="CharacterBody3D" unique_id=474202964 node_paths=PackedStringArray("CameraPivot", "Camera", "MeleeMesh", "RangeMesh")]
 script = ExtResource("1_8sl8y")
+CameraPivot = NodePath("Node3D")
+Camera = NodePath("Node3D/SpringArm3D/Camera3D")
+MeleeMesh = NodePath("Melee")
+RangeMesh = NodePath("Range")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1530474926]
+[node name="Melee" type="MeshInstance3D" parent="." unique_id=1530474926]
 mesh = SubResource("BoxMesh_5ngn4")
+
+[node name="Range" type="MeshInstance3D" parent="." unique_id=1434083725]
+mesh = SubResource("BoxMesh_xr6re")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=581373451]
 shape = SubResource("BoxShape3D_8sl8y")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1613530103]
-transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 2, 2)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=122212312]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=43376259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Node3D" unique_id=1031154180]
+spring_length = 2.0
+
+[node name="Camera3D" type="Camera3D" parent="Node3D/SpringArm3D" unique_id=1613530103]
+transform = Transform3D(1, 0, 0, 0, 0.9396927, 0.34202015, 0, -0.34202015, 0.9396927, 0, 0, 0)

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bbdpeqn47vmk3"
+path="res://.godot/imported/wall-wood-doorway-round.obj-acb6ff850f5f34d65906c57f6e63c428.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall-wood-doorway-round.obj-acb6ff850f5f34d65906c57f6e63c428.mesh"]
+
+source_file="res://models/Anas/kenney_fantasy-town-kit_2.0/Models/OBJ format/wall-wood-doorway-round.obj"
+dest_files=["res://.godot/imported/wall-wood-doorway-round.obj-acb6ff850f5f34d65906c57f6e63c428.mesh", "res://.godot/imported/wall-wood-doorway-round.obj-acb6ff850f5f34d65906c57f6e63c428.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

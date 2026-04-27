@@ -7,9 +7,9 @@ public partial class PlayerMovement : CharacterBody3D
 	[Export] Camera3D Camera;
 	[Export] public float MouseSensitivity = 0.002f;
 
-	[Export] public MeshInstance3D MeleeMesh;
-	[Export] public MeshInstance3D RangeMesh;
-	MeshInstance3D Player;
+	[Export] public Node3D MeleeMesh;
+	[Export] public Node3D RangeMesh;
+	Node3D Player;
 	bool ActivePlayer = false;
 	bool PlayerSwitch = true;
 

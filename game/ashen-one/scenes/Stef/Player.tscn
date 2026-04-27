@@ -1,18 +1,8 @@
 [gd_scene format=3 uid="uid://cvmsf13rawdqf"]
 
 [ext_resource type="Script" uid="uid://duytv51hfhcx8" path="res://scripts/Stef/PlayerMovement.cs" id="1_8sl8y"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xr6re"]
-albedo_color = Color(1, 0, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_5ngn4"]
-material = SubResource("StandardMaterial3D_xr6re")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8sl8y"]
-albedo_color = Color(0, 1, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_xr6re"]
-material = SubResource("StandardMaterial3D_8sl8y")
+[ext_resource type="PackedScene" uid="uid://5g711ij6uio" path="res://models/Stef/character-male-f.glb" id="2_xr6re"]
+[ext_resource type="PackedScene" uid="uid://br8irrfufwbav" path="res://models/Stef/character-male-e.glb" id="3_f5fp4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8sl8y"]
 
@@ -20,14 +10,13 @@ material = SubResource("StandardMaterial3D_8sl8y")
 script = ExtResource("1_8sl8y")
 CameraPivot = NodePath("Node3D")
 Camera = NodePath("Node3D/SpringArm3D/Camera3D")
-MeleeMesh = NodePath("Melee")
-RangeMesh = NodePath("Range")
+MeleeMesh = NodePath("melee")
+RangeMesh = NodePath("range")
 
-[node name="Melee" type="MeshInstance3D" parent="." unique_id=1530474926]
-mesh = SubResource("BoxMesh_5ngn4")
+[node name="melee" parent="." unique_id=1181140147 instance=ExtResource("2_xr6re")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Range" type="MeshInstance3D" parent="." unique_id=1434083725]
-mesh = SubResource("BoxMesh_xr6re")
+[node name="range" parent="." unique_id=551573894 instance=ExtResource("3_f5fp4")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=581373451]
 shape = SubResource("BoxShape3D_8sl8y")

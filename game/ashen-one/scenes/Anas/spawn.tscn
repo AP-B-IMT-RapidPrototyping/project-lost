@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bhsiono1qams8"]
+
+[ext_resource type="PackedScene" uid="uid://bovd8xwo74m7t" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-floor.glb" id="1_6jo70"]
+[ext_resource type="PackedScene" uid="uid://b1g1wdrrg28k3" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-floor-detail-a.glb" id="2_0vo7w"]
+[ext_resource type="PackedScene" uid="uid://c4acqmmnvydkn" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-floor-detail.glb" id="3_e7rp0"]
+[ext_resource type="PackedScene" uid="uid://cc2fw3ucr2us5" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/corridor-transition.glb" id="4_jhjqn"]
+[ext_resource type="PackedScene" uid="uid://c6il8npn430aj" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/room-large.glb" id="5_xyd0a"]
+[ext_resource type="PackedScene" uid="uid://ch6nlwi15r50f" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-wall-detail-a.glb" id="6_6r2nr"]
+[ext_resource type="PackedScene" uid="uid://ddxkre7jx1357" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/barrel.glb" id="7_i8oew"]
+[ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="8_v4bka"]
+
+[node name="Spawn" type="Node3D" unique_id=1732410728]
+
+[node name="template-floor2" parent="." unique_id=1819534128 instance=ExtResource("1_6jo70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2.3504028)
+
+[node name="template-floor-detail-a3" parent="." unique_id=328176611 instance=ExtResource("2_0vo7w")]
+transform = Transform3D(1.0096923, 0, 0, 0, 1.0096923, 0, 0, 0, 1.0096923, -6, 0, 2.3504028)
+
+[node name="template-floor-detail3" parent="." unique_id=1869150757 instance=ExtResource("3_e7rp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1.6495972)
+
+[node name="template-floor-detail4" parent="." unique_id=671528137 instance=ExtResource("3_e7rp0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.6495972)
+
+[node name="corridor-transition2" parent="." unique_id=394544525 instance=ExtResource("4_jhjqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0.35040283)
+
+[node name="room-large2" parent="." unique_id=971200603 instance=ExtResource("5_xyd0a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 0.35040283)
+
+[node name="template-wall-detail-a2" parent="." unique_id=801996971 instance=ExtResource("6_6r2nr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 4.350403)
+
+[node name="template-wall-detail-a3" parent="." unique_id=489113036 instance=ExtResource("6_6r2nr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4.350403)
+
+[node name="template-wall-detail-a4" parent="." unique_id=2067321732 instance=ExtResource("6_6r2nr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 2.3504028)
+
+[node name="template-wall-detail-a5" parent="." unique_id=929550090 instance=ExtResource("6_6r2nr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6, 0, -3.6495972)
+
+[node name="template-wall-detail-a6" parent="." unique_id=1407594293 instance=ExtResource("6_6r2nr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2, 0, -3.6495972)
+
+[node name="template-wall-detail-a7" parent="." unique_id=507722546 instance=ExtResource("6_6r2nr")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -1.6495972)
+
+[node name="barrel2" parent="." unique_id=1865772449 instance=ExtResource("7_i8oew")]
+transform = Transform3D(2.9420125, 0, 0, 0, 4.725322, 0, 0, 0, 3.0967133, -32.8498, 0, 8.551071)
+
+[node name="Player" parent="." unique_id=474202964 instance=ExtResource("8_v4bka")]
+transform = Transform3D(1.4, 0, 0, 0, 1.6500001, 0, 0, 0, 1, -26.081812, 0.40742087, 1.2062631)

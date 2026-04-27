@@ -19,3 +19,5 @@ en verschillende enemies pakken geen of minder damage (effectiveness) tegen deze
 2. We kunnen de speler tijdens melee na een attack vulnerable in een animatie te maken zodat ze moeten denken hoe ze moeten aanvallen en worden gepunished voor fout te hitten
 
 en voor de range kunnen we limited ammo geven dat reload bij enemy kills en er is een overload mechanic dat je niet kunt blijven schieten zonder consequence
+
+### 

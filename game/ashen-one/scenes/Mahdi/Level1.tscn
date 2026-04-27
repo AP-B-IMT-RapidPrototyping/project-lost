@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cm4gogkcqi63k"]
+
+[ext_resource type="PackedScene" uid="uid://bpdbk6eupe3p5" path="res://scenes/Mahdi/Ground.tscn" id="1_sxc78"]
+
+[node name="Level1" type="Node3D" unique_id=858032492]
+
+[node name="Ground" parent="." unique_id=1651628998 instance=ExtResource("1_sxc78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Ground2" parent="." unique_id=181712041 instance=ExtResource("1_sxc78")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -8)

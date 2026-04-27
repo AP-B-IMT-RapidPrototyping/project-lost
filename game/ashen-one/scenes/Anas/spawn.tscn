@@ -9,7 +9,30 @@
 [ext_resource type="PackedScene" uid="uid://ddxkre7jx1357" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/barrel.glb" id="7_i8oew"]
 [ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="8_v4bka"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6jo70"]
+sky_top_color = Color(0.8433578, 0, 0.10849265, 1)
+sky_horizon_color = Color(0.46588743, 0.19724421, 0.22585404, 1)
+ground_bottom_color = Color(0.23121509, 0, 0.0059466143, 1)
+ground_horizon_color = Color(0.46588743, 0.19724421, 0.22585404, 1)
+
+[sub_resource type="Sky" id="Sky_0vo7w"]
+sky_material = SubResource("ProceduralSkyMaterial_6jo70")
+
+[sub_resource type="Environment" id="Environment_e7rp0"]
+background_mode = 2
+sky = SubResource("Sky_0vo7w")
+tonemap_mode = 2
+glow_enabled = true
+
 [node name="Spawn" type="Node3D" unique_id=1732410728]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=831910969]
+environment = SubResource("Environment_e7rp0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1683792063]
+transform = Transform3D(0.32226565, -0.51141804, 0.79661554, 0, 0.8415108, 0.5402403, -0.94664925, -0.17410089, 0.27119002, 0, 0, 0)
+light_color = Color(0.90588236, 0, 0, 1)
+shadow_enabled = true
 
 [node name="template-floor2" parent="." unique_id=1819534128 instance=ExtResource("1_6jo70")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2.3504028)
@@ -51,4 +74,4 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 transform = Transform3D(2.9420125, 0, 0, 0, 4.725322, 0, 0, 0, 3.0967133, -32.8498, 0, 8.551071)
 
 [node name="Player" parent="." unique_id=474202964 instance=ExtResource("8_v4bka")]
-transform = Transform3D(1.4, 0, 0, 0, 1.6500001, 0, 0, 0, 1, -26.081812, 0.40742087, 1.2062631)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.675441, 0.9999995, 0.39852405)

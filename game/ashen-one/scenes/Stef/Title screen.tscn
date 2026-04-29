@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://jwbud7ovsrar"]
 
 [ext_resource type="Script" uid="uid://5m8jtbklkyq7" path="res://scripts/Stef/MenuButtons.cs" id="1_shix3"]
-[ext_resource type="PackedScene" uid="uid://bqc2otkftgt6b" path="res://scenes/world.tscn" id="2_4ndgb"]
 
 [node name="TitleScreen" type="Control" unique_id=299886005 node_paths=PackedStringArray("NewGame")]
 layout_mode = 3
@@ -12,7 +11,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_shix3")
 NewGame = NodePath("Button")
-World = ExtResource("2_4ndgb")
 
 [node name="Button" type="Button" parent="." unique_id=1158411686]
 layout_mode = 1

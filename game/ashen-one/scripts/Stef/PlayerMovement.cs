@@ -3,14 +3,20 @@ using System;
 
 public partial class PlayerMovement : CharacterBody3D
 {
+
+	[Export] PackedScene deathscreen;
+
 	[Export] public Node3D CameraPivot;
 	[Export] Camera3D Camera;
 	[Export] public float MouseSensitivity = 0.002f;
+	[Export] Label hpLabel;
 
 	[Export] public Node3D MeleeMesh;
+	[Export] public AnimationPlayer anMelee;
 	[Export] public Node3D RangeMesh;
+	[Export] public AnimationPlayer anRange;
 	Node3D Player;
-	bool ActivePlayer = false;
+	bool ActivePlayer = true;
 	bool PlayerSwitch = true;
 
 
@@ -18,6 +24,7 @@ public partial class PlayerMovement : CharacterBody3D
 	public const float JumpVelocity = 4.5f;
 	bool Forced = false;
 	bool canDodge = true;
+	int HP = 100;
 
 
 	public override void _Ready()
@@ -27,8 +34,11 @@ public partial class PlayerMovement : CharacterBody3D
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		if (ActivePlayer == true) { Player = MeleeMesh; RangeMesh.Visible = false; }
 		else { Player = RangeMesh; MeleeMesh.Visible = false; }
-		GD.Print(Player);
 	}
+
+
+	// movementcode
+
 	public override void _Input(InputEvent @event)
 	{
 		if (@event is InputEventMouseMotion mouseMotion)
@@ -44,9 +54,15 @@ public partial class PlayerMovement : CharacterBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		if (Input.IsActionJustPressed("switch_character"))
+		if (HP == 0)
+		{
+			GD.Print("Player died");
+			GetTree().ChangeSceneToPacked(deathscreen);
+		}
+		if (Input.IsActionJustPressed("switch_character") && PlayerSwitch == true)
 		{
 			SwitchCharacter();
+			takehit();
 		}
 
 		Vector3 velocity = Velocity;
@@ -95,19 +111,26 @@ public partial class PlayerMovement : CharacterBody3D
 		playerRot.Y = CameraPivot.Rotation.Y;
 
 		Player.Rotation = playerRot;
+
+		var collision = MoveAndCollide(Velocity * (float)delta);
+		if (collision != null)
+		{
+			if (collision.GetCollider().HasMethod("GetCollisionLayerValue") &&
+				(bool)collision.GetCollider().Call("GetCollisionLayerValue", 2))
+			{
+				GD.Print("Ik raak een vijand op layer 2!");
+			}
+		}
 	}
 	private async void PerformDodge(Vector3 direction)
 	{
-		if (!canDodge) return; // Stop als de cooldown nog loopt
+		if (!canDodge) return;
 
-		GD.Print("Dodge start");
-		canDodge = false; // Start cooldown
+		canDodge = false;
 		Forced = true;
-		Player.Visible = false;
+		SetCollisionMaskValue(2, false);
 
-		// 1. Richting bepalen: als direction Zero is, pak de 'vooruit' kant van de camera
 		Vector3 dodgeDirection = direction;
-		GD.Print(direction);
 		if (dodgeDirection == Vector3.Zero)
 		{
 			dodgeDirection = -CameraPivot.GlobalTransform.Basis.Z;
@@ -115,20 +138,16 @@ public partial class PlayerMovement : CharacterBody3D
 			dodgeDirection = dodgeDirection.Normalized();
 		}
 
-		// 2. Snelheid instellen
 		float dodgeSpeed = 50.0f;
 		Velocity = dodgeDirection * dodgeSpeed;
 
-		// 3. Wacht 0.5 seconde voor de beweging/zichtbaarheid
-		await ToSignal(GetTree().CreateTimer(0.1f), SceneTreeTimer.SignalName.Timeout);
+		await ToSignal(GetTree().CreateTimer(0.15f), SceneTreeTimer.SignalName.Timeout);
 		Forced = false;
 
 		await ToSignal(GetTree().CreateTimer(0.1f), SceneTreeTimer.SignalName.Timeout);
-		Player.Visible = true;
-		Velocity = Vector3.Zero; // Stop de snelle beweging
-		GD.Print("Dodge beweging klaar, cooldown loopt nog...");
+		SetCollisionMaskValue(2, true);
+		Velocity = Vector3.Zero;
 
-		// 4. Cooldown timer: Wacht nog 2.5 seconden (totaal 3 seconden sinds begin)
 		await ToSignal(GetTree().CreateTimer(2.5f), SceneTreeTimer.SignalName.Timeout);
 		canDodge = true;
 		GD.Print("Dodge weer beschikbaar!");
@@ -160,5 +179,28 @@ public partial class PlayerMovement : CharacterBody3D
 		Player.Rotation = CameraPivot.Rotation;
 
 		GD.Print("Geswitcht naar: " + Player.Name);
+	}
+
+	//weaponcode
+
+	void slash()
+	{
+
+	}
+
+	//hitmarkers
+	void takehit()
+	{
+		HP -= 10;
+		HP = Mathf.Max(HP, 0);
+		hpLabel.Text = $"HP: {HP}";
+	}
+
+
+
+	//playerswitchsignal
+	void OnPlayerSwitchActive()
+	{
+		PlayerSwitch = true;
 	}
 }

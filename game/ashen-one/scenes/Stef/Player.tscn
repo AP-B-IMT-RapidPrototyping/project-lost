@@ -1,25 +1,34 @@
 [gd_scene format=3 uid="uid://cvmsf13rawdqf"]
 
 [ext_resource type="Script" uid="uid://duytv51hfhcx8" path="res://scripts/Stef/PlayerMovement.cs" id="1_8sl8y"]
-[ext_resource type="PackedScene" uid="uid://5g711ij6uio" path="res://models/Stef/character-male-f.glb" id="2_xr6re"]
-[ext_resource type="PackedScene" uid="uid://br8irrfufwbav" path="res://models/Stef/character-male-e.glb" id="3_f5fp4"]
+[ext_resource type="PackedScene" uid="uid://j7x28adacc0o" path="res://scenes/Stef/death screen.tscn" id="2_7134i"]
+[ext_resource type="PackedScene" uid="uid://b6ir5wamtvw02" path="res://models/Stef/character_male_f_2.tscn" id="4_7134i"]
+[ext_resource type="PackedScene" uid="uid://bq3nvqxlltggk" path="res://models/Stef/character_male_e_2.tscn" id="4_w4q4s"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8sl8y"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f5fp4"]
+radius = 0.20898438
+height = 0.7158203
 
-[node name="Player" type="CharacterBody3D" unique_id=474202964 node_paths=PackedStringArray("CameraPivot", "Camera", "MeleeMesh", "RangeMesh")]
+[node name="Player" type="CharacterBody3D" unique_id=474202964 node_paths=PackedStringArray("CameraPivot", "Camera", "hpLabel", "MeleeMesh", "anMelee", "RangeMesh", "anRange")]
+collision_layer = 255
 script = ExtResource("1_8sl8y")
+deathscreen = ExtResource("2_7134i")
 CameraPivot = NodePath("Node3D")
 Camera = NodePath("Node3D/SpringArm3D/Camera3D")
+hpLabel = NodePath("UI/Label")
 MeleeMesh = NodePath("melee")
+anMelee = NodePath("melee/AnimationPlayer")
 RangeMesh = NodePath("range")
+anRange = NodePath("range/AnimationPlayer")
 
-[node name="melee" parent="." unique_id=1181140147 instance=ExtResource("2_xr6re")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+[node name="melee" parent="." unique_id=825161871 instance=ExtResource("4_7134i")]
 
-[node name="range" parent="." unique_id=551573894 instance=ExtResource("3_f5fp4")]
+[node name="Skeleton3D" parent="melee/character-male-f" parent_id_path=PackedInt32Array(825161871, 864994449) index="0" unique_id=1857200642]
+bones/4/rotation = Quaternion(0, 0, -0.3826835, 0.92387956)
+bones/5/rotation = Quaternion(0, 0, 0.3826835, 0.92387956)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=581373451]
-shape = SubResource("BoxShape3D_8sl8y")
+[node name="range" parent="." unique_id=1512543393 instance=ExtResource("4_w4q4s")]
+visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=122212312]
 
@@ -31,3 +40,30 @@ spring_length = 2.0
 
 [node name="Camera3D" type="Camera3D" parent="Node3D/SpringArm3D" unique_id=1613530103]
 transform = Transform3D(1, 0, 0, 0, 0.9396927, 0.34202015, 0, -0.34202015, 0.9396927, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=581373451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00018310547, 0.32006836, 0.0029842854)
+shape = SubResource("CapsuleShape3D_f5fp4")
+
+[node name="UI" type="Control" parent="." unique_id=1131482699]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI" unique_id=1768664831]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -74.0
+offset_top = 9.0
+offset_right = -16.0
+offset_bottom = 32.0
+grow_horizontal = 0
+text = "HP: 100"
+
+[editable path="melee"]
+[editable path="range"]

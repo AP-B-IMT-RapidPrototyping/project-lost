@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b6ir5wamtvw02"]
+
+[ext_resource type="PackedScene" uid="uid://5g711ij6uio" path="res://models/Stef/character-male-f.glb" id="1_h0pwx"]
+
+[node name="character-male-f2" unique_id=825161871 instance=ExtResource("1_h0pwx")]
+
+[node name="body-mesh" parent="character-male-f/Skeleton3D" parent_id_path=PackedInt32Array(1857200642) index="0" unique_id=568731406]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="head-mesh" parent="character-male-f/Skeleton3D" parent_id_path=PackedInt32Array(1857200642) index="1" unique_id=1533878116]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

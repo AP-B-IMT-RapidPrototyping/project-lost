@@ -27,10 +27,11 @@
 [ext_resource type="PackedScene" uid="uid://bx1mm0gtfylhj" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/gate.glb" id="25_aien3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_stcwf"]
-sky_top_color = Color(0.7743795, 0.6340271, 0.9433405, 1)
+sky_top_color = Color(0.087456666, 0.12178143, 0.5174171, 1)
 sky_horizon_color = Color(0.9081696, 0.914017, 1.0075806, 1)
 ground_bottom_color = Color(0.029043708, 0.19278571, 0.25772706, 1)
 ground_horizon_color = Color(0.9081696, 0.914017, 1.0075806, 1)
+energy_multiplier = 0.6
 
 [sub_resource type="Sky" id="Sky_tk4vp"]
 sky_material = SubResource("ProceduralSkyMaterial_stcwf")
@@ -40,6 +41,27 @@ background_mode = 2
 sky = SubResource("Sky_tk4vp")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="FontFile" id="FontFile_shr4s"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
 
 [node name="Level1" type="Node3D" unique_id=858032492]
 
@@ -503,3 +525,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, -6)
 
 [node name="wall9" parent="." unique_id=1804074224 instance=ExtResource("23_ewck4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, -6)
+
+[node name="Label" type="Label" parent="." unique_id=2046891432]
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(1.1319354, 1.3029794)
+theme_override_fonts/font = SubResource("FontFile_shr4s")
+theme_override_font_sizes/font_size = 20
+text = "Level: 1"

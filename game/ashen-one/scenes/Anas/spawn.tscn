@@ -8,6 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://ch6nlwi15r50f" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-wall-detail-a.glb" id="6_6r2nr"]
 [ext_resource type="PackedScene" uid="uid://ddxkre7jx1357" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/barrel.glb" id="7_i8oew"]
 [ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="8_v4bka"]
+[ext_resource type="PackedScene" uid="uid://c23b256hoicov" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/cross-column.glb" id="9_ii623"]
+[ext_resource type="PackedScene" uid="uid://dx1dmgifg02dn" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/rocks-tall.glb" id="10_3t36p"]
+[ext_resource type="PackedScene" uid="uid://c0r4ulptvm4er" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/chest.glb" id="11_rplqw"]
+[ext_resource type="PackedScene" uid="uid://cs8revfvn67cs" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/stairs.glb" id="12_vwf5v"]
+[ext_resource type="PackedScene" uid="uid://p5djpke57kht" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/corridor.glb" id="13_32oda"]
+[ext_resource type="PackedScene" uid="uid://c16fom2ddjrrc" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/corridor-end.glb" id="14_7ivus"]
+[ext_resource type="PackedScene" uid="uid://chccqh800q4d" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/room-corner.glb" id="15_rskyv"]
+[ext_resource type="PackedScene" uid="uid://drluxoqwh2nw8" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/gate-door-window.glb" id="16_ejl8y"]
+[ext_resource type="PackedScene" uid="uid://bwqg1xamt7l4a" path="res://scenes/Anas/Portal.tscn" id="17_vwf5v"]
+[ext_resource type="Shader" uid="uid://c8872te8ucpp" path="res://portal_shader.tres" id="18_32oda"]
+[ext_resource type="Texture2D" uid="uid://cavud4urgj55h" path="res://models/Anas/T_VFX_lelu1_tiled.png" id="19_7ivus"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6jo70"]
 sky_top_color = Color(0.8433578, 0, 0.10849265, 1)
@@ -23,6 +34,20 @@ background_mode = 2
 sky = SubResource("Sky_0vo7w")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rskyv"]
+render_priority = 0
+shader = ExtResource("18_32oda")
+shader_parameter/Color_Intensity = 7.0
+shader_parameter/PortalColor = Color(0.9843137, 0, 0.2509804, 1)
+shader_parameter/Portal_Texture = ExtResource("19_7ivus")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ejl8y"]
+render_priority = 0
+shader = ExtResource("18_32oda")
+shader_parameter/Color_Intensity = 7.0
+shader_parameter/PortalColor = Color(0.007843138, 0.80784315, 0, 1)
+shader_parameter/Portal_Texture = ExtResource("19_7ivus")
 
 [node name="Spawn" type="Node3D" unique_id=1732410728]
 
@@ -74,4 +99,48 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 transform = Transform3D(2.9420125, 0, 0, 0, 4.725322, 0, 0, 0, 3.0967133, -32.8498, 0, 8.551071)
 
 [node name="Player" parent="." unique_id=474202964 instance=ExtResource("8_v4bka")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.675441, 0.9999995, 0.39852405)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.675441, 0.9999995, 0.39852405)
+
+[node name="cross-column2" parent="." unique_id=1637167526 instance=ExtResource("9_ii623")]
+transform = Transform3D(1.8704336, 0, 1.0795776, 0, 2.2293515, 0, -0.9758447, 0, 2.0692618, -33.37655, 0.07528399, -6.530144)
+
+[node name="rocks-tall2" parent="." unique_id=427340779 instance=ExtResource("10_3t36p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.342194, 3.3839596e-16, 6.3572817)
+
+[node name="chest2" parent="." unique_id=967821406 instance=ExtResource("11_rplqw")]
+transform = Transform3D(0.12541449, 0, -2.634876, 0, 3.171192, 0, 3.328218, 0, 0.09928763, -26.143927, 0.004861653, -1.0858531)
+
+[node name="stairs2" parent="." unique_id=826808966 instance=ExtResource("12_vwf5v")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -26, 0, -15)
+
+[node name="stairs3" parent="." unique_id=2000982324 instance=ExtResource("12_vwf5v")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -26, -4, 12)
+
+[node name="corridor2" parent="." unique_id=740252812 instance=ExtResource("13_32oda")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -26, -4, 20)
+
+[node name="corridor3" parent="." unique_id=1392455530 instance=ExtResource("13_32oda")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -26, -4, 24)
+
+[node name="corridor-end2" parent="." unique_id=1242049809 instance=ExtResource("14_7ivus")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -26, -4, 28)
+
+[node name="room-corner2" parent="." unique_id=1534986305 instance=ExtResource("15_rskyv")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -26, 4, -22)
+
+[node name="corridor4" parent="." unique_id=885095153 instance=ExtResource("13_32oda")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 4, -22)
+
+[node name="gate-door-window2" parent="." unique_id=300063551 instance=ExtResource("16_ejl8y")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -36, 4, -22)
+
+[node name="MeshInstance3D" parent="." unique_id=1596559309 instance=ExtResource("17_vwf5v")]
+transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -34.90266, 5.8479443, -21.9376)
+
+[node name="MeshInstance3D2" parent="." unique_id=652470010 instance=ExtResource("17_vwf5v")]
+transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -35.77825, 1.8503699, 0.3564446)
+material_override = SubResource("ShaderMaterial_rskyv")
+
+[node name="MeshInstance3D3" parent="." unique_id=1643463829 instance=ExtResource("17_vwf5v")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -25.993809, -2.233287, 28.413393)
+material_override = SubResource("ShaderMaterial_ejl8y")

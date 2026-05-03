@@ -1,75 +1,27 @@
 [gd_scene format=3 uid="uid://crf4bja2itcao"]
 
 [ext_resource type="Script" uid="uid://cgtwatamwtuf1" path="res://scripts/Jorgan/KoalaEnemy.cs" id="1_buy67"]
-[ext_resource type="PackedScene" uid="uid://cel26bug52u1t" path="res://models/Jorgan/animal_koala_2.tscn" id="2_buy67"]
-[ext_resource type="Script" uid="uid://cbgwdi1wcctbl" path="res://scripts/Jorgan/CharacterBody3d.cs" id="3_07ax3"]
+[ext_resource type="PackedScene" uid="uid://dw12xwgytij8u" path="res://models/Jorgan/kenney_cube-pets_1.0/Models/GLB format/animal-koala.glb" id="2_1gtdw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oyl5c"]
 size = Vector3(1.2627563, 1.424408, 1.2624512)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u23sx"]
-size = Vector3(35.73053, 0.44384766, 31.856583)
+[node name="EnemyMelee" type="Node3D" unique_id=1455376485]
 
-[sub_resource type="BoxMesh" id="BoxMesh_buy67"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_buy67"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_u23sx"]
-
-[sub_resource type="Skin" id="Skin_ucdb1"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07ax3"]
-emission_enabled = true
-emission = Color(0.68016356, 0.30353326, 0.8410349, 1)
-emission_energy_multiplier = 103.5
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qpnx7"]
-
-[node name="Enemy" type="Node3D" unique_id=1455376485]
-
-[node name="KoalaEnemy" type="CharacterBody3D" parent="." unique_id=977245451 node_paths=PackedStringArray("_player", "_animationPlayer")]
+[node name="KoalaEnemy" type="CharacterBody3D" parent="." unique_id=977245451 node_paths=PackedStringArray("_timer")]
 collision_layer = 2
 script = ExtResource("1_buy67")
-_player = NodePath("../CharacterBody3D")
-_animationPlayer = NodePath("animal-koala2/AnimationPlayer")
+_timer = NodePath("../Timer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KoalaEnemy" unique_id=1622723920]
 transform = Transform3D(0.5999999, 0, 0, 0, 0.5999999, 0, 0, 0, 0.5999999, 0.0021057092, 0.42532653, -0.0022705086)
 shape = SubResource("BoxShape3D_oyl5c")
 
-[node name="animal-koala2" parent="KoalaEnemy" unique_id=1560356086 instance=ExtResource("2_buy67")]
-transform = Transform3D(-0.6, 0, 9.059749e-08, 0, 0.6, 0, -9.059749e-08, 0, -0.6, 0, 0, 0)
+[node name="animal-koala2" parent="KoalaEnemy" unique_id=1007932516 instance=ExtResource("2_1gtdw")]
+transform = Transform3D(-0.6, 0, -9.059749e-08, 0, 0.6, 0, 9.059749e-08, 0, -0.6, 0, 0, 0)
 
-[node name="body" parent="KoalaEnemy/animal-koala2/animal-koala/root" parent_id_path=PackedInt32Array(1560356086, 1417507045) index="0" unique_id=1637012729]
-transform = Transform3D(0.9824088, 0.17322516, 0.069756456, -0.17364816, 0.9848077, -4.656613e-10, -0.0686967, -0.01211308, 0.9975641, 1.5731821e-08, 0.18124998, -3.8083503e-08)
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=301800455]
-transform = Transform3D(0.8085243, 0.34167194, -0.4791125, 0, 0.8141763, 0.5806177, 0.5884628, -0.46944356, 0.6582813, 0, 9.630805, 12.665573)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=822458131]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2114314118]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.908295, -0.27807617, 2.744728)
-shape = SubResource("BoxShape3D_u23sx")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1784152217]
-transform = Transform3D(35.010025, 0, 0, 0, 0.53730977, 0, 0, 0, 31.923183, 8.808947, -0.27698445, 2.6519642)
-mesh = SubResource("BoxMesh_buy67")
-surface_material_override/0 = SubResource("StandardMaterial3D_buy67")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=232725285]
-transform = Transform3D(0.87626463, 0.24310389, -0.41600576, 0, 0.86338675, 0.5045427, 0.48183015, -0.44211292, 0.75655526, 0, 9.963457, 15.504346)
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=498731281]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.054, 0.5, 10.808)
-script = ExtResource("3_07ax3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1361786766]
-mesh = SubResource("BoxMesh_u23sx")
-skin = SubResource("Skin_ucdb1")
-surface_material_override/0 = SubResource("StandardMaterial3D_07ax3")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1064525835]
-shape = SubResource("BoxShape3D_qpnx7")
+[node name="Timer" type="Timer" parent="." unique_id=991397639]
+wait_time = 2.0
+one_shot = true
 
 [editable path="KoalaEnemy/animal-koala2"]

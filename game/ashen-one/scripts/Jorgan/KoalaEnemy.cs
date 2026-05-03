@@ -5,10 +5,11 @@ using System.Runtime.CompilerServices;
 public partial class KoalaEnemy : CharacterBody3D
 {
 	[Export] public float Speed = 3.0f;
-	[Export] public float JumpVelocity = 4.5f;
 	[Export] public Node3D _player;
 	[Export] public float DetectionDistance = 10.0f;
+	[Export] public float AttackDistance = 1.4f;
 	[Export] public AnimationPlayer _animationPlayer;
+	[Export] public Timer _timer;
 
 
 	public override void _PhysicsProcess(double delta)
@@ -31,7 +32,7 @@ public partial class KoalaEnemy : CharacterBody3D
 			LookAt(lookTarget, Vector3.Up);
 		}
 
-		if (GlobalPosition.DistanceSquaredTo(_player.GlobalPosition) < DetectionDistance * DetectionDistance)
+		if (GlobalPosition.DistanceSquaredTo(_player.GlobalPosition) < DetectionDistance * DetectionDistance && GlobalPosition.DistanceSquaredTo(_player.GlobalPosition) > AttackDistance * AttackDistance)
 		{
 			// Bereken de richting-vector
 			Vector3 direction = (lookTarget - GlobalPosition).Normalized();
@@ -39,6 +40,15 @@ public partial class KoalaEnemy : CharacterBody3D
 			velocity.X = direction.X * Speed;
 			velocity.Z = direction.Z * Speed;
 			_animationPlayer.Play("run");
+		}
+
+		if (GlobalPosition.DistanceSquaredTo(_player.GlobalPosition) < AttackDistance * AttackDistance)
+		{
+			if (_timer.IsStopped())
+			{
+				_animationPlayer.PlaySection("eat", 0, 0.5);
+				_timer.Start();
+			}
 		}
 
 		Velocity = velocity;

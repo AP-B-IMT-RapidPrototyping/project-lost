@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dcnu6qsyo78us"]
+
+[ext_resource type="PackedScene" uid="uid://cl171sjpmqgyr" path="res://models/Jorgan/kenney_cube-pets_1.0/Models/GLB format/animal-elephant.glb" id="1_2vpib"]
+[ext_resource type="Script" uid="uid://sp43ctp0mf7v" path="res://scripts/Jorgan/ElephantEnemy.cs" id="1_31egq"]
+[ext_resource type="Script" uid="uid://bselpd7b26k1h" path="res://scripts/Jorgan/testPlayer.cs" id="3_dc6ld"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qgqa5"]
+size = Vector3(1, 1.1465454, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3r0qy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vq16c"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uguo8"]
+
+[node name="EnemyBoss" type="Node3D" unique_id=1115813718]
+
+[node name="ElephantEnemy" type="CharacterBody3D" parent="." unique_id=1736691198 node_paths=PackedStringArray("_player", "_animationPlayer", "_timer")]
+script = ExtResource("1_31egq")
+_player = NodePath("../CharacterBody3D")
+_animationPlayer = NodePath("animal-elephant2/AnimationPlayer")
+_timer = NodePath("../Timer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ElephantEnemy" unique_id=575893075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5713806, 0)
+shape = SubResource("BoxShape3D_qgqa5")
+
+[node name="animal-elephant2" parent="ElephantEnemy" unique_id=573294421 instance=ExtResource("1_2vpib")]
+transform = Transform3D(-0.8, 0, -6.9938224e-08, 0, 0.8, 0, 6.9938224e-08, 0, -0.8, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2047533523]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1953066054]
+shape = SubResource("WorldBoundaryShape3D_3r0qy")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=789231007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.5, -9)
+script = ExtResource("3_dc6ld")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1140416178]
+shape = SubResource("BoxShape3D_vq16c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=31474041]
+mesh = SubResource("BoxMesh_uguo8")
+
+[node name="Timer" type="Timer" parent="." unique_id=1977446269]
+wait_time = 2.0
+one_shot = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1716626063]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 15.225743, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2125740405]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 15, 0)
+
+[editable path="ElephantEnemy/animal-elephant2"]

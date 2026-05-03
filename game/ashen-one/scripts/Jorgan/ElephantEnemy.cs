@@ -1,8 +1,7 @@
 using Godot;
 using System;
-using System.Runtime.CompilerServices;
 
-public partial class KoalaEnemy : CharacterBody3D
+public partial class ElephantEnemy : CharacterBody3D
 {
 	[Export] public float Speed = 3.0f;
 	[Export] public Node3D _player;
@@ -48,7 +47,7 @@ public partial class KoalaEnemy : CharacterBody3D
 			{
 				_animationPlayer.PlaySection("eat", 0, 0.5);
 				_timer.Start();
-				GD.Print("Koala attacked");
+				GD.Print("Elephant attacked");
 			}
 		}
 

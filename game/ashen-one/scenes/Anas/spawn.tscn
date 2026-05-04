@@ -1,13 +1,31 @@
 [gd_scene format=3 uid="uid://bhsiono1qams8"]
 
-[ext_resource type="PackedScene" uid="uid://bovd8xwo74m7t" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-floor.glb" id="1_6jo70"]
-[ext_resource type="PackedScene" uid="uid://b1g1wdrrg28k3" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-floor-detail-a.glb" id="2_0vo7w"]
-[ext_resource type="PackedScene" uid="uid://c4acqmmnvydkn" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-floor-detail.glb" id="3_e7rp0"]
-[ext_resource type="PackedScene" uid="uid://cc2fw3ucr2us5" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/corridor-transition.glb" id="4_jhjqn"]
-[ext_resource type="PackedScene" uid="uid://c6il8npn430aj" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/room-large.glb" id="5_xyd0a"]
-[ext_resource type="PackedScene" uid="uid://ch6nlwi15r50f" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-wall-detail-a.glb" id="6_6r2nr"]
-[ext_resource type="PackedScene" uid="uid://ddxkre7jx1357" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/barrel.glb" id="7_i8oew"]
-[ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="8_v4bka"]
+[ext_resource type="Script" uid="uid://b11pepplhi746" path="res://scripts/Anas/GameManager.cs" id="1_gepln"]
+[ext_resource type="PackedScene" uid="uid://bovd8xwo74m7t" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-floor.glb" id="1_ji5h3"]
+[ext_resource type="PackedScene" uid="uid://b1g1wdrrg28k3" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-floor-detail-a.glb" id="2_0uppt"]
+[ext_resource type="PackedScene" uid="uid://c4acqmmnvydkn" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-floor-detail.glb" id="3_v8882"]
+[ext_resource type="PackedScene" uid="uid://cc2fw3ucr2us5" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/corridor-transition.glb" id="4_nf1ox"]
+[ext_resource type="PackedScene" uid="uid://c6il8npn430aj" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/room-large.glb" id="5_gepln"]
+[ext_resource type="PackedScene" uid="uid://ch6nlwi15r50f" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-wall-detail-a.glb" id="6_rdwsh"]
+[ext_resource type="PackedScene" uid="uid://ddxkre7jx1357" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/barrel.glb" id="7_487h1"]
+[ext_resource type="PackedScene" uid="uid://c23b256hoicov" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/cross-column.glb" id="8_4eb0h"]
+[ext_resource type="PackedScene" uid="uid://dx1dmgifg02dn" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/rocks-tall.glb" id="9_k8xr1"]
+[ext_resource type="PackedScene" uid="uid://c0r4ulptvm4er" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/chest.glb" id="10_avkb7"]
+[ext_resource type="PackedScene" uid="uid://cs8revfvn67cs" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/stairs.glb" id="11_mcgvq"]
+[ext_resource type="PackedScene" uid="uid://p5djpke57kht" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/corridor.glb" id="12_sqabq"]
+[ext_resource type="PackedScene" uid="uid://c16fom2ddjrrc" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/corridor-end.glb" id="13_t7ud7"]
+[ext_resource type="PackedScene" uid="uid://drluxoqwh2nw8" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/gate-door-window.glb" id="14_ioo4d"]
+[ext_resource type="PackedScene" uid="uid://bwqg1xamt7l4a" path="res://scenes/Anas/Portal.tscn" id="15_qimvs"]
+[ext_resource type="PackedScene" uid="uid://dp3rlgl05og2m" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/room-wide.glb" id="18_mc57b"]
+[ext_resource type="PackedScene" uid="uid://cx4ck70d2w0yh" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/gate-metal-bars.glb" id="19_wm8qi"]
+[ext_resource type="PackedScene" uid="uid://cbcnmb4jfabny" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/gate-door.glb" id="20_8dvd3"]
+[ext_resource type="Script" uid="uid://dto0w6g22d7fg" path="res://scenes/Anas/portal4.gd" id="20_k8xr1"]
+[ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="21_jlf3e"]
+[ext_resource type="PackedScene" uid="uid://dyww4l57a27lb" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/shield-round.glb" id="22_nf1ox"]
+[ext_resource type="PackedScene" uid="uid://cetxaefdqlh8h" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/shield-rectangle.glb" id="23_gepln"]
+[ext_resource type="PackedScene" uid="uid://8g0ac3xl5b4" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/cross-wood.glb" id="24_rdwsh"]
+[ext_resource type="PackedScene" uid="uid://ceimeascdmfu7" path="res://scenes/Anas/Level3.tscn" id="27_4eb0h"]
+[ext_resource type="PackedScene" uid="uid://rwt54gkketog" path="res://scenes/Anas/Level4.tscn" id="28_k8xr1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6jo70"]
 sky_top_color = Color(0.8433578, 0, 0.10849265, 1)
@@ -24,54 +42,303 @@ sky = SubResource("Sky_0vo7w")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="LabelSettings" id="LabelSettings_7ivus"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rskyv"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7ivus"]
+viewport_path = NodePath("SubViewport2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ejl8y"]
+viewport_path = NodePath("SubViewport3")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sfngo"]
+viewport_path = NodePath("SubViewport4")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nf1ox"]
+size = Vector3(4.2353516, 4.4101563, 16.422905)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gepln"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/5697440.png-5f10f04bf0ca586f62d277b348d838b6.ctex"
+
 [node name="Spawn" type="Node3D" unique_id=1732410728]
+script = ExtResource("1_gepln")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=831910969]
 environment = SubResource("Environment_e7rp0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1683792063]
-transform = Transform3D(0.32226565, -0.51141804, 0.79661554, 0, 0.8415108, 0.5402403, -0.94664925, -0.17410089, 0.27119002, 0, 0, 0)
+transform = Transform3D(0.19396228, -0.9798327, 0.04802719, 0.2573593, 0.098065555, 0.96132696, -0.9466493, -0.1741009, 0.27119008, -22.885813, 7.586134, 1.459384)
 light_color = Color(0.90588236, 0, 0, 1)
 shadow_enabled = true
 
-[node name="template-floor2" parent="." unique_id=1819534128 instance=ExtResource("1_6jo70")]
+[node name="template-floor2" parent="." unique_id=1819534128 instance=ExtResource("1_ji5h3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2.3504028)
 
-[node name="template-floor-detail-a3" parent="." unique_id=328176611 instance=ExtResource("2_0vo7w")]
+[node name="template-floor-detail-a3" parent="." unique_id=328176611 instance=ExtResource("2_0uppt")]
 transform = Transform3D(1.0096923, 0, 0, 0, 1.0096923, 0, 0, 0, 1.0096923, -6, 0, 2.3504028)
 
-[node name="template-floor-detail3" parent="." unique_id=1869150757 instance=ExtResource("3_e7rp0")]
+[node name="template-floor-detail3" parent="." unique_id=1869150757 instance=ExtResource("3_v8882")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1.6495972)
 
-[node name="template-floor-detail4" parent="." unique_id=671528137 instance=ExtResource("3_e7rp0")]
+[node name="template-floor-detail4" parent="." unique_id=671528137 instance=ExtResource("3_v8882")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.6495972)
 
-[node name="corridor-transition2" parent="." unique_id=394544525 instance=ExtResource("4_jhjqn")]
+[node name="corridor-transition2" parent="." unique_id=394544525 instance=ExtResource("4_nf1ox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0.35040283)
 
-[node name="room-large2" parent="." unique_id=971200603 instance=ExtResource("5_xyd0a")]
+[node name="room-large2" parent="." unique_id=971200603 instance=ExtResource("5_gepln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 0.35040283)
 
-[node name="template-wall-detail-a2" parent="." unique_id=801996971 instance=ExtResource("6_6r2nr")]
+[node name="template-wall-detail-a2" parent="." unique_id=801996971 instance=ExtResource("6_rdwsh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 4.350403)
 
-[node name="template-wall-detail-a3" parent="." unique_id=489113036 instance=ExtResource("6_6r2nr")]
+[node name="template-wall-detail-a3" parent="." unique_id=489113036 instance=ExtResource("6_rdwsh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4.350403)
 
-[node name="template-wall-detail-a4" parent="." unique_id=2067321732 instance=ExtResource("6_6r2nr")]
+[node name="template-wall-detail-a4" parent="." unique_id=2067321732 instance=ExtResource("6_rdwsh")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 2.3504028)
 
-[node name="template-wall-detail-a5" parent="." unique_id=929550090 instance=ExtResource("6_6r2nr")]
+[node name="template-wall-detail-a5" parent="." unique_id=929550090 instance=ExtResource("6_rdwsh")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6, 0, -3.6495972)
 
-[node name="template-wall-detail-a6" parent="." unique_id=1407594293 instance=ExtResource("6_6r2nr")]
+[node name="template-wall-detail-a6" parent="." unique_id=1407594293 instance=ExtResource("6_rdwsh")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2, 0, -3.6495972)
 
-[node name="template-wall-detail-a7" parent="." unique_id=507722546 instance=ExtResource("6_6r2nr")]
+[node name="template-wall-detail-a7" parent="." unique_id=507722546 instance=ExtResource("6_rdwsh")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -1.6495972)
 
-[node name="barrel2" parent="." unique_id=1865772449 instance=ExtResource("7_i8oew")]
+[node name="barrel2" parent="." unique_id=1865772449 instance=ExtResource("7_487h1")]
 transform = Transform3D(2.9420125, 0, 0, 0, 4.725322, 0, 0, 0, 3.0967133, -32.8498, 0, 8.551071)
 
-[node name="Player" parent="." unique_id=474202964 instance=ExtResource("8_v4bka")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.675441, 0.9999995, 0.39852405)
+[node name="cross-column2" parent="." unique_id=1637167526 instance=ExtResource("8_4eb0h")]
+transform = Transform3D(1.8704336, 0, 1.0795776, 0, 2.2293515, 0, -0.9758447, 0, 2.0692618, -33.37655, 0.07528399, -6.530144)
+
+[node name="rocks-tall2" parent="." unique_id=427340779 instance=ExtResource("9_k8xr1")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -31.12756, 3.3839596e-16, 6.3572817)
+
+[node name="chest2" parent="." unique_id=967821406 instance=ExtResource("10_avkb7")]
+transform = Transform3D(0.12541449, 0, -2.634876, 0, 3.171192, 0, 3.328218, 0, 0.09928763, -26.143927, 0.004861653, -1.0858531)
+
+[node name="stairs2" parent="." unique_id=826808966 instance=ExtResource("11_mcgvq")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -26, 0, -15)
+
+[node name="stairs3" parent="." unique_id=2000982324 instance=ExtResource("11_mcgvq")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -26, -4, 12)
+
+[node name="corridor2" parent="." unique_id=740252812 instance=ExtResource("12_sqabq")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -26, -4, 20)
+
+[node name="corridor3" parent="." unique_id=1392455530 instance=ExtResource("12_sqabq")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -26, -4, 24)
+
+[node name="corridor-end2" parent="." unique_id=1242049809 instance=ExtResource("13_t7ud7")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -26, -4, 28)
+
+[node name="corridor4" parent="." unique_id=885095153 instance=ExtResource("12_sqabq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 4, -23)
+
+[node name="gate-door-window2" parent="." unique_id=1948403499 instance=ExtResource("14_ioo4d")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -40, 4, -23)
+
+[node name="PortalLevel1" parent="." unique_id=1643463829 instance=ExtResource("15_qimvs")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -25.993809, -2.233287, 28.413393)
+
+[node name="PortalLevel2" parent="." unique_id=652470010 instance=ExtResource("15_qimvs")]
+transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -35.272125, 1.8503699, 0.28183413)
+
+[node name="PortalLevel3" parent="." unique_id=1596559309 instance=ExtResource("15_qimvs")]
+transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -38.90266, 5.8479443, -22.9376)
+
+[node name="room-wide2" parent="." unique_id=664528054 instance=ExtResource("18_mc57b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 4, -23)
+
+[node name="gate-metal-bars2" parent="." unique_id=1158244956 instance=ExtResource("19_wm8qi")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16, 4, -23)
+
+[node name="gate-door2" parent="." unique_id=5073485 instance=ExtResource("20_8dvd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 4, -29)
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1226498366]
+transparent_bg = true
+size = Vector2i(64, 64)
+
+[node name="Control" type="Control" parent="SubViewport" unique_id=301750306]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SubViewport/Control" unique_id=1298622278]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level 1"
+label_settings = SubResource("LabelSettings_7ivus")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=233679318]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -26.16325, 2.359428, 9.770205)
+pixel_size = 0.05
+texture = SubResource("ViewportTexture_rskyv")
+
+[node name="SubViewport2" type="SubViewport" parent="." unique_id=998121966]
+transparent_bg = true
+size = Vector2i(64, 64)
+
+[node name="Control" type="Control" parent="SubViewport2" unique_id=1585227285]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SubViewport2/Control" unique_id=1834739955]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level 2
+"
+label_settings = SubResource("LabelSettings_7ivus")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1159552093]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -35.145973, 1.9826288, -0.20059055)
+pixel_size = 0.05
+texture = SubResource("ViewportTexture_7ivus")
+
+[node name="SubViewport3" type="SubViewport" parent="." unique_id=68324143]
+transparent_bg = true
+size = Vector2i(64, 64)
+
+[node name="Control" type="Control" parent="SubViewport3" unique_id=1758879057]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SubViewport3/Control" unique_id=707382158]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level 3
+"
+label_settings = SubResource("LabelSettings_7ivus")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubViewport4" type="SubViewport" parent="." unique_id=421663380]
+transparent_bg = true
+size = Vector2i(64, 64)
+
+[node name="Control" type="Control" parent="SubViewport4" unique_id=477889124]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SubViewport4/Control" unique_id=1993750921]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level 4
+"
+label_settings = SubResource("LabelSettings_7ivus")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=1537499149]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -17.54708, 5.359428, -22.823837)
+pixel_size = 0.05
+texture = SubResource("ViewportTexture_ejl8y")
+
+[node name="Sprite3D4" type="Sprite3D" parent="." unique_id=1585979803]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -35.16325, 6.359428, -23.229795)
+pixel_size = 0.05
+texture = SubResource("ViewportTexture_sfngo")
+
+[node name="Player" parent="." unique_id=474202964 instance=ExtResource("21_jlf3e")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.971808, 1, 0.20666605)
+
+[node name="gate-metal-bars3" parent="." unique_id=1850931622 instance=ExtResource("19_wm8qi")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -36, 0, 0.32458067)
+
+[node name="shield-round2" parent="." unique_id=1745821158 instance=ExtResource("22_nf1ox")]
+transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -35, 2.3697753, -3.5936356)
+
+[node name="shield-round3" parent="." unique_id=405309052 instance=ExtResource("22_nf1ox")]
+transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -35, 2.3697753, 4.39436)
+
+[node name="shield-rectangle2" parent="." unique_id=573050327 instance=ExtResource("23_gepln")]
+transform = Transform3D(-2.1855695e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855695e-07, -16.850182, 1.7351944, 4.6911745)
+
+[node name="shield-rectangle3" parent="." unique_id=573850717 instance=ExtResource("23_gepln")]
+transform = Transform3D(-2.1855695e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855695e-07, -16.849955, 1.7351944, -3.8602304)
+
+[node name="cross-wood2" parent="." unique_id=2122369738 instance=ExtResource("24_rdwsh")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -19.229372, 0, -7.0675077)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=893004564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.47594, 0, 16.5492)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1702000792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.562439, 2.3879564, 5.6108418)
+shape = SubResource("BoxShape3D_nf1ox")
+
+[node name="Control" type="Control" parent="." unique_id=1562284446]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 560.0
+offset_bottom = 512.0
+
+[node name="Label" type="Label" parent="Control" unique_id=400656362]
+layout_mode = 0
+offset_left = 406.0
+offset_top = 366.0
+offset_right = 754.0
+offset_bottom = 641.0
+text = "Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/Label" unique_id=1776574254]
+modulate = Color(0.9515795, 0.95157963, 0.9515795, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.29900002
+anchor_top = 0.441
+anchor_right = 0.397
+anchor_bottom = 0.578
+offset_left = 0.9479904
+offset_top = -1.2750015
+offset_right = 5.843994
+offset_bottom = -7.949997
+texture = SubResource("CompressedTexture2D_gepln")
+expand_mode = 1
+
+[node name="Level3" parent="." unique_id=1679484765 instance=ExtResource("27_4eb0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.651726, 2.871231, 26.317614)
+
+[node name="Level4" parent="." unique_id=1555777435 instance=ExtResource("28_k8xr1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.681446, 0, -23.50321)
+
+[node name="PortalLevel4_4" parent="." unique_id=1330424221 instance=ExtResource("15_qimvs")]
+transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, 62.41223, 4.6718597, 26.275036)
+
+[node name="PortalLevel4" parent="." unique_id=1911045935 node_paths=PackedStringArray("connect_portal") instance=ExtResource("15_qimvs")]
+transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -16.902664, 5.703454, -22.937603)
+script = ExtResource("20_k8xr1")
+connect_portal = NodePath("../PortalLevel4_4")
+
+[connection signal="body_entered" from="PortalLevel4" to="PortalLevel4" method="_on_body_entered"]

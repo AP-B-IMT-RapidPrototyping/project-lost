@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ceimeascdmfu7"]
+
+[ext_resource type="PackedScene" uid="uid://c3kqlul80u0r" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/room-wide-variation.glb" id="1_lchak"]
+[ext_resource type="PackedScene" uid="uid://cc2fw3ucr2us5" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/corridor-transition.glb" id="3_d2pwn"]
+[ext_resource type="PackedScene" uid="uid://crsvgi433647s" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/stairs-wide.glb" id="4_pu5fi"]
+[ext_resource type="PackedScene" uid="uid://c6hrxu0f2x6u1" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/room-small.glb" id="5_cellc"]
+[ext_resource type="PackedScene" uid="uid://cx4ck70d2w0yh" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/gate-metal-bars.glb" id="6_ee0wk"]
+
+[node name="Level3" type="Node3D" unique_id=1679484765]
+
+[node name="room-wide-variation2" parent="." unique_id=186400614 instance=ExtResource("1_lchak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="corridor-transition2" parent="." unique_id=394544525 instance=ExtResource("3_d2pwn")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -15, 0, 0)
+
+[node name="stairs-wide2" parent="." unique_id=1037392365 instance=ExtResource("4_pu5fi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19, -4, 0)
+
+[node name="room-small2" parent="." unique_id=858380947 instance=ExtResource("5_cellc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, -4, 0)
+
+[node name="corridor-transition3" parent="." unique_id=975458796 instance=ExtResource("3_d2pwn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, -4, 0)
+
+[node name="gate-metal-bars2" parent="." unique_id=788694197 instance=ExtResource("6_ee0wk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -45, -4, 0)
+
+[node name="gate-metal-bars3" parent="." unique_id=1235307676 instance=ExtResource("6_ee0wk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, -4, -6)
+
+[node name="gate-metal-bars4" parent="." unique_id=1071009936 instance=ExtResource("6_ee0wk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 0, 0)
+
+[node name="gate-metal-bars5" parent="." unique_id=268525642 instance=ExtResource("6_ee0wk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, -4, 6)

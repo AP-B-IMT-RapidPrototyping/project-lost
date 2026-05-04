@@ -16,7 +16,7 @@ public partial class ParrotEnemy : CharacterBody3D
 
 		_animationPlayer.Play("run");
 
-		Vector3 lookTarget = new Vector3(_player.GlobalPosition.X, GlobalPosition.Y, _player.GlobalPosition.Z);
+		Vector3 lookTarget = new Vector3(_player.GlobalPosition.X, _player.GlobalPosition.Y + 3, _player.GlobalPosition.Z);
 
 		// Laat de vijand naar de speler kijken
 		if (GlobalPosition.DistanceTo(lookTarget) > 0.1f) 
@@ -30,7 +30,8 @@ public partial class ParrotEnemy : CharacterBody3D
 			Vector3 direction = (lookTarget - GlobalPosition).Normalized();
 
 			velocity.X = direction.X * Speed;
-			velocity.Z = direction.Z * Speed;	
+			velocity.Z = direction.Z * Speed;
+			velocity.Y = direction.Y * Speed;
 		}
 
 		if(GlobalPosition.DistanceSquaredTo(_player.GlobalPosition) < AttackDistance * AttackDistance)

@@ -10,6 +10,7 @@ public partial class KoalaEnemy : CharacterBody3D
 	[Export] public float AttackDistance = 1.4f;
 	[Export] public AnimationPlayer _animationPlayer;
 	[Export] public Timer _timer;
+	public PlayerMovement p;
 
 
 	public override void _PhysicsProcess(double delta)
@@ -49,6 +50,7 @@ public partial class KoalaEnemy : CharacterBody3D
 				_animationPlayer.PlaySection("eat", 0, 0.5);
 				_timer.Start();
 				GD.Print("Koala attacked");
+				p.takehit();
 			}
 		}
 

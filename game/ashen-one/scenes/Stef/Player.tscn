@@ -3,13 +3,79 @@
 [ext_resource type="Script" uid="uid://duytv51hfhcx8" path="res://scripts/Stef/PlayerMovement.cs" id="1_8sl8y"]
 [ext_resource type="PackedScene" uid="uid://j7x28adacc0o" path="res://scenes/Stef/death screen.tscn" id="2_7134i"]
 [ext_resource type="PackedScene" uid="uid://b6ir5wamtvw02" path="res://models/Stef/character_male_f_2.tscn" id="4_7134i"]
+[ext_resource type="PackedScene" uid="uid://d1c1tw5763rco" path="res://models/Jorgan/kenney_food-kit/Models/GLB format/cooking-knife.glb" id="4_sy21a"]
 [ext_resource type="PackedScene" uid="uid://bq3nvqxlltggk" path="res://models/Stef/character_male_e_2.tscn" id="4_w4q4s"]
+[ext_resource type="PackedScene" uid="uid://6dlev6p0ydqq" path="res://models/Stef/kenney_blaster-kit_2.1/Models/GLB format/blaster-b.glb" id="6_sy21a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sy21a"]
+size = Vector3(0.691864, 0.49743652, 0.51452637)
+
+[sub_resource type="Animation" id="Animation_sy21a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("melee/cooking-knife2/cooking-knife:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("melee/cooking-knife2/cooking-knife:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pvn51"]
+resource_name = "slash"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("melee/cooking-knife2/cooking-knife:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.4333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.32051945, -2.9802322e-08, -0.5729308), Vector3(-0.011697233, 0, 0.010694206)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("melee/cooking-knife2/cooking-knife:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.4333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(4.3711385e-08, -1.5707964, 4.37114e-08), Vector3(-1.065814e-14, -1.4210855e-14, 1.5425754e-14)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ly60"]
+_data = {
+&"RESET": SubResource("Animation_sy21a"),
+&"slash": SubResource("Animation_pvn51")
+}
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f5fp4"]
 radius = 0.20898438
 height = 0.7158203
 
-[node name="Player" type="CharacterBody3D" unique_id=474202964 node_paths=PackedStringArray("CameraPivot", "Camera", "hpLabel", "MeleeMesh", "anMelee", "RangeMesh", "anRange")]
+[node name="Player" type="CharacterBody3D" unique_id=474202964 node_paths=PackedStringArray("CameraPivot", "Camera", "hpLabel", "MeleeMesh", "anMelee", "weaponhitbox", "anweapon", "RangeMesh", "anRange")]
 collision_layer = 255
 script = ExtResource("1_8sl8y")
 deathscreen = ExtResource("2_7134i")
@@ -18,17 +84,38 @@ Camera = NodePath("Node3D/SpringArm3D/Camera3D")
 hpLabel = NodePath("UI/Label")
 MeleeMesh = NodePath("melee")
 anMelee = NodePath("melee/AnimationPlayer")
+weaponhitbox = NodePath("melee/weapon collision")
+anweapon = NodePath("melee/cooking-knife2/weaponanimation")
 RangeMesh = NodePath("range")
 anRange = NodePath("range/AnimationPlayer")
 
 [node name="melee" parent="." unique_id=825161871 instance=ExtResource("4_7134i")]
 
+[node name="weapon collision" type="StaticBody3D" parent="melee" unique_id=1904866328]
+transform = Transform3D(-4.371139e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, -4.371139e-08, 1.9106855e-15, 0.27715826, 0.10844579, -0.48193467)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="melee/weapon collision" unique_id=1730506301]
+transform = Transform3D(1, 0, 0, 0, 1, -8.351872e-23, 0, -8.351872e-23, 1, -0.07066345, 0.2951049, -0.2427368)
+shape = SubResource("BoxShape3D_sy21a")
+
+[node name="cooking-knife2" parent="melee" unique_id=813657192 instance=ExtResource("4_sy21a")]
+transform = Transform3D(-2.3378141e-15, -1, 4.371139e-08, -6.2233454e-08, -4.371139e-08, -1, 1.4237356, 0, -4.3711385e-08, 0.27715826, 0.10844579, -0.48193467)
+
+[node name="weaponanimation" type="AnimationPlayer" parent="melee/cooking-knife2" unique_id=269689770]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_0ly60")
+
 [node name="Skeleton3D" parent="melee/character-male-f" parent_id_path=PackedInt32Array(825161871, 864994449) index="0" unique_id=1857200642]
-bones/4/rotation = Quaternion(0, 0, -0.3826835, 0.92387956)
+bones/4/rotation = Quaternion(0, 0, -0.38268346, 0.9238795)
 bones/5/rotation = Quaternion(0, 0, 0.3826835, 0.92387956)
 
 [node name="range" parent="." unique_id=1512543393 instance=ExtResource("4_w4q4s")]
 visible = false
+
+[node name="blaster-b2" parent="range" unique_id=668134355 instance=ExtResource("6_sy21a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23718375, 0.22191608, -0.14115451)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=122212312]
 
@@ -66,4 +153,5 @@ grow_horizontal = 0
 text = "HP: 100"
 
 [editable path="melee"]
+[editable path="melee/cooking-knife2"]
 [editable path="range"]

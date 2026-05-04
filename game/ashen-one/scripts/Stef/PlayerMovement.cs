@@ -13,15 +13,17 @@ public partial class PlayerMovement : CharacterBody3D
 
 	[Export] public Node3D MeleeMesh;
 	[Export] public AnimationPlayer anMelee;
+	[Export] public StaticBody3D weaponhitbox;
+	[Export] public AnimationPlayer anweapon;
 	[Export] public Node3D RangeMesh;
 	[Export] public AnimationPlayer anRange;
 	Node3D Player;
 	bool ActivePlayer = true;
-	bool PlayerSwitch = true;
+	bool PlayerSwitch = false;
 
 
 	public float Speed = 3.25f;
-	public const float JumpVelocity = 4.5f;
+	public const float JumpVelocity = 2.5f;
 	bool Forced = false;
 	bool canDodge = true;
 	int HP = 100;
@@ -34,6 +36,7 @@ public partial class PlayerMovement : CharacterBody3D
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		if (ActivePlayer == true) { Player = MeleeMesh; RangeMesh.Visible = false; }
 		else { Player = RangeMesh; MeleeMesh.Visible = false; }
+		weaponhitbox.SetCollisionLayerValue(2, false);
 	}
 
 
@@ -93,6 +96,10 @@ public partial class PlayerMovement : CharacterBody3D
 
 		if (!Forced)
 		{
+			if (Input.IsActionJustPressed("attack"))
+			{
+				slash();
+			}
 			if (direction != Vector3.Zero)
 			{
 				velocity.X = direction.X * Speed;
@@ -181,10 +188,16 @@ public partial class PlayerMovement : CharacterBody3D
 		GD.Print("Geswitcht naar: " + Player.Name);
 	}
 
-	//weaponcode
+	//weapon and damage code
 
-	void slash()
+	async void slash()
 	{
+		GD.Print("slash");
+		weaponhitbox.SetCollisionLayerValue(2, true);
+		anMelee.Play("attack-melee-right");
+		anweapon.Play("slash");
+		await ToSignal(GetTree().CreateTimer(0.15f), SceneTreeTimer.SignalName.Timeout);
+		weaponhitbox.SetCollisionLayerValue(2, false);
 
 	}
 

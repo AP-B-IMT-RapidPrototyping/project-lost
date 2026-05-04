@@ -16,7 +16,7 @@ public partial class DeathScreen : Control
 
 	void OnRestartPressed()
 	{
-		GetTree().ChangeSceneToFile("res://Scenes/World.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/Anas/Spawn.tscn");
 	}
 	void OnQuitPressed()
 	{

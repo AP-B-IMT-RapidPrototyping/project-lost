@@ -41,6 +41,9 @@ _subresources={
 "nodes": {
 "PATH:gate-door-window": {
 "generate/physics": true
+},
+"PATH:gate-door-window/door": {
+"generate/physics": true
 }
 }
 }

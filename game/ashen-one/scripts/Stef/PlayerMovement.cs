@@ -20,7 +20,7 @@ public partial class PlayerMovement : CharacterBody3D
 	bool PlayerSwitch = true;
 
 
-	public float Speed = 5.0f;
+	public float Speed = 3.25f;
 	public const float JumpVelocity = 4.5f;
 	bool Forced = false;
 	bool canDodge = true;
@@ -138,7 +138,7 @@ public partial class PlayerMovement : CharacterBody3D
 			dodgeDirection = dodgeDirection.Normalized();
 		}
 
-		float dodgeSpeed = 50.0f;
+		float dodgeSpeed = 20.0f;
 		Velocity = dodgeDirection * dodgeSpeed;
 
 		await ToSignal(GetTree().CreateTimer(0.15f), SceneTreeTimer.SignalName.Timeout);
@@ -189,7 +189,7 @@ public partial class PlayerMovement : CharacterBody3D
 	}
 
 	//hitmarkers
-	void takehit()
+	public void takehit()
 	{
 		HP -= 10;
 		HP = Mathf.Max(HP, 0);

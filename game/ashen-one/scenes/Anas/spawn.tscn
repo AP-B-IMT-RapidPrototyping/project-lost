@@ -260,7 +260,7 @@ pixel_size = 0.05
 texture = SubResource("ViewportTexture_sfngo")
 
 [node name="Player" parent="." unique_id=474202964 instance=ExtResource("21_jlf3e")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.971808, 1, 0.20666605)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.971808, 1.686068, 0.20666605)
 
 [node name="shield-round2" parent="." unique_id=1745821158 instance=ExtResource("22_nf1ox")]
 transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -35, 2.3697753, -3.5936356)

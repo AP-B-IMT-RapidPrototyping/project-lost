@@ -2,7 +2,6 @@
 
 [ext_resource type="Shader" uid="uid://c8872te8ucpp" path="res://portal_shader.tres" id="1_sc3tw"]
 [ext_resource type="Texture2D" uid="uid://cavud4urgj55h" path="res://models/Anas/T_VFX_lelu1_tiled.png" id="2_hfevr"]
-[ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="3_0y83r"]
 [ext_resource type="Script" uid="uid://dcgoj5o7iwvav" path="res://scenes/Anas/Portal.cs" id="4_qer01"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0y83r"]
@@ -18,13 +17,6 @@ shader_parameter/Portal_Texture = ExtResource("2_hfevr")
 [sub_resource type="QuadMesh" id="QuadMesh_dpjg5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hfevr"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_hfevr"]
-size = Vector3(2.1003418, 1, 4.884659)
-
-[sub_resource type="SphereMesh" id="SphereMesh_qer01"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_nt5tp"]
 
 [node name="Area3D" type="Area3D" unique_id=19617829]
 disable_mode = 2
@@ -42,14 +34,6 @@ mesh = SubResource("QuadMesh_dpjg5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.720743)
 physics_material_override = SubResource("PhysicsMaterial_hfevr")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=2026341076]
-transform = Transform3D(3.7626393, 0, 0, 0, 1, 0, 0, 0, 2.4650202, 0.34861368, 0, -0.23154926)
-shape = SubResource("BoxShape3D_hfevr")
-debug_color = Color(0.957562, 1.6364455e-06, 0.5345196, 0.41960785)
-
-[node name="Player" parent="StaticBody3D" unique_id=474202964 instance=ExtResource("3_0y83r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85642624, 1.5, -0.18729305)
-
 [node name="portal" type="Area3D" parent="." unique_id=38902384 node_paths=PackedStringArray("ConnectPortal")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.3740087)
 disable_mode = 2
@@ -57,30 +41,12 @@ collision_layer = 255
 script = ExtResource("4_qer01")
 ConnectPortal = NodePath("../portal2")
 
-[node name="Portal2" type="MeshInstance3D" parent="portal" unique_id=1781389868]
-transform = Transform3D(2.5033584, 0.021034742, 0.0007027784, -0.021068754, 2.4991317, -0.00016502615, -0.0041603013, 0.000938432, 0.42371583, 0, 1.3399351, 6.652868)
-material_override = SubResource("ShaderMaterial_nxinr")
-mesh = SubResource("SphereMesh_qer01")
-
 [node name="StaticBody3D" type="StaticBody3D" parent="portal" unique_id=790974554]
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="portal/StaticBody3D" unique_id=1776854937]
-transform = Transform3D(-1, -1.509958e-07, 0, 1.509958e-07, -1, 0, 0, 0, 0.20094103, 0, 1.3399351, 6.652868)
-shape = SubResource("SphereShape3D_0y83r")
 
 [node name="portal2" type="Area3D" parent="." unique_id=1171632753]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.879747)
 collision_layer = 255
 
-[node name="Portal3" type="MeshInstance3D" parent="portal2" unique_id=1023116952]
-transform = Transform3D(2.5043576, 0.021032844, 0.00078442093, -0.021077164, 2.4989064, -0.00018419743, -0.004161962, 0.00093834737, 0.47293937, 0, 1.5403652, -6.293125)
-material_override = SubResource("ShaderMaterial_nxinr")
-mesh = SubResource("SphereMesh_nt5tp")
-
 [node name="StaticBody3D" type="StaticBody3D" parent="portal2" unique_id=2092751652]
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="portal2/StaticBody3D" unique_id=652432483]
-transform = Transform3D(-1, -1.509958e-07, 0, 1.509958e-07, -1, 0, 0, 0, 0.23647715, 0, 1.5403652, -6.293125)
-shape = SubResource("SphereShape3D_0y83r")
 
 [connection signal="body_entered" from="portal" to="portal" method="_on_body_entered"]

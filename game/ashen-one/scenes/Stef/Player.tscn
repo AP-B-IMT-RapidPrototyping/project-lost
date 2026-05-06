@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cvmsf13rawdqf"]
 
 [ext_resource type="Script" uid="uid://duytv51hfhcx8" path="res://scripts/Stef/PlayerMovement.cs" id="1_8sl8y"]
-[ext_resource type="PackedScene" uid="uid://j7x28adacc0o" path="res://scenes/Stef/death screen.tscn" id="2_7134i"]
 [ext_resource type="PackedScene" uid="uid://b6ir5wamtvw02" path="res://models/Stef/character_male_f_2.tscn" id="4_7134i"]
 [ext_resource type="PackedScene" uid="uid://d1c1tw5763rco" path="res://models/Jorgan/kenney_food-kit/Models/GLB format/cooking-knife.glb" id="4_sy21a"]
 [ext_resource type="PackedScene" uid="uid://bq3nvqxlltggk" path="res://models/Stef/character_male_e_2.tscn" id="4_w4q4s"]
@@ -78,7 +77,6 @@ height = 0.7158203
 [node name="Player" type="CharacterBody3D" unique_id=474202964 node_paths=PackedStringArray("CameraPivot", "Camera", "hpLabel", "MeleeMesh", "anMelee", "weaponhitbox", "anweapon", "RangeMesh", "anRange")]
 collision_layer = 255
 script = ExtResource("1_8sl8y")
-deathscreen = ExtResource("2_7134i")
 CameraPivot = NodePath("Node3D")
 Camera = NodePath("Node3D/SpringArm3D/Camera3D")
 hpLabel = NodePath("UI/Label")

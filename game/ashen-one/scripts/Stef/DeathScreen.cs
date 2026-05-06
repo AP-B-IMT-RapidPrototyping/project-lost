@@ -5,7 +5,6 @@ public partial class DeathScreen : Control
 {
 	[Export] Button restart;
 	[Export] Button quit;
-	[Export] PackedScene menu;
 	public override void _Ready()
 	{
 		Input.MouseMode = Input.MouseModeEnum.Visible;
@@ -20,6 +19,6 @@ public partial class DeathScreen : Control
 	}
 	void OnQuitPressed()
 	{
-		GetTree().ChangeSceneToPacked(menu);
+		GetTree().ChangeSceneToFile("res://Scenes/Stef/DeathScreen.tscn");
 	}
 }

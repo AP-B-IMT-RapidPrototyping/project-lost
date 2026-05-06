@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/stairs.glb-58ea9887eb0b255d4aa8ab332c09331b.s
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="StaticBody3D"
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
@@ -40,7 +40,8 @@ materials/extract_path=""
 _subresources={
 "nodes": {
 "PATH:stairs": {
-"generate/physics": true
+"generate/physics": true,
+"physics/physics_material_override": null
 }
 }
 }

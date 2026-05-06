@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d2eo1lq2cvddr"]
+
+[ext_resource type="PackedScene" uid="uid://dvemotr566h5" path="res://scenes/Mahdi/level2Ground.tscn" id="1_hanu4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hanu4"]
+sky_top_color = Color(1, 0.61960787, 0.61960787, 1)
+sky_horizon_color = Color(1.0278194, 0.92497134, 0.9159714, 1)
+ground_horizon_color = Color(1.0278194, 0.92497134, 0.9159714, 1)
+energy_multiplier = 0.9
+
+[sub_resource type="Sky" id="Sky_5qcji"]
+sky_material = SubResource("ProceduralSkyMaterial_hanu4")
+
+[sub_resource type="Environment" id="Environment_n02pe"]
+background_mode = 2
+sky = SubResource("Sky_5qcji")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Level2" type="Node3D" unique_id=667419446]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1844709615]
+environment = SubResource("Environment_n02pe")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1558241690]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 2.9254613, 5.75179, -11.90606)
+light_color = Color(1, 0.69803923, 0.53333336, 1)
+shadow_enabled = true
+
+[node name="Level2Ground" parent="." unique_id=712541717 instance=ExtResource("1_hanu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -3)

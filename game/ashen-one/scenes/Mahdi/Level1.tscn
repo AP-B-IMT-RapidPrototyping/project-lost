@@ -43,6 +43,9 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="FontFile" id="FontFile_shr4s"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -292,9 +295,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.23, 0, 1, 0, -4.371139e-08, 8
 [node name="stairs5" parent="." unique_id=861251065 instance=ExtResource("4_83slr")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.23, 0, 1, 0, -4.371139e-08, 8, 0.8957882, -8)
 
-[node name="Player" parent="." unique_id=474202964 instance=ExtResource("7_8r5pv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.849992, 4.2056947, 2.4077787)
-
 [node name="Ground5" parent="." unique_id=1506577281 instance=ExtResource("1_sxc78")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12, 2, -6)
 
@@ -533,3 +533,11 @@ scale = Vector2(1.1319354, 1.3029794)
 theme_override_fonts/font = SubResource("FontFile_shr4s")
 theme_override_font_sizes/font_size = 20
 text = "Level: 1"
+
+[node name="SpawnPoints" type="Node3D" parent="." unique_id=1279264572]
+transform = Transform3D(-0.0058119576, 0, -0.99998313, 0, 1, 0, 0.99998313, 0, -0.0058119576, 13.011751, 3.2553296, -4.2938685)
+
+[node name="Spawn_Level1" type="Node3D" parent="SpawnPoints" unique_id=1370107453]
+
+[node name="Player" parent="SpawnPoints" unique_id=474202964 instance=ExtResource("7_8r5pv")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.518778, 1.0000005, -0.14343643)

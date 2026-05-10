@@ -15,6 +15,10 @@ run/main_scene="uid://jwbud7ovsrar"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*uid://b11pepplhi746"
+
 [dotnet]
 
 project/assembly_name="Ashen One"

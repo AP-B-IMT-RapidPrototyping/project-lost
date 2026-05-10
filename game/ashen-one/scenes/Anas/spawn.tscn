@@ -19,12 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://dp3rlgl05og2m" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/room-wide.glb" id="18_mc57b"]
 [ext_resource type="PackedScene" uid="uid://cx4ck70d2w0yh" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/gate-metal-bars.glb" id="19_wm8qi"]
 [ext_resource type="PackedScene" uid="uid://cbcnmb4jfabny" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/gate-door.glb" id="20_8dvd3"]
-[ext_resource type="Script" uid="uid://dto0w6g22d7fg" path="res://scenes/Anas/portal4.gd" id="20_k8xr1"]
 [ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="21_jlf3e"]
 [ext_resource type="PackedScene" uid="uid://dyww4l57a27lb" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/shield-round.glb" id="22_nf1ox"]
 [ext_resource type="PackedScene" uid="uid://cetxaefdqlh8h" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/shield-rectangle.glb" id="23_gepln"]
 [ext_resource type="PackedScene" uid="uid://8g0ac3xl5b4" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/cross-wood.glb" id="24_rdwsh"]
-[ext_resource type="PackedScene" uid="uid://ceimeascdmfu7" path="res://scenes/Anas/Level3.tscn" id="27_4eb0h"]
 [ext_resource type="PackedScene" uid="uid://cm4gogkcqi63k" path="res://scenes/Mahdi/Level1.tscn" id="27_487h1"]
 [ext_resource type="PackedScene" uid="uid://rwt54gkketog" path="res://scenes/Anas/Level4.tscn" id="28_k8xr1"]
 
@@ -139,12 +137,16 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -40,
 
 [node name="PortalLevel1" parent="." unique_id=1643463829 instance=ExtResource("15_qimvs")]
 transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -25.993809, -2.233287, 28.413393)
+TargetScene = ExtResource("27_487h1")
+SpawnName = "Spawn_Level1"
 
 [node name="PortalLevel2" parent="." unique_id=652470010 instance=ExtResource("15_qimvs")]
 transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -35.272125, 1.8503699, 0.28183413)
 
 [node name="PortalLevel3" parent="." unique_id=1596559309 instance=ExtResource("15_qimvs")]
 transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -38.90266, 5.8479443, -22.9376)
+TargetScene = ExtResource("28_k8xr1")
+SpawnName = "Spawn_Level4"
 
 [node name="room-wide2" parent="." unique_id=664528054 instance=ExtResource("18_mc57b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 4, -23)
@@ -319,19 +321,8 @@ offset_bottom = -7.949997
 texture = SubResource("CompressedTexture2D_gepln")
 expand_mode = 1
 
-[node name="Level3" parent="." unique_id=1679484765 instance=ExtResource("27_4eb0h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.651726, 2.871231, 26.317614)
-
-[node name="Level4" parent="." unique_id=1555777435 instance=ExtResource("28_k8xr1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.681446, 0, -23.50321)
-
-[node name="PortalLevel4_4" parent="." unique_id=1330424221 instance=ExtResource("15_qimvs")]
-transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, 62.41223, 4.6718597, 26.275036)
-
-[node name="PortalLevel4" parent="." unique_id=1911045935 node_paths=PackedStringArray("connect_portal") instance=ExtResource("15_qimvs")]
+[node name="PortalLevel4" parent="." unique_id=1911045935 instance=ExtResource("15_qimvs")]
 transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -16.902664, 5.703454, -22.937603)
-script = ExtResource("20_k8xr1")
-connect_portal = NodePath("../PortalLevel4_4")
 
 [node name="stairs2" parent="." unique_id=218266420 instance=ExtResource("11_mcgvq")]
 transform = Transform3D(-1, -7.1054274e-15, 8.742278e-08, 7.1054274e-15, 1, 1.3372166e-15, -8.742278e-08, 8.067271e-15, -1, -26, -7.1525574e-07, -15)
@@ -339,8 +330,3 @@ transform = Transform3D(-1, -7.1054274e-15, 8.742278e-08, 7.1054274e-15, 1, 1.33
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stairs2" unique_id=1959565051]
 transform = Transform3D(-8.261665e-08, 7.271735e-08, -1, -0.8317895, 0.5550913, 1.09076026e-07, 0.5550913, 0.8317895, 1.4631333e-08, 0.13205528, 2.0163052, -1.7565098)
 shape = SubResource("BoxShape3D_rdwsh")
-
-[node name="Level1" parent="." unique_id=858032492 instance=ExtResource("27_487h1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -39.45594, -4.351443, 13.4062195)
-
-[connection signal="body_entered" from="PortalLevel4" to="PortalLevel4" method="_on_body_entered"]

@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://rwt54gkketog"]
 
 [ext_resource type="PackedScene" uid="uid://d7b0gxxqjbs3" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/room-small-variation.glb" id="1_7pvb8"]
+[ext_resource type="Script" uid="uid://ds128r0kf0kk2" path="res://scenes/Anas/LevelManager.cs" id="1_xq4yq"]
 [ext_resource type="PackedScene" uid="uid://x1nlkmk3ynd7" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/room-large-variation.glb" id="2_ygaoh"]
 [ext_resource type="PackedScene" uid="uid://oimppy1j7ac5" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/corridor-corner.glb" id="3_xq4yq"]
 [ext_resource type="PackedScene" uid="uid://p5djpke57kht" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/corridor.glb" id="4_knc48"]
 [ext_resource type="PackedScene" uid="uid://cx4ck70d2w0yh" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/gate-metal-bars.glb" id="5_gvwxg"]
 [ext_resource type="PackedScene" uid="uid://bwqg1xamt7l4a" path="res://scenes/Anas/Portal.tscn" id="6_ygaoh"]
+[ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="8_knc48"]
 
 [node name="Level4" type="Node3D" unique_id=1555777435]
+script = ExtResource("1_xq4yq")
 
 [node name="room-small-variation2" parent="." unique_id=390676087 instance=ExtResource("1_7pvb8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
@@ -60,5 +63,12 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0
 [node name="PortalLevel1" parent="." unique_id=1596559309 instance=ExtResource("6_ygaoh")]
 transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -5.9026604, 1.8479443, -0.9375992)
 
-[node name="PortalLevel2" parent="." unique_id=904717468 instance=ExtResource("6_ygaoh")]
-transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, 8.09734, 1.8479443, -16.9376)
+[node name="NoSde3D" type="Node3D" parent="." unique_id=1869040375]
+
+[node name="SpawnPoints" type="Node3D" parent="." unique_id=1712442489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.16397)
+
+[node name="Spawn_Level4" type="Node3D" parent="SpawnPoints" unique_id=342498060]
+
+[node name="Player" parent="SpawnPoints" unique_id=474202964 instance=ExtResource("8_knc48")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.518778, 1.0000005, -0.14343643)

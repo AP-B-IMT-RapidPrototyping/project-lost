@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cavud4urgj55h" path="res://models/Anas/T_VFX_lelu1_tiled.png" id="2_hfevr"]
 [ext_resource type="Script" uid="uid://dcgoj5o7iwvav" path="res://scenes/Anas/Portal.cs" id="4_qer01"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0y83r"]
+size = Vector3(1.9840088, 2.109314, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nxinr"]
 render_priority = 0
 shader = ExtResource("1_sc3tw")
@@ -13,28 +16,14 @@ shader_parameter/Portal_Texture = ExtResource("2_hfevr")
 
 [sub_resource type="QuadMesh" id="QuadMesh_dpjg5"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_hfevr"]
-size = Vector3(2.0091553, 2.1351929, 0.0024414063)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0y83r"]
-size = Vector3(1.9840088, 2.109314, 1)
-
-[node name="StaticBody3D" type="StaticBody3D" unique_id=1550490055]
+[node name="Area3D" type="Area3D" unique_id=1404359834]
 script = ExtResource("4_qer01")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=784107122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10834718, 0.116720945, 0)
+shape = SubResource("BoxShape3D_0y83r")
 
 [node name="Portal" type="MeshInstance3D" parent="." unique_id=1596559309]
 transform = Transform3D(2.499908, 0.021041304, 0.0041465135, -0.021039715, 2.4999113, -0.00097368273, -0.004154567, 0.0009387247, 2.4999964, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_nxinr")
 mesh = SubResource("QuadMesh_dpjg5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=881037103]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11505127, 0.10903931, -0.0024414063)
-shape = SubResource("BoxShape3D_hfevr")
-
-[node name="Area3D" type="Area3D" parent="." unique_id=1404359834]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=784107122]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10834718, 0.116720945, 0)
-shape = SubResource("BoxShape3D_0y83r")
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

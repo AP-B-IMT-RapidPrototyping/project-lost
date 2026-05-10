@@ -1,21 +1,31 @@
 using Godot;
-using System;
 
-public partial class Portal : Node3D
+public partial class Portal : Area3D
 {
-    [Export] public string TargetScene;
+	[Export] public PackedScene TargetScene;
 
-    private bool used = false;
+	[Export] public string SpawnName;
 
-    private void _on_area_3d_body_entered(Node body)
-    {
-        if (used) return;
+	private bool used = false;
 
-        if (body is PlayerMovement)
-        {
-            used = true;
-            GD.Print("Teleporting...");
-            GetTree().ChangeSceneToFile(TargetScene);
-        }
-    }
+	public override void _Ready()
+	{
+		BodyEntered += OnBodyEntered;
+	}
+
+	private void OnBodyEntered(Node body)
+	{
+		if (used) return;
+
+		if (body is PlayerMovement)
+		{
+			used = true;
+
+			// guardar nombre del spawn
+			GameManager.NextSpawn = SpawnName;
+
+			// cambiar escena
+			GetTree().ChangeSceneToPacked(TargetScene);
+		}
+	}
 }

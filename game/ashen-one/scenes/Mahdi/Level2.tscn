@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://c4d4gkanrv3q3"]
 
+<<<<<<< HEAD
 [ext_resource type="PackedScene" path="res://scenes/Mahdi/level2Ground.tscn" id="1_hanu4"]
+=======
+[ext_resource type="PackedScene" uid="uid://dvemotr566h5" path="res://scenes/Mahdi/level2Ground.tscn" id="1_hanu4"]
+[ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="2_5qcji"]
+>>>>>>> 0b1adec1464d224f9bbb6fbea711cdcc075b97ce
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hanu4"]
 sky_top_color = Color(1, 0.61960787, 0.61960787, 1)
@@ -29,3 +34,6 @@ shadow_enabled = true
 
 [node name="Level2Ground" parent="." unique_id=712541717 instance=ExtResource("1_hanu4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -3)
+
+[node name="Player" parent="." unique_id=474202964 instance=ExtResource("2_5qcji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69341373, 1, -2.3236659)

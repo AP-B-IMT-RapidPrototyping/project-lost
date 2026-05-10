@@ -1,20 +1,21 @@
 using Godot;
+using System;
 
-public partial class Portal : Area3D
+public partial class Portal : Node3D
 {
-    [Export]
-    public Area3D ConnectPortal;
-	
-	private void OnArea3DBodyEntered(Node3D body)
-{
-    if (body.Name == "player")
+    [Export] public string TargetScene;
+
+    private bool used = false;
+
+    private void _on_area_3d_body_entered(Node body)
     {
-        var destination = ConnectPortal.GlobalTransform.Origin;
+        if (used) return;
 
-        var t = body.GlobalTransform;
-        t.Origin = destination;
-        body.GlobalTransform = t;
+        if (body is PlayerMovement)
+        {
+            used = true;
+            GD.Print("Teleporting...");
+            GetTree().ChangeSceneToFile(TargetScene);
+        }
     }
 }
-}
-

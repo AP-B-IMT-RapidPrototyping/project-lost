@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://d2eo1lq2cvddr"]
+[gd_scene format=3 uid="uid://c4d4gkanrv3q3"]
 
-[ext_resource type="PackedScene" uid="uid://dvemotr566h5" path="res://scenes/Mahdi/level2Ground.tscn" id="1_hanu4"]
+[ext_resource type="PackedScene" path="res://scenes/Mahdi/level2Ground.tscn" id="1_hanu4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hanu4"]
 sky_top_color = Color(1, 0.61960787, 0.61960787, 1)

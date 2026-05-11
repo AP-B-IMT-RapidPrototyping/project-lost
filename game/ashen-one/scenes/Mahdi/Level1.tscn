@@ -1,5 +1,6 @@
-[gd_scene format=3 uid="uid://cm4gogkcqi63k"]
+[gd_scene format=3 uid="uid://c58h5p20lmtwm"]
 
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://bpdbk6eupe3p5" path="res://scenes/Mahdi/Ground.tscn" id="1_sxc78"]
 [ext_resource type="PackedScene" uid="uid://bcppud4w5e86v" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/rocks.glb" id="2_stcwf"]
 [ext_resource type="PackedScene" uid="uid://bvm7kn8kvb7ki" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/stones.glb" id="3_tk4vp"]
@@ -26,14 +27,13 @@
 [ext_resource type="PackedScene" uid="uid://c31ihd5ptksqo" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/iron-fence-border-gate.glb" id="24_u6vmg"]
 [ext_resource type="PackedScene" uid="uid://bx1mm0gtfylhj" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/gate.glb" id="25_aien3"]
 [ext_resource type="PackedScene" uid="uid://bwqg1xamt7l4a" path="res://scenes/Anas/Portal.tscn" id="26_5lnad"]
+=======
+[ext_resource type="PackedScene" uid="uid://dvemotr566h5" path="res://scenes/Mahdi/level1Ground.tscn" id="1_tn0ct"]
+>>>>>>> c5a15e6c7806f0e609d2ccd1bce9f50b20ecd1de
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_stcwf"]
-sky_top_color = Color(0.087456666, 0.12178143, 0.5174171, 1)
-sky_horizon_color = Color(0.9081696, 0.914017, 1.0075806, 1)
-ground_bottom_color = Color(0.029043708, 0.19278571, 0.25772706, 1)
-ground_horizon_color = Color(0.9081696, 0.914017, 1.0075806, 1)
-energy_multiplier = 0.6
+[node name="Level1" type="Node3D" unique_id=1764355457]
 
+<<<<<<< HEAD
 [sub_resource type="Sky" id="Sky_tk4vp"]
 sky_material = SubResource("ProceduralSkyMaterial_stcwf")
 
@@ -546,3 +546,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.51
 [node name="Portal" parent="." unique_id=1404359834 instance=ExtResource("26_5lnad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.615696, 1.2604755, 5.2709727)
 TargetScenePath = "uid://ddw35mm4m1eit"
+=======
+[node name="Level1Ground" parent="." unique_id=712541717 instance=ExtResource("1_tn0ct")]
+>>>>>>> c5a15e6c7806f0e609d2ccd1bce9f50b20ecd1de

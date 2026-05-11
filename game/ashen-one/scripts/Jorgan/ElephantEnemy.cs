@@ -9,7 +9,12 @@ public partial class ElephantEnemy : CharacterBody3D
 	[Export] public float AttackDistance = 1.4f;
 	[Export] public AnimationPlayer _animationPlayer;
 	[Export] public Timer _timer;
+	[Export] public float health = 25.0f;
 
+	public void TakeHit()
+	{
+		health -= 5.0f;
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{

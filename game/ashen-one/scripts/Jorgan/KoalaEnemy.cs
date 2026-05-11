@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 
 public partial class KoalaEnemy : CharacterBody3D
 {
@@ -10,8 +11,12 @@ public partial class KoalaEnemy : CharacterBody3D
 	[Export] public float AttackDistance = 1.4f;
 	[Export] public AnimationPlayer _animationPlayer;
 	[Export] public Timer _timer;
-	public PlayerMovement p;
+	[Export] public float health = 10.0f;
 
+	public void TakeHit()
+	{
+		health -= 5;
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -28,7 +33,7 @@ public partial class KoalaEnemy : CharacterBody3D
 		Vector3 lookTarget = new Vector3(_player.GlobalPosition.X, GlobalPosition.Y, _player.GlobalPosition.Z);
 
 		// Laat de vijand naar de speler kijken
-		if (GlobalPosition.DistanceTo(lookTarget) > 0.1f) 
+		if (GlobalPosition.DistanceTo(lookTarget) > 0.1f)
 		{
 			LookAt(lookTarget, Vector3.Up);
 		}
@@ -50,7 +55,6 @@ public partial class KoalaEnemy : CharacterBody3D
 				_animationPlayer.PlaySection("eat", 0, 0.5);
 				_timer.Start();
 				GD.Print("Koala attacked");
-				p.takehit();
 			}
 		}
 

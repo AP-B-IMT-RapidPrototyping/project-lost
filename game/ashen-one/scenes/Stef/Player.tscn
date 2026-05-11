@@ -85,6 +85,7 @@ RangeMesh = NodePath("range")
 anRange = NodePath("range/AnimationPlayer")
 
 [node name="melee" parent="." unique_id=825161871 instance=ExtResource("4_7134i")]
+visible = false
 
 [node name="cooking-knife2" parent="melee" unique_id=353333536 instance=ExtResource("4_sy21a")]
 transform = Transform3D(-2.3378141e-15, -1, 4.371139e-08, -6.2233454e-08, -4.371139e-08, -1, 1.4237356, 0, -4.3711385e-08, 0.27715826, 0.10844579, -0.48193467)
@@ -97,7 +98,6 @@ root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_0ly60")
 
 [node name="range" parent="." unique_id=1512543393 instance=ExtResource("4_w4q4s")]
-visible = false
 
 [node name="blaster-b2" parent="range" unique_id=668134355 instance=ExtResource("6_sy21a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23718375, 0.22191608, -0.14115451)

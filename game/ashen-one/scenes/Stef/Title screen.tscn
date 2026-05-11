@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://jwbud7ovsrar"]
 
 [ext_resource type="Script" uid="uid://5m8jtbklkyq7" path="res://scripts/Stef/MenuButtons.cs" id="1_shix3"]
-[ext_resource type="PackedScene" uid="uid://bhsiono1qams8" path="res://scenes/Anas/spawn.tscn" id="2_4ndgb"]
+[ext_resource type="PackedScene" uid="uid://ddw35mm4m1eit" path="res://scenes/Anas/spawn.tscn" id="2_4ndgb"]
 
-[node name="TitleScreen" type="Control" unique_id=299886005 node_paths=PackedStringArray("NewGame")]
+[node name="TitleScreen" type="Control" unique_id=299886005 node_paths=PackedStringArray("NewGame", "Quit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_shix3")
 NewGame = NodePath("Control/Button")
+Quit = NodePath("Control/Button2")
 World = ExtResource("2_4ndgb")
 
 [node name="Control" type="Control" parent="." unique_id=929173460]

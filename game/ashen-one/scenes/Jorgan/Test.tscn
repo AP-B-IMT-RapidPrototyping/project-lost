@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://da2sbau284in7"]
 
-[ext_resource type="PackedScene" uid="uid://cm4gogkcqi63k" path="res://scenes/Mahdi/Level1.tscn" id="1_0rduk"]
+[ext_resource type="PackedScene" uid="uid://cm4gogkcqi63k" path="res://scenes/Mahdi/Level2.tscn" id="1_0rduk"]
 [ext_resource type="PackedScene" uid="uid://crf4bja2itcao" path="res://scenes/Jorgan/EnemyMelee.tscn" id="2_3u37s"]
 [ext_resource type="PackedScene" uid="uid://vnd18v7o5jap" path="res://scenes/Jorgan/EnemyFlying.tscn" id="3_1yub3"]
 [ext_resource type="PackedScene" uid="uid://dcnu6qsyo78us" path="res://scenes/Jorgan/EnemyBoss.tscn" id="4_wdycl"]

@@ -8,11 +8,11 @@ public partial class Portal : Area3D
 
     private void _on_body_entered(Node body)
     {
-        GD.Print("Algo entró");
+        GD.Print("Someone went in");
 
         if (body is PlayerMovement)
         {
-            GD.Print("Teleportando");
+            GD.Print("Teleporting");
 
             GameManager.NextSpawn = SpawnName;
 

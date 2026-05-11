@@ -27,6 +27,10 @@ project/assembly_name="Ashen One"
 
 version_control/autoload_on_startup=true
 
+[global_group]
+
+Enemy=""
+
 [input]
 
 ui_accept={

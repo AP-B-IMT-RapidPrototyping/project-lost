@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://60rjui72e4gx" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/wall.glb" id="23_ewck4"]
 [ext_resource type="PackedScene" uid="uid://c31ihd5ptksqo" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/iron-fence-border-gate.glb" id="24_u6vmg"]
 [ext_resource type="PackedScene" uid="uid://bx1mm0gtfylhj" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/gate.glb" id="25_aien3"]
+[ext_resource type="PackedScene" uid="uid://bwqg1xamt7l4a" path="res://scenes/Anas/Portal.tscn" id="26_5lnad"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_stcwf"]
 sky_top_color = Color(0.087456666, 0.12178143, 0.5174171, 1)
@@ -541,3 +542,7 @@ transform = Transform3D(-0.0058119576, 0, -0.99998313, 0, 1, 0, 0.99998313, 0, -
 
 [node name="Player" parent="SpawnPoints" unique_id=474202964 instance=ExtResource("7_8r5pv")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.518778, 1.0000005, -0.14343643)
+
+[node name="Portal" parent="." unique_id=1404359834 instance=ExtResource("26_5lnad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.615696, 1.2604755, 5.2709727)
+TargetScenePath = "uid://ddw35mm4m1eit"

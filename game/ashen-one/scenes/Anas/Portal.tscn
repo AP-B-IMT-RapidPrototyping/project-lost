@@ -16,7 +16,7 @@ shader_parameter/Portal_Texture = ExtResource("2_hfevr")
 
 [sub_resource type="QuadMesh" id="QuadMesh_dpjg5"]
 
-[node name="Area3D" type="Area3D" unique_id=1404359834]
+[node name="Portal" type="Area3D" unique_id=1404359834]
 script = ExtResource("4_qer01")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=784107122]
@@ -27,3 +27,5 @@ shape = SubResource("BoxShape3D_0y83r")
 transform = Transform3D(2.499908, 0.021041304, 0.0041465135, -0.021039715, 2.4999113, -0.00097368273, -0.004154567, 0.0009387247, 2.4999964, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_nxinr")
 mesh = SubResource("QuadMesh_dpjg5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

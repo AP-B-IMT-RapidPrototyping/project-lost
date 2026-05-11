@@ -2,30 +2,24 @@ using Godot;
 
 public partial class Portal : Area3D
 {
-	[Export] public PackedScene TargetScene;
+    [Export(PropertyHint.File, "*.tscn,*.scn")] 
+    public string TargetScenePath;
+    [Export] public string SpawnName;
 
-	[Export] public string SpawnName;
+    private void _on_body_entered(Node body)
+    {
+        GD.Print("Algo entró");
 
-	private bool used = false;
+        if (body is PlayerMovement)
+        {
+            GD.Print("Teleportando");
 
-	public override void _Ready()
-	{
-		BodyEntered += OnBodyEntered;
-	}
+            GameManager.NextSpawn = SpawnName;
 
-	private void OnBodyEntered(Node body)
-	{
-		if (used) return;
+			GD.Print(TargetScenePath);
 
-		if (body is PlayerMovement)
-		{
-			used = true;
-
-			// guardar nombre del spawn
-			GameManager.NextSpawn = SpawnName;
-
-			// cambiar escena
-			GetTree().ChangeSceneToPacked(TargetScene);
+            var sceneToLoad = GD.Load<PackedScene>(TargetScenePath);
+            GetTree().ChangeSceneToPacked(sceneToLoad);       
 		}
-	}
+    }
 }

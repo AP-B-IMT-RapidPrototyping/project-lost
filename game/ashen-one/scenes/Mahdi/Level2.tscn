@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bvm7kn8kvb7ki" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/stones.glb" id="3_u6dpd"]
 [ext_resource type="PackedScene" uid="uid://bqqovcse4apsh" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/stairs.glb" id="4_p0hlq"]
 [ext_resource type="PackedScene" uid="uid://clrnergshjw3h" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/column.glb" id="5_q2bp8"]
+[ext_resource type="PackedScene" uid="uid://dhrvaoxdc2y7t" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/stairs2.glb" id="6_eattk"]
 [ext_resource type="PackedScene" uid="uid://yfixonpt3psq" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/wall-narrow.glb" id="6_km2kw"]
 [ext_resource type="PackedScene" uid="uid://bfsil18vha7im" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/coffin-old.glb" id="7_aely3"]
 [ext_resource type="PackedScene" uid="uid://dl4gpnxkxndu2" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/coffin.glb" id="8_sfmoa"]
@@ -100,12 +101,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
 
 [node name="stones3" parent="." unique_id=467348245 instance=ExtResource("3_u6dpd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
-
-[node name="stairs2" parent="." unique_id=1711802453 instance=ExtResource("4_p0hlq")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.23, 0, 1, 0, -4.371139e-08, 7, 0, -8)
-
-[node name="stairs3" parent="." unique_id=977346128 instance=ExtResource("4_p0hlq")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.23, 0, 1, 0, -4.371139e-08, 7, 0, -7)
 
 [node name="column2" parent="." unique_id=2076258481 instance=ExtResource("5_q2bp8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 3)
@@ -290,11 +285,8 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.99
 [node name="wall-narrow59" parent="." unique_id=1270329549 instance=ExtResource("6_km2kw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -9)
 
-[node name="stairs4" parent="." unique_id=2067693599 instance=ExtResource("4_p0hlq")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.23, 0, 1, 0, -4.371139e-08, 8, 0.8957882, -7)
-
-[node name="stairs5" parent="." unique_id=861251065 instance=ExtResource("4_p0hlq")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1.23, 0, 1, 0, -4.371139e-08, 8, 0.8957882, -8)
+[node name="stairs8" parent="." unique_id=1410092211 instance=ExtResource("6_eattk")]
+transform = Transform3D(0.0011615873, 9.263207e-05, -0.99999934, 0.00073898607, 1.2299997, 7.616905e-05, 0.99999905, -0.0009090611, 0.0011615313, 7, 0, -7)
 
 [node name="Ground5" parent="." unique_id=1506577281 instance=ExtResource("1_m8kl5")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12, 2, -6)
@@ -318,7 +310,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.51
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.39947438, -2)
 
 [node name="detail-chalice3" parent="." unique_id=729639743 instance=ExtResource("12_7sixc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5.06507)
 
 [node name="wall-half2" parent="." unique_id=543815347 instance=ExtResource("13_xd1ob")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2, -9)
@@ -516,7 +508,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 4, 3.733656)
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 13, 4, 3.3671143)
 
 [node name="wall6" parent="." unique_id=652335890 instance=ExtResource("22_dkx3e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, -6)
+transform = Transform3D(0.99996763, 0.002346397, 0.0076943273, -0.002464985, 0.99987775, 0.015439557, -0.00765716, -0.015458023, 0.9998512, 7, 1, -6)
 
 [node name="wall7" parent="." unique_id=1634793293 instance=ExtResource("22_dkx3e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -6)
@@ -542,3 +534,12 @@ transform = Transform3D(-0.0058119576, 0, -0.99998313, 0, 1, 0, 0.99998313, 0, -
 
 [node name="Player" parent="SpawnPoints" unique_id=474202964 instance=ExtResource("25_w8vmi")]
 transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 6.518778, 1.0000005, -0.14343643)
+
+[node name="stairs9" parent="." unique_id=1375324013 instance=ExtResource("6_eattk")]
+transform = Transform3D(0.0011615873, 9.263207e-05, -0.99999934, 0.00073898607, 1.2299997, 7.616905e-05, 0.99999905, -0.0009090611, 0.0011615313, 7, 0, -8)
+
+[node name="stairs10" parent="." unique_id=1488174644 instance=ExtResource("6_eattk")]
+transform = Transform3D(0.0011615873, 9.263207e-05, -0.99999934, 0.00073898607, 1.2299997, 7.616905e-05, 0.99999905, -0.0009090611, 0.0011615313, 8, 0.89594686, -8)
+
+[node name="stairs11" parent="." unique_id=19550793 instance=ExtResource("6_eattk")]
+transform = Transform3D(0.0011615873, 9.263207e-05, -0.99999934, 0.00073898607, 1.2299997, 7.616905e-05, 0.99999905, -0.0009090611, 0.0011615313, 8, 0.89594686, -7)

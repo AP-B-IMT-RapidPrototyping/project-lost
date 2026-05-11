@@ -33,18 +33,6 @@ size = Vector3(0.001, 7.3194056, 4.4833984)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7ivus"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rskyv"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_7ivus"]
-viewport_path = NodePath("SubViewport2")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_ejl8y"]
-viewport_path = NodePath("SubViewport3")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_sfngo"]
-viewport_path = NodePath("SubViewport4")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_nf1ox"]
 size = Vector3(4.2353516, 4.4101563, 16.422905)
 
@@ -168,11 +156,6 @@ label_settings = SubResource("LabelSettings_7ivus")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=233679318]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -26.16325, 2.359428, 9.770205)
-pixel_size = 0.05
-texture = SubResource("ViewportTexture_rskyv")
-
 [node name="SubViewport2" type="SubViewport" parent="." unique_id=998121966]
 transparent_bg = true
 size = Vector2i(64, 64)
@@ -194,11 +177,6 @@ text = "Level 2
 label_settings = SubResource("LabelSettings_7ivus")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1159552093]
-transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -35.145973, 1.9826288, -0.20059055)
-pixel_size = 0.05
-texture = SubResource("ViewportTexture_7ivus")
 
 [node name="SubViewport3" type="SubViewport" parent="." unique_id=68324143]
 transparent_bg = true
@@ -243,16 +221,6 @@ text = "Level 4
 label_settings = SubResource("LabelSettings_7ivus")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=1537499149]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -17.54708, 5.359428, -22.823837)
-pixel_size = 0.05
-texture = SubResource("ViewportTexture_ejl8y")
-
-[node name="Sprite3D4" type="Sprite3D" parent="." unique_id=1585979803]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -35.16325, 6.359428, -23.229795)
-pixel_size = 0.05
-texture = SubResource("ViewportTexture_sfngo")
 
 [node name="Player" parent="." unique_id=474202964 instance=ExtResource("21_jlf3e")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.971808, 1.686068, 0.20666605)
@@ -324,6 +292,7 @@ SpawnName = "Spawn_Level1"
 
 [node name="PortalLevel2" parent="." unique_id=652470010 instance=ExtResource("15_qimvs")]
 transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -35.272125, 1.8503699, 0.28183413)
+TargetScenePath = "uid://c58h5p20lmtwm"
 
 [node name="PortalLevel3" parent="." unique_id=1911045935 instance=ExtResource("15_qimvs")]
 transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -16.902664, 5.703454, -22.937603)

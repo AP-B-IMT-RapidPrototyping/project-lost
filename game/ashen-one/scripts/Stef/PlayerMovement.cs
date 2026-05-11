@@ -36,7 +36,6 @@ public partial class PlayerMovement : CharacterBody3D
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		if (ActivePlayer == true) { Player = MeleeMesh; RangeMesh.Visible = false; }
 		else { Player = RangeMesh; MeleeMesh.Visible = false; }
-		weaponhitbox.SetCollisionLayerValue(2, false);
 	}
 
 
@@ -193,12 +192,9 @@ public partial class PlayerMovement : CharacterBody3D
 	async void slash()
 	{
 		GD.Print("slash");
-		weaponhitbox.SetCollisionLayerValue(2, true);
 		anMelee.Play("attack-melee-right");
 		anweapon.Play("slash");
 		await ToSignal(GetTree().CreateTimer(0.15f), SceneTreeTimer.SignalName.Timeout);
-		weaponhitbox.SetCollisionLayerValue(2, false);
-
 	}
 
 	//hitmarkers

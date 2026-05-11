@@ -6,9 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bq3nvqxlltggk" path="res://models/Stef/character_male_e_2.tscn" id="4_w4q4s"]
 [ext_resource type="PackedScene" uid="uid://6dlev6p0ydqq" path="res://models/Stef/kenney_blaster-kit_2.1/Models/GLB format/blaster-b.glb" id="6_sy21a"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sy21a"]
-size = Vector3(0.691864, 0.49743652, 0.51452637)
-
 [sub_resource type="Animation" id="Animation_sy21a"]
 length = 0.001
 tracks/0/type = "value"
@@ -82,40 +79,28 @@ Camera = NodePath("Node3D/SpringArm3D/Camera3D")
 hpLabel = NodePath("UI/Label")
 MeleeMesh = NodePath("melee")
 anMelee = NodePath("melee/AnimationPlayer")
-weaponhitbox = NodePath("melee/weapon collision")
+weaponhitbox = NodePath("")
 anweapon = NodePath("melee/cooking-knife2/weaponanimation")
 RangeMesh = NodePath("range")
 anRange = NodePath("range/AnimationPlayer")
 
 [node name="melee" parent="." unique_id=825161871 instance=ExtResource("4_7134i")]
 
-[node name="weapon collision" type="StaticBody3D" parent="melee" unique_id=1904866328]
-transform = Transform3D(-4.371139e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, -4.371139e-08, 1.9106855e-15, 0.27715826, 0.10844579, -0.48193467)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="melee/weapon collision" unique_id=1730506301]
-transform = Transform3D(1, 0, 0, 0, 1, -8.351872e-23, 0, -8.351872e-23, 1, -0.07066345, 0.2951049, -0.2427368)
-shape = SubResource("BoxShape3D_sy21a")
-
-[node name="cooking-knife2" parent="melee" unique_id=813657192 instance=ExtResource("4_sy21a")]
+[node name="cooking-knife2" parent="melee" unique_id=353333536 instance=ExtResource("4_sy21a")]
 transform = Transform3D(-2.3378141e-15, -1, 4.371139e-08, -6.2233454e-08, -4.371139e-08, -1, 1.4237356, 0, -4.3711385e-08, 0.27715826, 0.10844579, -0.48193467)
+
+[node name="StaticBody3D" parent="melee/cooking-knife2/cooking-knife" parent_id_path=PackedInt32Array(353333536, 1971765498) index="0" unique_id=1629895622 groups=["Playerweapon"]]
+collision_layer = 2
 
 [node name="weaponanimation" type="AnimationPlayer" parent="melee/cooking-knife2" unique_id=269689770]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_0ly60")
-
-[node name="Skeleton3D" parent="melee/character-male-f" parent_id_path=PackedInt32Array(825161871, 864994449) index="0" unique_id=1857200642]
-bones/4/rotation = Quaternion(0, 0, -0.38268346, 0.9238795)
-bones/5/rotation = Quaternion(0, 0, 0.3826835, 0.92387956)
 
 [node name="range" parent="." unique_id=1512543393 instance=ExtResource("4_w4q4s")]
 visible = false
 
 [node name="blaster-b2" parent="range" unique_id=668134355 instance=ExtResource("6_sy21a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23718375, 0.22191608, -0.14115451)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=122212312]
 
 [node name="Node3D" type="Node3D" parent="." unique_id=43376259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

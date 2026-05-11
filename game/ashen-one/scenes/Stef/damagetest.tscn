@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c2mohk41u30s6"]
 
-[ext_resource type="PackedScene" uid="uid://crf4bja2itcao" path="res://scenes/Jorgan/EnemyMelee.tscn" id="1_j8nvj"]
-[ext_resource type="PackedScene" uid="uid://vnd18v7o5jap" path="res://scenes/Jorgan/EnemyFlying.tscn" id="2_1n5x3"]
+[ext_resource type="PackedScene" uid="uid://dn2kdni8fhe6x" path="res://scenes/Stef/testenemy.tscn" id="2_j8nvj"]
+[ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="3_1n5x3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qo3sd"]
 
@@ -18,8 +18,11 @@ mesh = SubResource("BoxMesh_qo3sd")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ondergrond/StaticBody3D" unique_id=1347555402]
 shape = SubResource("BoxShape3D_1terc")
 
-[node name="EnemyMelee" parent="." unique_id=1455376485 instance=ExtResource("1_j8nvj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11017072, 0, 2.155058)
+[node name="Node3D" parent="." unique_id=2067678409 instance=ExtResource("2_j8nvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010771513, 0.50000024, 3.0010552)
 
-[node name="EnemyFlying" parent="." unique_id=1681722864 instance=ExtResource("2_1n5x3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+[node name="Player" parent="." unique_id=474202964 instance=ExtResource("3_1n5x3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59857535, 1, 6.7516956)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=10039319]
+transform = Transform3D(1, 0, 0, 0, 0.60978556, 0.7925665, 0, -0.7925665, 0.60978556, 0, 0.96543884, 0)

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dn2kdni8fhe6x"]
+
+[ext_resource type="Script" uid="uid://ch5eqgibivgwu" path="res://scripts/Stef/Testenemy.cs" id="1_fchcc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ecyic"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fchcc"]
+size = Vector3(1.7295532, 1, 1.7432251)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y2wpk"]
+
+[node name="Node3D" type="Node3D" unique_id=2067678409]
+script = ExtResource("1_fchcc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1507956230]
+mesh = SubResource("BoxMesh_ecyic")
+
+[node name="hurtbox" type="Area3D" parent="." unique_id=24061733]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hurtbox" unique_id=1563862561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025787354, 0, 0.07284546)
+shape = SubResource("BoxShape3D_fchcc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1382193772]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1260057577]
+shape = SubResource("BoxShape3D_y2wpk")
+
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

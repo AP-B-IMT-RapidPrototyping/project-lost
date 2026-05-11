@@ -60,15 +60,15 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13,
 [node name="gate-metal-bars3" parent="." unique_id=885497510 instance=ExtResource("5_gvwxg")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 0, -17)
 
-[node name="PortalLevel1" parent="." unique_id=1596559309 instance=ExtResource("6_ygaoh")]
-transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -5.9026604, 1.8479443, -0.9375992)
-
-[node name="NoSde3D" type="Node3D" parent="." unique_id=1869040375]
-
 [node name="SpawnPoints" type="Node3D" parent="." unique_id=1712442489]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.16397)
 
 [node name="Spawn_Level4" type="Node3D" parent="SpawnPoints" unique_id=342498060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4065256, 0, 0)
 
-[node name="Player" parent="SpawnPoints" unique_id=474202964 instance=ExtResource("8_knc48")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.518778, 1.0000005, -0.14343643)
+[node name="ReturnPortal" parent="." unique_id=1404359834 instance=ExtResource("6_ygaoh")]
+transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -6.201153, 1.701416, -0.9934361)
+TargetScenePath = "uid://ddw35mm4m1eit"
+
+[node name="Player" parent="." unique_id=474202964 instance=ExtResource("8_knc48")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.518778, 1.0000005, -17.307407)

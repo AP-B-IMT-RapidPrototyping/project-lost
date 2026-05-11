@@ -4,7 +4,7 @@ public partial class LevelManager : Node3D
 {
     public override void _Ready()
     {
-        var player = GetNode<Node3D>("Player");
+        var player = GetNode<Node3D>("PlayerMovement");
 
         var spawnPoints = GetNode<Node3D>("SpawnPoints");
 

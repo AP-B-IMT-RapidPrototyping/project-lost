@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bhsiono1qams8"]
+[gd_scene format=3 uid="uid://ddw35mm4m1eit"]
 
 [ext_resource type="Script" uid="uid://b11pepplhi746" path="res://scripts/Anas/GameManager.cs" id="1_gepln"]
 [ext_resource type="PackedScene" uid="uid://bovd8xwo74m7t" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-floor.glb" id="1_ji5h3"]
@@ -23,8 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://dyww4l57a27lb" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/shield-round.glb" id="22_nf1ox"]
 [ext_resource type="PackedScene" uid="uid://cetxaefdqlh8h" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/shield-rectangle.glb" id="23_gepln"]
 [ext_resource type="PackedScene" uid="uid://8g0ac3xl5b4" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/cross-wood.glb" id="24_rdwsh"]
-[ext_resource type="PackedScene" uid="uid://cm4gogkcqi63k" path="res://scenes/Mahdi/Level1.tscn" id="27_487h1"]
-[ext_resource type="PackedScene" uid="uid://rwt54gkketog" path="res://scenes/Anas/Level4.tscn" id="28_k8xr1"]
 
 [sub_resource type="Environment" id="Environment_rdwsh"]
 ambient_light_source = 2
@@ -137,16 +135,12 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -40,
 
 [node name="PortalLevel1" parent="." unique_id=1643463829 instance=ExtResource("15_qimvs")]
 transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -25.993809, -2.233287, 28.413393)
-TargetScene = ExtResource("27_487h1")
+TargetScenePath = "uid://rwt54gkketog"
 SpawnName = "Spawn_Level1"
 
 [node name="PortalLevel2" parent="." unique_id=652470010 instance=ExtResource("15_qimvs")]
 transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -35.272125, 1.8503699, 0.28183413)
-
-[node name="PortalLevel3" parent="." unique_id=1596559309 instance=ExtResource("15_qimvs")]
-transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -38.90266, 5.8479443, -22.9376)
-TargetScene = ExtResource("28_k8xr1")
-SpawnName = "Spawn_Level4"
+TargetScenePath = "uid://ceimeascdmfu7"
 
 [node name="room-wide2" parent="." unique_id=664528054 instance=ExtResource("18_mc57b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 4, -23)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cm4gogkcqi63k"]
 
-[ext_resource type="PackedScene" uid="uid://bpdbk6eupe3p5" path="res://scenes/Mahdi/GroundLevel2.tscn" id="1_m8kl5"]
+[ext_resource type="PackedScene" uid="uid://de6cspsr6b7t6" path="res://scenes/Mahdi/GroundLevel2.tscn" id="1_m8kl5"]
 [ext_resource type="PackedScene" uid="uid://bcppud4w5e86v" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/rocks.glb" id="2_eattk"]
 [ext_resource type="PackedScene" uid="uid://bvm7kn8kvb7ki" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/stones.glb" id="3_u6dpd"]
 [ext_resource type="PackedScene" uid="uid://bqqovcse4apsh" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/stairs.glb" id="4_p0hlq"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://c31ihd5ptksqo" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/iron-fence-border-gate.glb" id="23_xiqdj"]
 [ext_resource type="PackedScene" uid="uid://bx1mm0gtfylhj" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/gate.glb" id="24_4pj5j"]
 [ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="25_w8vmi"]
+[ext_resource type="PackedScene" uid="uid://bwqg1xamt7l4a" path="res://scenes/Anas/Portal.tscn" id="26_eattk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_stcwf"]
 sky_top_color = Color(0.087456666, 0.12178143, 0.5174171, 1)
@@ -542,3 +543,7 @@ transform = Transform3D(-0.0058119576, 0, -0.99998313, 0, 1, 0, 0.99998313, 0, -
 
 [node name="Player" parent="SpawnPoints" unique_id=474202964 instance=ExtResource("25_w8vmi")]
 transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 6.518778, 1.0000005, -0.14343643)
+
+[node name="Portal" parent="." unique_id=1404359834 instance=ExtResource("26_eattk")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.4148283, 0.63023776, 4.829887)
+TargetScenePath = "uid://ddw35mm4m1eit"

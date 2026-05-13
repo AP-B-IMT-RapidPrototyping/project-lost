@@ -9,11 +9,11 @@ public partial class ElephantEnemy : CharacterBody3D
 	[Export] public float AttackDistance = 1.4f;
 	[Export] public AnimationPlayer _animationPlayer;
 	[Export] public Timer _timer;
-	[Export] public float health = 25.0f;
+	[Export] public int health = 25;
 
 	public void TakeHit()
 	{
-		health -= 5.0f;
+		health -= 5;
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -56,7 +56,21 @@ public partial class ElephantEnemy : CharacterBody3D
 			}
 		}
 
+		if (health == 0)
+		{
+			QueueFree();
+		}
+
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	public void _on_hurtbox_body_entered(Node3D other)
+	{
+		if (other.IsInGroup("Playerweapon"))
+		{
+				GD.Print("enemy hit by player");
+				TakeHit();
+		}
 	}
 }

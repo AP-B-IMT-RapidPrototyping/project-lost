@@ -6,11 +6,14 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_qgqa5"]
 size = Vector3(1.2561035, 1.4321594, 1.2489014)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_31egq"]
+size = Vector3(1.2607422, 1.4179688, 1.253418)
+
 [node name="EnemyBoss" type="Node3D" unique_id=1115813718]
 
-[node name="ElephantEnemy" type="CharacterBody3D" parent="." unique_id=1736691198 node_paths=PackedStringArray("_player", "_animationPlayer", "_timer")]
+[node name="ElephantEnemy" type="CharacterBody3D" parent="." unique_id=1736691198 node_paths=PackedStringArray("_animationPlayer", "_timer")]
+collision_layer = 2
 script = ExtResource("1_31egq")
-_player = NodePath("")
 _animationPlayer = NodePath("animal-elephant2/AnimationPlayer")
 _timer = NodePath("../Timer")
 
@@ -21,8 +24,17 @@ shape = SubResource("BoxShape3D_qgqa5")
 [node name="animal-elephant2" parent="ElephantEnemy" unique_id=573294421 instance=ExtResource("1_2vpib")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
+[node name="Area3D" type="Area3D" parent="ElephantEnemy" unique_id=1555631476]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ElephantEnemy/Area3D" unique_id=2032733491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0043945313, 0.72753906, -0.0017089844)
+shape = SubResource("BoxShape3D_31egq")
+
 [node name="Timer" type="Timer" parent="." unique_id=1977446269]
 wait_time = 2.0
 one_shot = true
+
+[connection signal="body_entered" from="ElephantEnemy/Area3D" to="ElephantEnemy" method="_on_hurtbox_body_entered"]
 
 [editable path="ElephantEnemy/animal-elephant2"]

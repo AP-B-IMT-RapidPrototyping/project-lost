@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bpdbk6eupe3p5"]
+[gd_scene format=3 uid="uid://de6cspsr6b7t6"]
 
 [ext_resource type="PackedScene" uid="uid://qsgoo5hmnxx" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/floor.glb" id="1_stcwf"]
 [ext_resource type="PackedScene" uid="uid://defybnp4et4s8" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/floor-detail.glb" id="2_tk4vp"]

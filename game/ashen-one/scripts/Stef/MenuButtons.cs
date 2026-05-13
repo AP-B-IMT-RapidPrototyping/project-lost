@@ -18,5 +18,6 @@ public partial class MenuButtons : Control
 	}
 	public void OnQuitPressed()
 	{
+		GetTree().Quit();
 	}
 }

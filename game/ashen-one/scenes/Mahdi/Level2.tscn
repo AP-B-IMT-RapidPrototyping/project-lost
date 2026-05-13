@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cm4gogkcqi63k"]
 
 [ext_resource type="PackedScene" uid="uid://de6cspsr6b7t6" path="res://scenes/Mahdi/GroundLevel2.tscn" id="1_m8kl5"]
+[ext_resource type="Script" uid="uid://ds128r0kf0kk2" path="res://scenes/Anas/LevelManager.cs" id="1_p0hlq"]
 [ext_resource type="PackedScene" uid="uid://bcppud4w5e86v" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/rocks.glb" id="2_eattk"]
 [ext_resource type="PackedScene" uid="uid://bvm7kn8kvb7ki" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/stones.glb" id="3_u6dpd"]
 [ext_resource type="PackedScene" uid="uid://bqqovcse4apsh" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/stairs.glb" id="4_p0hlq"]
@@ -70,6 +71,8 @@ cache/0/20/0/scale = 1.0
 
 [node name="Level1" type="Node3D" unique_id=858032492]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_p0hlq")
+StartAsMelee = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2045402581]
 environment = SubResource("Environment_yexqm")
@@ -544,3 +547,8 @@ transform = Transform3D(0.0011615873, 9.263207e-05, -0.99999934, 0.00073898607, 
 
 [node name="stairs11" parent="." unique_id=19550793 instance=ExtResource("6_eattk")]
 transform = Transform3D(0.0011615873, 9.263207e-05, -0.99999934, 0.00073898607, 1.2299997, 7.616905e-05, 0.99999905, -0.0009090611, 0.0011615313, 8, 0.89594686, -7)
+
+[node name="Portal" parent="." unique_id=1404359834 instance=ExtResource("26_eattk")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.230446, 0.6552376, 4.7631664)
+TargetScenePath = "uid://ddw35mm4m1eit"
+UnlockNextLevel = true

@@ -6,6 +6,8 @@ public partial class Portal : Area3D
     public string TargetScenePath;
     [Export] public string SpawnName;
 
+    [Export] public bool StartAsMelee = true;
+
     [Export] public bool UnlockNextLevel = false;
 
        private bool used = false;
@@ -16,9 +18,13 @@ public partial class Portal : Area3D
 
         if (body is PlayerMovement)
         {
+            PlayerMovement.OnPlayerSwitchActive();
+
             used = true;
 
             GameManager.NextSpawn = SpawnName;
+
+            GameManager.StartAsMelee = StartAsMelee;
 
             if (TargetScenePath.Contains("Spawn"))
 {

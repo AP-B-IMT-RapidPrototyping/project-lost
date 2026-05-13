@@ -40,19 +40,13 @@ size = Vector3(4.2353516, 4.4101563, 16.422905)
 resource_local_to_scene = true
 load_path = "res://.godot/imported/5697440.png-5f10f04bf0ca586f62d277b348d838b6.ctex"
 
-[node name="Spawn" type="Node3D" unique_id=1732410728 node_paths=PackedStringArray("PortalLevel1", "PortalLevel2", "PortalLevel3", "PortalLevel4") groups=["Enemy"]]
-script = ExtResource("1_ejl8y")
-PortalLevel1 = NodePath("PortalLevel1")
-PortalLevel2 = NodePath("PortalLevel2")
-PortalLevel3 = NodePath("PortalLevel3")
-PortalLevel4 = NodePath("PortalLevel4")
+[node name="Spawn" type="Node3D" unique_id=1732410728 groups=["Enemy"]]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=831910969]
 environment = SubResource("Environment_rdwsh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1683792063]
-transform = Transform3D(0.19396228, -0.9798327, 0.0480272, 0.2573593, 0.098065555, 0.9613269, -0.9466493, -0.1741009, 0.27119005, -23.365017, 7.586134, -0.05859852)
-light_color = Color(0.90588236, 0, 0, 1)
+transform = Transform3D(0.19396228, -0.9798327, 0.0480272, 0.2573593, 0.098065555, 0.9613269, -0.9466493, -0.1741009, 0.27119005, -17.892456, 20.416971, 2.3883567)
 shadow_enabled = true
 
 [node name="template-floor2" parent="." unique_id=1819534128 instance=ExtResource("1_ji5h3")]
@@ -285,14 +279,14 @@ transform = Transform3D(-1, -7.1054274e-15, 8.742278e-08, 7.1054274e-15, 1, 1.33
 transform = Transform3D(-8.261665e-08, 7.271735e-08, -1, -0.8317895, 0.5550913, 1.09076026e-07, 0.5550913, 0.8317895, 1.4631333e-08, 0.13205528, 2.0163052, -1.7565098)
 shape = SubResource("BoxShape3D_rdwsh")
 
-[node name="PortalLevel1" parent="." unique_id=1643463829 instance=ExtResource("15_qimvs")]
+[node name="PortalLevel1" parent="." unique_id=652470010 instance=ExtResource("15_qimvs")]
+transform = Transform3D(-1.5298986e-07, -9.197099e-22, 3.5, 0, 3.5, 6.1374176e-22, -3.5, -1.6940659e-21, -1.5298986e-07, -35.272125, 1.8503699, 0.2818346)
+TargetScenePath = "uid://c58h5p20lmtwm"
+
+[node name="PortalLevel2" parent="." unique_id=1643463829 instance=ExtResource("15_qimvs")]
 transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -25.993809, -2.233287, 28.413393)
 TargetScenePath = "uid://cm4gogkcqi63k"
 SpawnName = "Spawn_Level1"
-
-[node name="PortalLevel2" parent="." unique_id=652470010 instance=ExtResource("15_qimvs")]
-transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -35.272125, 1.8503699, 0.28183413)
-TargetScenePath = "uid://c58h5p20lmtwm"
 
 [node name="PortalLevel3" parent="." unique_id=1911045935 instance=ExtResource("15_qimvs")]
 transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -16.902664, 5.703454, -22.937603)
@@ -304,3 +298,10 @@ TargetScenePath = "uid://rwt54gkketog"
 
 [node name="gate-door-window3" parent="." unique_id=1916666316 instance=ExtResource("14_ioo4d")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -36, 0, 0)
+
+[node name="SpawnManager" type="Node3D" parent="." unique_id=718930753 node_paths=PackedStringArray("PortalLevel1", "PortalLevel2", "PortalLevel3", "PortalLevel4")]
+script = ExtResource("1_ejl8y")
+PortalLevel1 = NodePath("../PortalLevel1")
+PortalLevel2 = NodePath("../PortalLevel2")
+PortalLevel3 = NodePath("../PortalLevel3")
+PortalLevel4 = NodePath("../PortalLevel4")

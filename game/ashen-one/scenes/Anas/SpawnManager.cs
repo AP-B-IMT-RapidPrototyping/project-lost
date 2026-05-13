@@ -15,6 +15,8 @@ public partial class SpawnManager : Node3D
         PortalLevel3.Visible = false;
         PortalLevel4.Visible = false;
 
+        GD.Print(GameManager.CurrentLevel);
+        
         // mostrar solo el nivel actual
         switch (GameManager.CurrentLevel)
         {

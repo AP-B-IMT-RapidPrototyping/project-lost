@@ -38,3 +38,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4207516, 0, 15.401642)
 [node name="Portal" parent="." unique_id=1404359834 instance=ExtResource("3_stcwf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9328558, 1.2604755, 26.418604)
 TargetScenePath = "uid://ddw35mm4m1eit"
+UnlockNextLevel = true

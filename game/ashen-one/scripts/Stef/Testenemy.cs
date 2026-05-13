@@ -17,12 +17,16 @@ public partial class Testenemy : Node3D
 			QueueFree();
 		}
 	}
+	public void TakeDamage(int amount)
+	{
+		HP -= amount;
+		GD.Print($"Enemy geraakt! HP is nu: {HP}");
+	}
 	public void _on_hurtbox_body_entered(Node3D other)
 	{
 		if (other.IsInGroup("Playerweapon"))
 		{
-			GD.Print("enemy hit by player");
-			HP -= 10;
+			TakeDamage(10);
 		}
 	}
 }

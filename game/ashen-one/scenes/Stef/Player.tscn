@@ -71,7 +71,7 @@ _data = {
 radius = 0.20898438
 height = 0.7158203
 
-[node name="Player" type="CharacterBody3D" unique_id=474202964 node_paths=PackedStringArray("CameraPivot", "Camera", "hpLabel", "MeleeMesh", "anMelee", "weaponhitbox", "anweapon", "RangeMesh", "anRange")]
+[node name="Player" type="CharacterBody3D" unique_id=474202964 node_paths=PackedStringArray("CameraPivot", "Camera", "hpLabel", "MeleeMesh", "anMelee", "anweapon", "RangeMesh", "anRange", "_muzzle", "RayCast")]
 collision_layer = 255
 script = ExtResource("1_8sl8y")
 CameraPivot = NodePath("Node3D")
@@ -79,10 +79,11 @@ Camera = NodePath("Node3D/SpringArm3D/Camera3D")
 hpLabel = NodePath("UI/Label")
 MeleeMesh = NodePath("melee")
 anMelee = NodePath("melee/AnimationPlayer")
-weaponhitbox = NodePath("")
 anweapon = NodePath("melee/cooking-knife2/weaponanimation")
 RangeMesh = NodePath("range")
 anRange = NodePath("range/AnimationPlayer")
+_muzzle = NodePath("range/blaster-b2/Marker3D")
+RayCast = NodePath("range/blaster-b2/RayCast3D")
 
 [node name="melee" parent="." unique_id=825161871 instance=ExtResource("4_7134i")]
 visible = false
@@ -90,7 +91,7 @@ visible = false
 [node name="cooking-knife2" parent="melee" unique_id=353333536 instance=ExtResource("4_sy21a")]
 transform = Transform3D(-2.3378141e-15, -1, 4.371139e-08, -6.2233454e-08, -4.371139e-08, -1, 1.4237356, 0, -4.3711385e-08, 0.27715826, 0.10844579, -0.48193467)
 
-[node name="StaticBody3D" parent="melee/cooking-knife2/cooking-knife" parent_id_path=PackedInt32Array(353333536, 1971765498) index="0" unique_id=1629895622 groups=["Playerweapon"]]
+[node name="StaticBody3D" parent="melee/cooking-knife2/cooking-knife" parent_id_path=PackedInt32Array(353333536, 2056973049) index="0" unique_id=952420817 groups=["Playerweapon"]]
 collision_layer = 2
 
 [node name="weaponanimation" type="AnimationPlayer" parent="melee/cooking-knife2" unique_id=269689770]
@@ -99,8 +100,21 @@ libraries/ = SubResource("AnimationLibrary_0ly60")
 
 [node name="range" parent="." unique_id=1512543393 instance=ExtResource("4_w4q4s")]
 
-[node name="blaster-b2" parent="range" unique_id=668134355 instance=ExtResource("6_sy21a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23718375, 0.22191608, -0.14115451)
+[node name="Skeleton3D" parent="range/character-male-e" parent_id_path=PackedInt32Array(1512543393, 1416105179) index="0" unique_id=1020124792]
+bones/4/rotation = Quaternion(0, 0, -0.38268346, 0.9238795)
+bones/5/rotation = Quaternion(0, 0, 0.3826835, 0.92387956)
+
+[node name="blaster-b2" parent="range" unique_id=668134355 groups=["Playerweapon"] instance=ExtResource("6_sy21a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23718375, 0.38927734, -0.17615269)
+
+[node name="RayCast3D" type="RayCast3D" parent="range/blaster-b2" unique_id=39480912 groups=["Playerweapon"]]
+transform = Transform3D(1, 0, 0, 0, -3.179302e-07, -0.99999994, 0, 7.273395, -4.3711385e-08, 0, 0.013840139, -0.23682491)
+
+[node name="Marker3D" type="Marker3D" parent="range/blaster-b2" unique_id=1400405357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0103728175, -0.2559176)
+
+[node name="Timer" type="Timer" parent="range/blaster-b2" unique_id=17259332]
+wait_time = 0.15
 
 [node name="Node3D" type="Node3D" parent="." unique_id=43376259]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

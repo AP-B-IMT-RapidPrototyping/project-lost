@@ -3,6 +3,7 @@ using System;
 
 public partial class ParrotEnemy : CharacterBody3D
 {
+	[Export] public PackedScene AttackEffectScene;
 	[Export] public float Speed = 3.0f;
 	[Export] public Node3D _player;
 	[Export] public float DetectionDistance = 10.0f;
@@ -11,9 +12,11 @@ public partial class ParrotEnemy : CharacterBody3D
 	[Export] public Timer _timer;
 	[Export] public float health = 10.0f;
 
-	public void TakeHit()
+	private Marker3D _strikePoint;
+
+	public override void _Ready()
 	{
-		health -= 5.0f;
+		_strikePoint = GetNode<Marker3D>("StrikePoint");
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -25,7 +28,7 @@ public partial class ParrotEnemy : CharacterBody3D
 		Vector3 lookTarget = new Vector3(_player.GlobalPosition.X, _player.GlobalPosition.Y + 3, _player.GlobalPosition.Z);
 
 		// Laat de vijand naar de speler kijken
-		if (GlobalPosition.DistanceTo(lookTarget) > 0.1f) 
+		if (GlobalPosition.DistanceTo(lookTarget) > 0.1f)
 		{
 			LookAt(lookTarget, Vector3.Up);
 		}
@@ -40,16 +43,47 @@ public partial class ParrotEnemy : CharacterBody3D
 			velocity.Y = direction.Y * Speed;
 		}
 
-		if(GlobalPosition.DistanceSquaredTo(_player.GlobalPosition) < AttackDistance * AttackDistance)
+		if (GlobalPosition.DistanceSquaredTo(_player.GlobalPosition) < AttackDistance * AttackDistance)
 		{
 			if (_timer.IsStopped())
 			{
 				GD.Print("Parrot attacked");
+				_animationPlayer.PlaySection("eat", 0, 0.5);
 				_timer.Start();
 			}
 		}
 
+		OnAnimationFinished("eat");
+
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	public void TakeHit()
+	{
+		health -= 5.0f;
+	}
+
+	public void OnAnimationFinished(string animName)
+	{
+		QueueFree(); // Deletes the effect node
+	}
+
+	public void SpawnAttackAsset()
+	{
+		if (AttackEffectScene == null)
+		{
+			GD.PrintErr("AttackEffectScene not assigned in the Inspector!");
+			return;
+		}
+
+		// 1. Instantiate the scene
+		Node3D effect = AttackEffectScene.Instantiate<Node3D>();
+
+		// 2. Add it to the root scene so it stays in the world space
+		GetTree().Root.AddChild(effect);
+
+		// 3. Match the Marker3D's global position and rotation
+		effect.GlobalTransform = _strikePoint.GlobalTransform;
 	}
 }

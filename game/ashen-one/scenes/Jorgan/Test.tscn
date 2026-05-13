@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://rwt54gkketog" path="res://scenes/Anas/Level4.tscn" id="1_w1uai"]
 [ext_resource type="PackedScene" uid="uid://dcnu6qsyo78us" path="res://scenes/Jorgan/EnemyBoss.tscn" id="2_brwkd"]
 [ext_resource type="PackedScene" uid="uid://crf4bja2itcao" path="res://scenes/Jorgan/EnemyMelee.tscn" id="2_cqwtj"]
+[ext_resource type="PackedScene" uid="uid://vnd18v7o5jap" path="res://scenes/Jorgan/EnemyFlying.tscn" id="4_brwkd"]
 
 [node name="Test" type="Node3D" unique_id=715080721]
 
@@ -22,6 +23,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4069242, 0, 1.3648872)
 [node name="ElephantEnemy" parent="EnemyBoss" index="0" unique_id=1736691198 node_paths=PackedStringArray("_player")]
 _player = NodePath("../../Level4/Player")
 
+[node name="EnemyFlying" parent="." unique_id=1681722864 instance=ExtResource("4_brwkd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7568216, 0, -22.529705)
+
+[node name="ParrotEnemy" parent="EnemyFlying" index="0" unique_id=525386381 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Level4/Player")
+
 [editable path="Level4"]
 [editable path="Level4/Player"]
 [editable path="Level4/Player/melee"]
@@ -31,3 +38,5 @@ _player = NodePath("../../Level4/Player")
 [editable path="EnemyMelee/KoalaEnemy/animal-koala2"]
 [editable path="EnemyBoss"]
 [editable path="EnemyBoss/ElephantEnemy/animal-elephant2"]
+[editable path="EnemyFlying"]
+[editable path="EnemyFlying/ParrotEnemy/animal-parrot2"]

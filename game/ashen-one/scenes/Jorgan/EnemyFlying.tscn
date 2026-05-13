@@ -1,17 +1,22 @@
 [gd_scene format=3 uid="uid://vnd18v7o5jap"]
 
 [ext_resource type="Script" uid="uid://djccw6frtn4kw" path="res://scripts/Jorgan/ParrotEnemy.cs" id="1_u23sx"]
+[ext_resource type="PackedScene" uid="uid://mhr6pshioyb5" path="res://scenes/Jorgan/DropEgg.tscn" id="2_qpnx7"]
 [ext_resource type="PackedScene" uid="uid://dt77u1vs624bw" path="res://models/Jorgan/kenney_cube-pets_1.0/Models/GLB format/animal-parrot.glb" id="3_kqykb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oyl5c"]
 size = Vector3(0.75268555, 0.86157227, 0.76220703)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qpnx7"]
+size = Vector3(0.79333496, 0.89312744, 0.7982788)
+
 [node name="EnemyFlying" type="Node3D" unique_id=1681722864]
 
-[node name="ParrotEnemy" type="CharacterBody3D" parent="." unique_id=525386381 node_paths=PackedStringArray("_player", "_animationPlayer", "_timer")]
+[node name="ParrotEnemy" type="CharacterBody3D" parent="." unique_id=525386381 node_paths=PackedStringArray("_animationPlayer", "_timer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+collision_layer = 2
 script = ExtResource("1_u23sx")
-_player = NodePath("")
+AttackEffectScene = ExtResource("2_qpnx7")
 _animationPlayer = NodePath("animal-parrot2/AnimationPlayer")
 _timer = NodePath("../Timer")
 
@@ -19,8 +24,24 @@ _timer = NodePath("../Timer")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00012207031, 0.42614746, -0.0017089844)
 shape = SubResource("BoxShape3D_oyl5c")
 
-[node name="animal-parrot2" parent="ParrotEnemy" unique_id=1797655050 instance=ExtResource("3_kqykb")]
+[node name="animal-parrot2" parent="ParrotEnemy" unique_id=395967127 instance=ExtResource("3_kqykb")]
 transform = Transform3D(-0.6, 0, -9.059749e-08, 0, 0.6, 0, 9.059749e-08, 0, -0.6, 0, 0, 0)
+
+[node name="wing-right" parent="ParrotEnemy/animal-parrot2/animal-parrot/root/body" parent_id_path=PackedInt32Array(395967127, 379311589) index="2" unique_id=2126381309]
+transform = Transform3D(0.7660445, -0.6427876, 0, 0.6427876, 0.7660445, 0, 0, 0, 1, -0.5250001, 0.4625, 0.031078815)
+
+[node name="wing-left" parent="ParrotEnemy/animal-parrot2/animal-parrot/root/body" parent_id_path=PackedInt32Array(395967127, 379311589) index="3" unique_id=512340115]
+transform = Transform3D(0.7660445, 0.6427876, 0, -0.6427876, 0.7660445, 0, 0, 0, 1, 0.625, 0.4625, 0.031078815)
+
+[node name="StrikePoint" type="Marker3D" parent="ParrotEnemy" unique_id=260854025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.010587692, 0)
+
+[node name="Area3D" type="Area3D" parent="ParrotEnemy" unique_id=1315892356]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ParrotEnemy/Area3D" unique_id=1827252934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004699707, 0.42269897, -0.0008239746)
+shape = SubResource("BoxShape3D_qpnx7")
 
 [node name="Timer" type="Timer" parent="." unique_id=634441110]
 wait_time = 3.0

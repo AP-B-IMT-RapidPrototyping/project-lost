@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://mhr6pshioyb5"]
+
+[ext_resource type="Script" uid="uid://xiun3s85vefs" path="res://scripts/Jorgan/EggDrop.cs" id="1_6xq86"]
+[ext_resource type="PackedScene" uid="uid://bcvfnnp5luxbb" path="res://models/Jorgan/kenney_food-kit/Models/GLB format/egg.glb" id="2_6ls6i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_562ur"]
+radius = 0.064941406
+height = 0.18615723
+
+[node name="Node3D" type="Node3D" unique_id=1508303698]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=711816832]
+script = ExtResource("1_6xq86")
+
+[node name="egg2" parent="CharacterBody3D" unique_id=1092608494 instance=ExtResource("2_6ls6i")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=527142215]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0836792, 0)
+shape = SubResource("CapsuleShape3D_562ur")

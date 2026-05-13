@@ -11,7 +11,7 @@ public partial class KoalaEnemy : CharacterBody3D
 	[Export] public float AttackDistance = 1.4f;
 	[Export] public AnimationPlayer _animationPlayer;
 	[Export] public Timer _timer;
-	[Export] public float health = 10.0f;
+	[Export] public int health = 10;
 
 	public void TakeHit()
 	{
@@ -58,7 +58,21 @@ public partial class KoalaEnemy : CharacterBody3D
 			}
 		}
 
+		if (health == 0)
+		{
+			QueueFree();
+		}
+
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	public void _on_hurtbox_body_entered(Node3D other)
+	{
+		if (other.IsInGroup("Playerweapon"))
+		{
+				GD.Print("enemy hit by player");
+				TakeHit();
+		}
 	}
 }

@@ -6,6 +6,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_oyl5c"]
 size = Vector3(1.2627563, 1.424408, 1.2624512)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1gtdw"]
+size = Vector3(0.77856445, 0.852478, 0.75775146)
+
 [node name="EnemyMelee" type="Node3D" unique_id=1455376485]
 
 [node name="KoalaEnemy" type="CharacterBody3D" parent="." unique_id=977245451 node_paths=PackedStringArray("_timer")]
@@ -20,8 +23,17 @@ shape = SubResource("BoxShape3D_oyl5c")
 [node name="animal-koala2" parent="KoalaEnemy" unique_id=1007932516 instance=ExtResource("2_1gtdw")]
 transform = Transform3D(-0.6, 0, -9.059749e-08, 0, 0.6, 0, 9.059749e-08, 0, -0.6, 0, 0, 0)
 
+[node name="Area3D" type="Area3D" parent="KoalaEnemy" unique_id=253489915]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KoalaEnemy/Area3D" unique_id=451526252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00012207031, 0.43008423, -0.0039978027)
+shape = SubResource("BoxShape3D_1gtdw")
+
 [node name="Timer" type="Timer" parent="." unique_id=991397639]
 wait_time = 2.0
 one_shot = true
+
+[connection signal="body_entered" from="KoalaEnemy/Area3D" to="KoalaEnemy" method="_on_hurtbox_body_entered"]
 
 [editable path="KoalaEnemy/animal-koala2"]

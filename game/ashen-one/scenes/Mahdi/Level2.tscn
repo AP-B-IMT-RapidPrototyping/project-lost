@@ -1,5 +1,6 @@
-[gd_scene format=3 uid="uid://cm4gogkcqi63k"]
+[gd_scene format=3 uid="uid://d2eo1lq2cvddr"]
 
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://de6cspsr6b7t6" path="res://scenes/Mahdi/GroundLevel2.tscn" id="1_m8kl5"]
 [ext_resource type="Script" uid="uid://ds128r0kf0kk2" path="res://scenes/Anas/LevelManager.cs" id="1_p0hlq"]
 [ext_resource type="PackedScene" uid="uid://bcppud4w5e86v" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/rocks.glb" id="2_eattk"]
@@ -28,17 +29,17 @@
 [ext_resource type="PackedScene" uid="uid://bx1mm0gtfylhj" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/gate.glb" id="24_4pj5j"]
 [ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="25_w8vmi"]
 [ext_resource type="PackedScene" uid="uid://bwqg1xamt7l4a" path="res://scenes/Anas/Portal.tscn" id="26_eattk"]
+=======
+[ext_resource type="PackedScene" uid="uid://cm4gogkcqi63k" path="res://scenes/Mahdi/Level2inWorks.tscn" id="1_hanu4"]
+[ext_resource type="AudioStream" uid="uid://cey3lvrdr3jy" path="res://scenes/Mahdi/freesound_community-echo-dungeon-70538.mp3" id="2_5qcji"]
+>>>>>>> 33169a4ab2f81d96ba0cad5939c6bad6b1ed560c
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_stcwf"]
-sky_top_color = Color(0.087456666, 0.12178143, 0.5174171, 1)
-sky_horizon_color = Color(0.9081696, 0.914017, 1.0075806, 1)
-ground_bottom_color = Color(0.029043708, 0.19278571, 0.25772706, 1)
-ground_horizon_color = Color(0.9081696, 0.914017, 1.0075806, 1)
-energy_multiplier = 0.6
+[node name="Level2" type="Node3D" unique_id=137709657]
 
-[sub_resource type="Sky" id="Sky_tk4vp"]
-sky_material = SubResource("ProceduralSkyMaterial_stcwf")
+[node name="level2inWorks" parent="." unique_id=858032492 instance=ExtResource("1_hanu4")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 0, -5)
 
+<<<<<<< HEAD
 [sub_resource type="Environment" id="Environment_yexqm"]
 background_mode = 2
 sky = SubResource("Sky_tk4vp")
@@ -552,3 +553,9 @@ transform = Transform3D(0.0011615873, 9.263207e-05, -0.99999934, 0.00073898607, 
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.230446, 0.6552376, 4.7631664)
 TargetScenePath = "uid://ddw35mm4m1eit"
 UnlockNextLevel = true
+=======
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=466161121]
+stream = ExtResource("2_5qcji")
+volume_db = 44.179
+autoplay = true
+>>>>>>> 33169a4ab2f81d96ba0cad5939c6bad6b1ed560c

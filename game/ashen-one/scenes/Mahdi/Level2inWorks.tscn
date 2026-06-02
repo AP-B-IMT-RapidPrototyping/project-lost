@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cm4gogkcqi63k"]
+[gd_scene format=3 uid="uid://d06kgbwryr6ir"]
 
 [ext_resource type="PackedScene" uid="uid://de6cspsr6b7t6" path="res://scenes/Mahdi/GroundLevel2.tscn" id="1_m8kl5"]
 [ext_resource type="PackedScene" uid="uid://bcppud4w5e86v" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/rocks.glb" id="2_eattk"]

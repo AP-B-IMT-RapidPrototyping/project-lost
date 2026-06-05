@@ -16,9 +16,9 @@ public partial class Portal : Area3D
     {
         GD.Print("Someone went in");
 
-        if (body is PlayerMovement)
+        if (body is PlayerMovement player)
         {
-            PlayerMovement.OnPlayerSwitchActive();
+            player.OnPlayerSwitchActive();
 
             used = true;
 

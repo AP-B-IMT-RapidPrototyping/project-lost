@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ddw35mm4m1eit"]
 
-[ext_resource type="Script" uid="uid://clbfhidwf0t26" path="res://scenes/Anas/SpawnManager.cs" id="1_ejl8y"]
+[ext_resource type="Script" uid="uid://clbfhidwf0t26" path="res://scripts/Anas/SpawnManager.cs" id="1_ejl8y"]
 [ext_resource type="PackedScene" uid="uid://bovd8xwo74m7t" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-floor.glb" id="1_ji5h3"]
 [ext_resource type="PackedScene" uid="uid://b1g1wdrrg28k3" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-floor-detail-a.glb" id="2_0uppt"]
 [ext_resource type="PackedScene" uid="uid://c4acqmmnvydkn" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/template-floor-detail.glb" id="3_v8882"]
@@ -291,6 +291,7 @@ SpawnName = "Spawn_Level1"
 [node name="PortalLevel3" parent="." unique_id=1911045935 instance=ExtResource("15_qimvs")]
 transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -16.902664, 5.703454, -22.937603)
 TargetScenePath = "uid://ceimeascdmfu7"
+StartAsMelee = false
 
 [node name="PortalLevel4" parent="." unique_id=1404359834 instance=ExtResource("15_qimvs")]
 transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -38.520943, 5.703454, -22.937603)

@@ -7,6 +7,7 @@ public partial class PlayerMovement : CharacterBody3D
 	[Export] Camera3D Camera;
 	[Export] public float MouseSensitivity = 0.002f;
 	[Export] Label hpLabel;
+	[Export] Label ammolabel;
 
 	[Export] public Node3D MeleeMesh;
 	[Export] public AnimationPlayer anMelee;
@@ -14,6 +15,7 @@ public partial class PlayerMovement : CharacterBody3D
 	[Export] public Node3D RangeMesh;
 	[Export] public AnimationPlayer anRange;
 
+	[Export] public CollisionShape3D MeleeCollisionShape;
 	[Export] private Marker3D _muzzle;
 	[Export] public RayCast3D RayCast;
 	int Ammo = 10;
@@ -24,6 +26,7 @@ public partial class PlayerMovement : CharacterBody3D
 	bool ActivePlayer = true;
 	bool PlayerSwitch = true;
 	bool CanSwitch = true;
+	bool canAttack = true;
 
 
 	public float Speed = 3.25f;
@@ -41,6 +44,8 @@ public partial class PlayerMovement : CharacterBody3D
 		if (ActivePlayer == true) { Player = MeleeMesh; RangeMesh.Visible = false; }
 		else { Player = RangeMesh; MeleeMesh.Visible = false; }
 		RayCast.Visible = false;
+		ammolabel.Visible = false;
+		if (MeleeCollisionShape != null) MeleeCollisionShape.Disabled = true;
 	}
 
 
@@ -69,7 +74,6 @@ public partial class PlayerMovement : CharacterBody3D
 		if (Input.IsActionJustPressed("switch_character") && PlayerSwitch == true)
 		{
 			SwitchCharacter();
-			takehit();
 		}
 
 		Vector3 velocity = Velocity;
@@ -93,13 +97,17 @@ public partial class PlayerMovement : CharacterBody3D
 
 		Vector3 direction = (forward * inputDir.Y + right * inputDir.X).Normalized();
 
-		if (Input.IsActionJustPressed("dodge") && !Forced)
+		if (Input.IsActionJustPressed("dodge") && !Forced && ActivePlayer)
 		{
 			PerformDodge(direction);
 		}
 
 		if (!Forced)
 		{
+			if (Input.IsActionJustPressed("reload") && !ActivePlayer)
+			{
+				reload();
+			}
 			if (Input.IsActionJustPressed("attack"))
 			{
 				attack();
@@ -117,10 +125,23 @@ public partial class PlayerMovement : CharacterBody3D
 			Velocity = velocity;
 		}
 		MoveAndSlide();
-		Vector3 playerRot = Rotation;
 
-		playerRot.Y = CameraPivot.Rotation.Y;
-		Player.Rotation = playerRot;
+		if (direction != Vector3.Zero)
+		{
+			Vector3 globalCamRot = CameraPivot.GlobalTransform.Basis.GetEuler();
+
+			Vector3 globalPlayerRot = Player.GlobalTransform.Basis.GetEuler();
+
+			globalPlayerRot.Y = globalCamRot.Y;
+			globalPlayerRot.X = 0;
+			globalPlayerRot.Z = 0;
+
+			Player.GlobalTransform = new Transform3D(new Basis(Quaternion.FromEuler(globalPlayerRot)), Player.GlobalPosition);
+		}
+
+		Vector3 raycastRot = RayCast.Rotation;
+		raycastRot.X = CameraPivot.Rotation.X - 30;
+		RayCast.Rotation = raycastRot;
 
 	}
 	private async void PerformDodge(Vector3 direction)
@@ -172,18 +193,20 @@ public partial class PlayerMovement : CharacterBody3D
 				Player = MeleeMesh;
 				MeleeMesh.Visible = true;
 				RangeMesh.Visible = false;
+				ammolabel.Visible = false;
 			}
 			else
 			{
 				Player = RangeMesh;
 				RangeMesh.Visible = true;
 				MeleeMesh.Visible = false;
+				ammolabel.Visible = true;
 			}
 
 			Player.Rotation = CameraPivot.Rotation;
 
 			GD.Print("Geswitcht naar: " + Player.Name);
-			await ToSignal(GetTree().CreateTimer(5.0), SceneTreeTimer.SignalName.Timeout);
+			await ToSignal(GetTree().CreateTimer(1.0), SceneTreeTimer.SignalName.Timeout);
 			CanSwitch = true;
 		}
 	}
@@ -192,16 +215,19 @@ public partial class PlayerMovement : CharacterBody3D
 
 	async void attack()
 	{
-		if (ActivePlayer)
+		if (ActivePlayer && canAttack)
 		{
-			GD.Print("slash");
+			canAttack = false;
 			anMelee.Play("attack-melee-right");
 			anweapon.Play("slash");
+			MeleeCollisionShape.Disabled = false;
 			await ToSignal(GetTree().CreateTimer(0.15f), SceneTreeTimer.SignalName.Timeout);
+			MeleeCollisionShape.Disabled = true;
+			await ToSignal(GetTree().CreateTimer(0.1f), SceneTreeTimer.SignalName.Timeout);
+			canAttack = true;
 		}
-		else
+		else if (!ActivePlayer)
 		{
-			GD.Print("shoot");
 			Shoot(RayCast);
 		}
 	}
@@ -213,25 +239,29 @@ public partial class PlayerMovement : CharacterBody3D
 		HP = Mathf.Max(HP, 0);
 		hpLabel.Text = $"HP: {HP}";
 	}
-
-
-
-	//playerswitchsignal
-	public void OnPlayerSwitchActive()
+	public void Ammolabel(bool reloading)
 	{
-		PlayerSwitch = true;
+		if (reloading == true) { ammolabel.Text = "Reloading..."; }
+		else { ammolabel.Text = $"{Ammo} / 10"; }
+	}
+	public async void reload()
+	{
+		CanSwitch = false;
+		Ammo = 0;
+		Ammolabel(true);
+		await ToSignal(GetTree().CreateTimer(5f), SceneTreeTimer.SignalName.Timeout);
+		Ammo = 10;
+		GunEmpty = false;
+		Ammolabel(false);
+		CanSwitch = true;
 	}
 
 	public async void Shoot(RayCast3D raycast)
 	{
-		// 1. Check of we mogen schieten
 		if (GunEmpty || GunCouldown) return;
-
-		// 2. Start de cooldown en update de raycast
 		GunCouldown = true;
 		raycast.ForceRaycastUpdate();
 
-		// 3. Verwerk de collision (Logica)
 		if (raycast.IsColliding())
 		{
 			var collider = raycast.GetCollider();
@@ -245,20 +275,24 @@ public partial class PlayerMovement : CharacterBody3D
 				parentEnemy.TakeDamage(10);
 			}
 		}
-
-		// 4. Visuele effecten en Ammo
-		raycast.Visible = true; // Toont de debug lijn (als Visible Collision Shapes aan staat)
-		Ammo--;
+		raycast.Visible = true;
+		--Ammo;
+		Ammolabel(false);
 		if (Ammo <= 0)
 		{
 			GunEmpty = true;
 		}
 
-		// 5. Wacht op de cooldown/flash tijd
 		await ToSignal(GetTree().CreateTimer(0.15f), SceneTreeTimer.SignalName.Timeout);
 
-		// 6. Reset voor het volgende schot
 		raycast.Visible = false;
 		GunCouldown = false;
+	}
+
+
+	//playerswitchsignal
+	public void OnPlayerSwitchActive()
+	{
+		PlayerSwitch = true;
 	}
 }

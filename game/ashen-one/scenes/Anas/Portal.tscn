@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://c8872te8ucpp" path="res://portal_shader.tres" id="1_sc3tw"]
 [ext_resource type="Texture2D" uid="uid://cavud4urgj55h" path="res://models/Anas/T_VFX_lelu1_tiled.png" id="2_hfevr"]
-[ext_resource type="Script" uid="uid://dcgoj5o7iwvav" path="res://scenes/Anas/Portal.cs" id="4_qer01"]
+[ext_resource type="Script" uid="uid://dcgoj5o7iwvav" path="res://scripts/Anas/Portal.cs" id="4_qer01"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0y83r"]
 size = Vector3(1.9840088, 2.109314, 1)

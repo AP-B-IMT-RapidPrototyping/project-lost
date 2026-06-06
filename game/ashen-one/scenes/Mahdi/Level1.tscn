@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c58h5p20lmtwm"]
 
 [ext_resource type="PackedScene" path="res://scenes/Mahdi/level1Ground.tscn" id="1_sxc78"]
+[ext_resource type="Script" uid="uid://ds128r0kf0kk2" path="res://scripts/Anas/LevelManager.cs" id="1_tk4vp"]
 [ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="2_stcwf"]
 [ext_resource type="PackedScene" uid="uid://bwqg1xamt7l4a" path="res://scenes/Anas/Portal.tscn" id="3_stcwf"]
 
@@ -20,6 +21,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Level1" type="Node3D" unique_id=193566557]
+script = ExtResource("1_tk4vp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1601598250]
 environment = SubResource("Environment_tk4vp")

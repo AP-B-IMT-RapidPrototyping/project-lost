@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ceimeascdmfu7"]
 
+[ext_resource type="Script" uid="uid://ds128r0kf0kk2" path="res://scripts/Anas/LevelManager.cs" id="1_d2pwn"]
 [ext_resource type="PackedScene" uid="uid://c3kqlul80u0r" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/room-wide-variation.glb" id="1_lchak"]
-[ext_resource type="Script" uid="uid://b11pepplhi746" path="res://scripts/Anas/GameManager.cs" id="1_pu5fi"]
 [ext_resource type="PackedScene" uid="uid://cc2fw3ucr2us5" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/corridor-transition.glb" id="3_d2pwn"]
 [ext_resource type="PackedScene" uid="uid://crsvgi433647s" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/stairs-wide.glb" id="4_pu5fi"]
 [ext_resource type="PackedScene" uid="uid://c6hrxu0f2x6u1" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/room-small.glb" id="5_cellc"]
@@ -10,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bwqg1xamt7l4a" path="res://scenes/Anas/Portal.tscn" id="8_pu5fi"]
 
 [node name="Level3" type="Node3D" unique_id=1679484765]
-script = ExtResource("1_pu5fi")
+script = ExtResource("1_d2pwn")
+StartAsMelee = false
 
 [node name="room-wide-variation2" parent="." unique_id=186400614 instance=ExtResource("1_lchak")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)

@@ -5,7 +5,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_ecyic"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fchcc"]
-size = Vector3(1.7295532, 1, 1.7432251)
+size = Vector3(1.26857, 1, 1.2221832)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y2wpk"]
 
@@ -19,7 +19,7 @@ mesh = SubResource("BoxMesh_ecyic")
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hurtbox" unique_id=1563862561]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025787354, 0, 0.07284546)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015037537, 0, -0.013343811)
 shape = SubResource("BoxShape3D_fchcc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1382193772]

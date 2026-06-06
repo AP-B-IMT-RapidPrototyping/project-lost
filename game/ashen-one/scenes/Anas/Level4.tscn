@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://rwt54gkketog"]
 
 [ext_resource type="PackedScene" uid="uid://d7b0gxxqjbs3" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/room-small-variation.glb" id="1_7pvb8"]
-[ext_resource type="Script" uid="uid://ds128r0kf0kk2" path="res://scenes/Anas/LevelManager.cs" id="1_xq4yq"]
+[ext_resource type="Script" uid="uid://ds128r0kf0kk2" path="res://scripts/Anas/LevelManager.cs" id="1_xq4yq"]
 [ext_resource type="PackedScene" uid="uid://x1nlkmk3ynd7" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/room-large-variation.glb" id="2_ygaoh"]
 [ext_resource type="PackedScene" uid="uid://oimppy1j7ac5" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/corridor-corner.glb" id="3_xq4yq"]
 [ext_resource type="PackedScene" uid="uid://p5djpke57kht" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/corridor.glb" id="4_knc48"]

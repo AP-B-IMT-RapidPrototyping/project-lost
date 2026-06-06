@@ -81,4 +81,13 @@ public partial class ParrotEnemy : CharacterBody3D
 		effect.GlobalTransform = _strikePoint.GlobalTransform;
 
 	}
+
+	public void _on_hurtbox_body_entered(Node3D other)
+	{
+		if (other.IsInGroup("Playerweapon"))
+		{
+				GD.Print("enemy hit by player");
+				TakeHit();
+		}
+	}
 }

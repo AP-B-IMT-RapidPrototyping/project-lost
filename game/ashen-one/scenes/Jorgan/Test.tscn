@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://da2sbau284in7"]
+
+[ext_resource type="PackedScene" uid="uid://rwt54gkketog" path="res://scenes/Anas/Level4.tscn" id="1_3u37s"]
+[ext_resource type="PackedScene" uid="uid://vnd18v7o5jap" path="res://scenes/Jorgan/EnemyFlying.tscn" id="2_1yub3"]
+[ext_resource type="PackedScene" uid="uid://dcnu6qsyo78us" path="res://scenes/Jorgan/EnemyBoss.tscn" id="3_1yub3"]
+
+[node name="Node3D" type="Node3D" unique_id=2140139528]
+
+[node name="Level4" parent="." unique_id=1555777435 instance=ExtResource("1_3u37s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.644604, 0, -8.007898)
+script = null
+
+[node name="ReturnPortal" parent="Level4" index="17" unique_id=1404359834]
+script = null
+
+[node name="EnemyFlying" parent="." unique_id=1681722864 instance=ExtResource("2_1yub3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.443905, 1.9073486e-06, -28.76476)
+
+[node name="ParrotEnemy" parent="EnemyFlying" index="0" unique_id=525386381 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Level4/Player")
+
+[node name="EnemyBoss" parent="." unique_id=1115813718 instance=ExtResource("3_1yub3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.553501, -1.9073486e-06, -18.918657)
+
+[node name="ElephantEnemy" parent="EnemyBoss" index="0" unique_id=1736691198 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Level4/Player")
+
+[editable path="Level4"]
+[editable path="EnemyFlying"]
+[editable path="EnemyFlying/ParrotEnemy/animal-parrot2"]
+[editable path="EnemyBoss"]
+[editable path="EnemyBoss/ElephantEnemy/animal-elephant2"]

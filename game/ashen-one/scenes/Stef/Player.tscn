@@ -92,7 +92,7 @@ RayCast = NodePath("range/blaster-b2/RayCast3D")
 [node name="cooking-knife2" parent="melee" unique_id=353333536 instance=ExtResource("4_sy21a")]
 transform = Transform3D(-2.3378141e-15, -1, 4.371139e-08, -6.2233454e-08, -4.371139e-08, -1, 1.4237356, 0, -4.3711385e-08, 0.27715826, 0.10844579, -0.48193467)
 
-[node name="StaticBody3D" parent="melee/cooking-knife2/cooking-knife" parent_id_path=PackedInt32Array(353333536, 2056973049) index="0" unique_id=952420817 groups=["Playerweapon"]]
+[node name="StaticBody3D" parent="melee/cooking-knife2/cooking-knife" parent_id_path=PackedInt32Array(353333536, 1503654625) index="0" unique_id=39486830 groups=["Playerweapon"]]
 collision_layer = 2
 
 [node name="weaponanimation" type="AnimationPlayer" parent="melee/cooking-knife2" unique_id=269689770]
@@ -102,7 +102,7 @@ libraries/ = SubResource("AnimationLibrary_0ly60")
 [node name="range" parent="." unique_id=1512543393 instance=ExtResource("4_w4q4s")]
 visible = false
 
-[node name="Skeleton3D" parent="range/character-male-e" parent_id_path=PackedInt32Array(1512543393, 1416105179) index="0" unique_id=1020124792]
+[node name="Skeleton3D" parent="range/character-male-e" parent_id_path=PackedInt32Array(1512543393, 144178661) index="0" unique_id=224988816]
 bones/4/rotation = Quaternion(0, 0, -0.38268346, 0.9238795)
 bones/5/rotation = Quaternion(0, 0, 0.3826835, 0.92387956)
 
@@ -110,7 +110,9 @@ bones/5/rotation = Quaternion(0, 0, 0.3826835, 0.92387956)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23718375, 0.38927734, -0.17615269)
 
 [node name="RayCast3D" type="RayCast3D" parent="range/blaster-b2" unique_id=39480912 groups=["Playerweapon"]]
-transform = Transform3D(1, 0, 0, 0, -3.179302e-07, -0.99999994, 0, 7.273395, -4.3711385e-08, 0, 0.013840139, -0.23682491)
+transform = Transform3D(1, 0, 0, 0, -0.07025879, -0.999987, 0, 1607333.6, -4.3710816e-08, 0, 0.013840139, -0.19573589)
+collision_mask = 2
+collide_with_areas = true
 
 [node name="Marker3D" type="Marker3D" parent="range/blaster-b2" unique_id=1400405357]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0103728175, -0.2559176)

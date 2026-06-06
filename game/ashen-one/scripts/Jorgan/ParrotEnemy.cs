@@ -4,7 +4,7 @@ using System;
 public partial class ParrotEnemy : CharacterBody3D
 {
 	[Export] public PackedScene AttackEffectScene;
-	[Export] public float Speed = 3.0f;
+	[Export] public float Speed = 2.5f;
 	[Export] public Node3D _player;
 	[Export] public float DetectionDistance = 10.0f;
 	[Export] public float AttackDistance = 3.6f;
@@ -49,11 +49,10 @@ public partial class ParrotEnemy : CharacterBody3D
 			{
 				GD.Print("Parrot attacked");
 				_animationPlayer.PlaySection("eat", 0, 0.5);
+				SpawnAttackAsset();
 				_timer.Start();
 			}
 		}
-
-		OnAnimationFinished("eat");
 
 		Velocity = velocity;
 		MoveAndSlide();
@@ -62,11 +61,6 @@ public partial class ParrotEnemy : CharacterBody3D
 	public void TakeHit()
 	{
 		health -= 5.0f;
-	}
-
-	public void OnAnimationFinished(string animName)
-	{
-		QueueFree(); // Deletes the effect node
 	}
 
 	public void SpawnAttackAsset()
@@ -85,5 +79,6 @@ public partial class ParrotEnemy : CharacterBody3D
 
 		// 3. Match the Marker3D's global position and rotation
 		effect.GlobalTransform = _strikePoint.GlobalTransform;
+
 	}
 }

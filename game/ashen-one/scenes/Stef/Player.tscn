@@ -67,11 +67,18 @@ _data = {
 &"slash": SubResource("Animation_pvn51")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4q4s"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w4q4s"]
+material = SubResource("StandardMaterial3D_w4q4s")
+size = Vector3(0.04, 0.04, 20)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f5fp4"]
 radius = 0.20898438
 height = 0.7158203
 
-[node name="Player" type="CharacterBody3D" unique_id=474202964 node_paths=PackedStringArray("CameraPivot", "Camera", "hpLabel", "ammolabel", "MeleeMesh", "anMelee", "anweapon", "RangeMesh", "anRange", "MeleeCollisionShape", "_muzzle", "RayCast") groups=["Player"]]
+[node name="Player" type="CharacterBody3D" unique_id=474202964 node_paths=PackedStringArray("CameraPivot", "Camera", "hpLabel", "ammolabel", "MeleeMesh", "anMelee", "anweapon", "RangeMesh", "anRange", "MeleeCollisionShape", "_muzzle", "RayCast", "bulletmesh") groups=["Player"]]
 collision_layer = 5
 script = ExtResource("1_8sl8y")
 CameraPivot = NodePath("Node3D")
@@ -86,6 +93,7 @@ anRange = NodePath("range/AnimationPlayer")
 MeleeCollisionShape = NodePath("melee/cooking-knife2/cooking-knife/StaticBody3D/CollisionShape3D")
 _muzzle = NodePath("range/blaster-b2/Marker3D")
 RayCast = NodePath("range/blaster-b2/RayCast3D")
+bulletmesh = NodePath("range/blaster-b2/RayCast3D/LaserMesh")
 
 [node name="melee" parent="." unique_id=825161871 instance=ExtResource("4_7134i")]
 
@@ -111,6 +119,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23718375, 0.38927734, -0.17
 [node name="RayCast3D" type="RayCast3D" parent="range/blaster-b2" unique_id=39480912 groups=["Playerweapon"]]
 transform = Transform3D(3, 0, 0, 0, -9.537388e-07, -3, 0, 21.819, -1.3113416e-07, 0, 0.013840139, -0.23682491)
 collision_mask = 2
+
+[node name="LaserMesh" type="MeshInstance3D" parent="range/blaster-b2/RayCast3D" unique_id=2066690157]
+transform = Transform3D(0.33333334, 0, 0, 0, -2.003362e-09, 0.045831613, 0, -0.33333334, -1.4570462e-08, 0, -0.45, 0)
+mesh = SubResource("BoxMesh_w4q4s")
 
 [node name="Marker3D" type="Marker3D" parent="range/blaster-b2" unique_id=1400405357 groups=["Playerweapon"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0103728175, -0.2559176)

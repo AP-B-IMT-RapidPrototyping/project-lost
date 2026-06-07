@@ -15,8 +15,9 @@ public partial class PlayerMovement : CharacterBody3D
 	[Export] public Node3D RangeMesh;
 	[Export] public AnimationPlayer anRange;
 	[Export] public CollisionShape3D MeleeCollisionShape;
-	[Export] private Marker3D _muzzle;
-	[Export] public RayCast3D RayCast;
+	[Export] Marker3D _muzzle;
+	[Export] RayCast3D RayCast;
+	[Export] MeshInstance3D bulletmesh;
 	int Ammo = 10;
 	bool GunEmpty = false;
 	bool GunCouldown = false;
@@ -46,6 +47,7 @@ public partial class PlayerMovement : CharacterBody3D
 		RayCast.Visible = false;
 		ammolabel.Visible = false;
 		if (MeleeCollisionShape != null) MeleeCollisionShape.Disabled = true;
+		bulletmesh.Visible = false;
 	}
 
 
@@ -256,10 +258,12 @@ public partial class PlayerMovement : CharacterBody3D
     if (GunEmpty || GunCouldown) return;
     GunCouldown = true;
     raycast.ForceRaycastUpdate();
+	showmesh();
 
     if (raycast.IsColliding())
     {
         var collider = raycast.GetCollider();
+
 
         if (collider is Node3D hitNode)
         {
@@ -274,7 +278,14 @@ public partial class PlayerMovement : CharacterBody3D
                 parentNode.Call("TakeHit");
             }
         }
+		
     }
+	async void showmesh()
+		{
+			bulletmesh.Visible = true;
+			await ToSignal(GetTree().CreateTimer(0.1f), SceneTreeTimer.SignalName.Timeout);
+			bulletmesh.Visible = false;
+		}
 
     raycast.Visible = true;
     --Ammo;

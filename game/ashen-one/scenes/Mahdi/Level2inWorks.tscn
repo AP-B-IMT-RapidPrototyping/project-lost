@@ -28,6 +28,12 @@
 [ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="25_w8vmi"]
 [ext_resource type="PackedScene" uid="uid://ddxkre7jx1357" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/barrel.glb" id="27_u6dpd"]
 [ext_resource type="PackedScene" uid="uid://qsgoo5hmnxx" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/floor.glb" id="28_p0hlq"]
+[ext_resource type="AudioStream" uid="uid://dda7hfw6nvjh3" path="res://scenes/Mahdi/soundreality-fire-crackling-sound-499636.mp3" id="29_it2qc"]
+[ext_resource type="PackedScene" uid="uid://mhr6pshioyb5" path="res://scenes/Jorgan/DropEgg.tscn" id="30_dem4k"]
+[ext_resource type="PackedScene" uid="uid://crf4bja2itcao" path="res://scenes/Jorgan/EnemyMelee.tscn" id="31_ejbgr"]
+[ext_resource type="PackedScene" uid="uid://vnd18v7o5jap" path="res://scenes/Jorgan/EnemyFlying.tscn" id="32_r7gwi"]
+[ext_resource type="PackedScene" uid="uid://dcnu6qsyo78us" path="res://scenes/Jorgan/EnemyBoss.tscn" id="33_k2gfx"]
+[ext_resource type="PackedScene" uid="uid://dlaqgp3abiq5h" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/column-large.glb" id="34_dem4k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_stcwf"]
 sky_top_color = Color(0.087456666, 0.12178143, 0.5174171, 1)
@@ -2320,3 +2326,82 @@ transform = Transform3D(-4.371139e-08, 0.014101793, -0.9999006, 0, 0.9999006, 0.
 
 [node name="wall-narrow571" parent="." unique_id=1246561670 instance=ExtResource("6_km2kw")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.004318, -11.000003, 27.051876)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=620628102]
+stream = ExtResource("29_it2qc")
+parameters/looping = true
+
+[node name="Node3D" parent="." unique_id=1508303698 instance=ExtResource("30_dem4k")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12, -11, 32.5)
+
+[node name="EnemyMelee" parent="." unique_id=1455376485 instance=ExtResource("31_ejbgr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12, -11, 32.5)
+
+[node name="EnemyFlying" parent="." unique_id=1681722864 instance=ExtResource("32_r7gwi")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9, -11, 35.5)
+
+[node name="EnemyMelee2" parent="." unique_id=1209237112 instance=ExtResource("31_ejbgr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2, -11, 38.5)
+
+[node name="EnemyFlying2" parent="." unique_id=410952478 instance=ExtResource("32_r7gwi")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.5, -11, 15)
+
+[node name="EnemyBoss" parent="." unique_id=1115813718 instance=ExtResource("33_k2gfx")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, -11, 27)
+
+[node name="EnemyFlying3" parent="." unique_id=1700815620 instance=ExtResource("32_r7gwi")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.5, -11, 15.5)
+
+[node name="Node3D2" parent="." unique_id=1272943962 instance=ExtResource("30_dem4k")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7, 0, 10)
+
+[node name="EnemyMelee3" parent="." unique_id=1270262136 instance=ExtResource("31_ejbgr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.5, 0, 6)
+
+[node name="EnemyMelee4" parent="." unique_id=741413507 instance=ExtResource("31_ejbgr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2, 0, -6.5)
+
+[node name="EnemyFlying4" parent="." unique_id=984313801 instance=ExtResource("32_r7gwi")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.5, 0, -2.5)
+
+[node name="EnemyFlying5" parent="." unique_id=916239087 instance=ExtResource("32_r7gwi")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.5, 0, 14)
+
+[node name="crypt-a3" parent="." unique_id=1454552511 instance=ExtResource("10_udqib")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 10.5, -11, 31)
+
+[node name="crypt-a4" parent="." unique_id=645004335 instance=ExtResource("10_udqib")]
+transform = Transform3D(-1.5, 0, 1.3113416e-07, 0, 1.5, 0, -1.3113416e-07, 0, -1.5, 7.5, -11, 39.5)
+
+[node name="cross3" parent="." unique_id=670597213 instance=ExtResource("9_6lwke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -11, 39.5)
+
+[node name="cross4" parent="." unique_id=1740296428 instance=ExtResource("9_6lwke")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -11, 32.5)
+
+[node name="cross5" parent="." unique_id=551852537 instance=ExtResource("9_6lwke")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -10.5, -11, 15.5)
+
+[node name="coffin-old3" parent="." unique_id=223258712 instance=ExtResource("7_aely3")]
+transform = Transform3D(-1.7320508, 0, -1.0000001, 0, 2, 0, 1.0000001, 0, -1.7320508, -8.5, -11, 18.5)
+
+[node name="column-large2" parent="." unique_id=1751893122 instance=ExtResource("34_dem4k")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -14, -11, 14)
+
+[node name="column-large3" parent="." unique_id=1976418741 instance=ExtResource("34_dem4k")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -14, -11, 18.5)
+
+[node name="detail-chalice5" parent="." unique_id=658071357 instance=ExtResource("12_7sixc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30318, -11, 14.362191)
+
+[node name="detail-chalice6" parent="." unique_id=232365096 instance=ExtResource("12_7sixc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.80318, -11, 14.362191)
+
+[node name="detail-chalice7" parent="." unique_id=1851608948 instance=ExtResource("12_7sixc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30318, -11, 13.362191)
+
+[node name="detail-bowl3" parent="." unique_id=933212163 instance=ExtResource("17_3ip5m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1088622, -11, 14.276585)
+
+[node name="detail-bowl4" parent="." unique_id=372544475 instance=ExtResource("17_3ip5m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4019794, -11, 14.276585)

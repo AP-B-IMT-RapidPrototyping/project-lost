@@ -34,6 +34,12 @@
 [ext_resource type="PackedScene" uid="uid://vnd18v7o5jap" path="res://scenes/Jorgan/EnemyFlying.tscn" id="32_r7gwi"]
 [ext_resource type="PackedScene" uid="uid://dcnu6qsyo78us" path="res://scenes/Jorgan/EnemyBoss.tscn" id="33_k2gfx"]
 [ext_resource type="PackedScene" uid="uid://dlaqgp3abiq5h" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/column-large.glb" id="34_dem4k"]
+[ext_resource type="PackedScene" uid="uid://dsi4urf2lftyj" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/gravestone-bevel.glb" id="35_ejbgr"]
+[ext_resource type="PackedScene" uid="uid://brdc6eoqouc2l" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/shovel.glb" id="36_oimkq"]
+[ext_resource type="PackedScene" uid="uid://yxe18j6afpg8" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/rocks.glb" id="37_fu2st"]
+[ext_resource type="PackedScene" uid="uid://ocfe08akbovm" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/pumpkin.glb" id="38_o74m2"]
+[ext_resource type="PackedScene" uid="uid://cd057a5o50luw" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/pillar-square.glb" id="39_g7dyt"]
+[ext_resource type="PackedScene" uid="uid://jobylfksalom" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/pillar-obelisk.glb" id="40_xm72j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_stcwf"]
 sky_top_color = Color(0.087456666, 0.12178143, 0.5174171, 1)
@@ -2356,16 +2362,16 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.5, -11, 15.5)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7, 0, 10)
 
 [node name="EnemyMelee3" parent="." unique_id=1270262136 instance=ExtResource("31_ejbgr")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.5, 0, 6)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4, 0, 6.5)
 
 [node name="EnemyMelee4" parent="." unique_id=741413507 instance=ExtResource("31_ejbgr")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2, 0, -6.5)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4, 0, -6)
 
 [node name="EnemyFlying4" parent="." unique_id=984313801 instance=ExtResource("32_r7gwi")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.5, 0, -2.5)
 
 [node name="EnemyFlying5" parent="." unique_id=916239087 instance=ExtResource("32_r7gwi")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.5, 0, 14)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.7191943, 0, 15.0505295)
 
 [node name="crypt-a3" parent="." unique_id=1454552511 instance=ExtResource("10_udqib")]
 transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 10.5, -11, 31)
@@ -2405,3 +2411,54 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1088622, -11, 14.276585)
 
 [node name="detail-bowl4" parent="." unique_id=372544475 instance=ExtResource("17_3ip5m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4019794, -11, 14.276585)
+
+[node name="debris3" parent="." unique_id=862884086 instance=ExtResource("16_uxjjq")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7, -11, 18)
+
+[node name="debris4" parent="." unique_id=1528133611 instance=ExtResource("16_uxjjq")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 5, -11, 21)
+
+[node name="debris5" parent="." unique_id=1461335416 instance=ExtResource("16_uxjjq")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7, -11, 26.5)
+
+[node name="debris6" parent="." unique_id=952693132 instance=ExtResource("16_uxjjq")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3, -11, 31)
+
+[node name="debris7" parent="." unique_id=1791787142 instance=ExtResource("16_uxjjq")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7, -11, 36)
+
+[node name="debris8" parent="." unique_id=1387678532 instance=ExtResource("16_uxjjq")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -8, -11, 26)
+
+[node name="gravestone-bevel2" parent="." unique_id=940657904 instance=ExtResource("35_ejbgr")]
+transform = Transform3D(0.74999994, 0, -1.2990382, 0, 1.5, 0, 1.2990382, 0, 0.74999994, -15, -11, 37.5)
+
+[node name="gravestone-bevel3" parent="." unique_id=86284677 instance=ExtResource("35_ejbgr")]
+transform = Transform3D(-1.0606604, 0, -1.0606602, 0, 1.5, 0, 1.0606602, 0, -1.0606604, -7.5, -11, 25.5)
+
+[node name="gravestone-bevel4" parent="." unique_id=1836945489 instance=ExtResource("35_ejbgr")]
+transform = Transform3D(0.74999994, 0, -1.2990382, 0, 1.5, 0, 1.2990382, 0, 0.74999994, 9, -11, 20.5)
+
+[node name="crypt-a5" parent="." unique_id=1929989675 instance=ExtResource("10_udqib")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 10.5, -11, 21.5)
+
+[node name="crypt-a6" parent="." unique_id=1893323288 instance=ExtResource("10_udqib")]
+transform = Transform3D(-1.0606601, 0, -1.0606601, 0, 1.5, 0, 1.0606601, 0, -1.0606601, 2.5, 0, 18.29067)
+
+[node name="shovel2" parent="." unique_id=1530193304 instance=ExtResource("36_oimkq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 16)
+
+[node name="rocks5" parent="." unique_id=1095376491 instance=ExtResource("37_fu2st")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 17)
+
+[node name="pumpkin2" parent="." unique_id=1651834087 instance=ExtResource("38_o74m2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 16.8237)
+
+[node name="pillar-square2" parent="." unique_id=1275922530 instance=ExtResource("39_g7dyt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4991815, 0, 17.5)
+
+[node name="pillar-obelisk2" parent="." unique_id=749996576 instance=ExtResource("40_xm72j")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7.5, -11, 31)
+
+[node name="pillar-obelisk3" parent="." unique_id=501046941 instance=ExtResource("40_xm72j")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.5, -11, 36.5)

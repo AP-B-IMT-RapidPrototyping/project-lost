@@ -10,11 +10,12 @@ size = Vector3(0.75268555, 0.86157227, 0.76220703)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qpnx7"]
 size = Vector3(0.79333496, 0.89312744, 0.7982788)
 
-[node name="EnemyFlying" type="Node3D" unique_id=1681722864]
+[node name="EnemyFlying" type="Node3D" unique_id=1681722864 groups=["Enemy"]]
 
 [node name="ParrotEnemy" type="CharacterBody3D" parent="." unique_id=525386381 node_paths=PackedStringArray("_animationPlayer", "_timer")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-collision_layer = 2
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_u23sx")
 AttackEffectScene = ExtResource("2_qpnx7")
 _animationPlayer = NodePath("animal-parrot2/AnimationPlayer")
@@ -27,16 +28,16 @@ shape = SubResource("BoxShape3D_oyl5c")
 [node name="animal-parrot2" parent="ParrotEnemy" unique_id=395967127 instance=ExtResource("3_kqykb")]
 transform = Transform3D(-0.6, 0, -9.059749e-08, 0, 0.6, 0, 9.059749e-08, 0, -0.6, 0, 0, 0)
 
-[node name="body" parent="ParrotEnemy/animal-parrot2/animal-parrot/root" parent_id_path=PackedInt32Array(395967127, 432679500) index="0" unique_id=379311589]
+[node name="body" parent="ParrotEnemy/animal-parrot2/animal-parrot/root" parent_id_path=PackedInt32Array(395967127, 1302635533) index="0" unique_id=1642635429]
 transform = Transform3D(0.9824088, 0.17322516, 0.069756456, -0.17364816, 0.9848077, -4.656613e-10, -0.0686967, -0.01211308, 0.9975641, 1.5731818e-08, 0.18124998, -3.8083503e-08)
 
-[node name="tail" parent="ParrotEnemy/animal-parrot2/animal-parrot/root/body" index="1" unique_id=1856933756]
+[node name="tail" parent="ParrotEnemy/animal-parrot2/animal-parrot/root/body" index="1" unique_id=399425121]
 transform = Transform3D(0.9396926, -0.34202015, 0, 0.34202015, 0.9396926, 0, 0, 0, 1, 0, 0.53749996, -0.49509618)
 
-[node name="wing-right" parent="ParrotEnemy/animal-parrot2/animal-parrot/root/body" index="2" unique_id=2126381309]
+[node name="wing-right" parent="ParrotEnemy/animal-parrot2/animal-parrot/root/body" index="2" unique_id=637672278]
 transform = Transform3D(0.7660445, -0.6427876, 0, 0.6427876, 0.7660445, 0, 0, 0, 1, -0.5250001, 0.4625, 0.031078815)
 
-[node name="wing-left" parent="ParrotEnemy/animal-parrot2/animal-parrot/root/body" index="3" unique_id=512340115]
+[node name="wing-left" parent="ParrotEnemy/animal-parrot2/animal-parrot/root/body" index="3" unique_id=86861529]
 transform = Transform3D(0.7660445, 0.6427876, 0, -0.6427876, 0.7660445, 0, 0, 0, 1, 0.625, 0.4625, 0.031078815)
 
 [node name="StrikePoint" type="Marker3D" parent="ParrotEnemy" unique_id=260854025]

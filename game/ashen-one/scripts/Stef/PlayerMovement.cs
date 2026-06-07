@@ -14,7 +14,6 @@ public partial class PlayerMovement : CharacterBody3D
 	[Export] public AnimationPlayer anweapon;
 	[Export] public Node3D RangeMesh;
 	[Export] public AnimationPlayer anRange;
-
 	[Export] public CollisionShape3D MeleeCollisionShape;
 	[Export] private Marker3D _muzzle;
 	[Export] public RayCast3D RayCast;
@@ -29,12 +28,13 @@ public partial class PlayerMovement : CharacterBody3D
 	bool canAttack = true;
 
 
-	public float Speed = 3.25f;
+	public float Speed = 4f;
 	public const float JumpVelocity = 2.5f;
 	bool Forced = false;
 	bool canDodge = true;
 	int HP = 100;
-
+	bool canTakeDamage = true;
+	[Export] public float DamageCooldown = 1.0f;
 
 	public override void _Ready()
 	{
@@ -125,6 +125,8 @@ public partial class PlayerMovement : CharacterBody3D
 			Velocity = velocity;
 		}
 		MoveAndSlide();
+
+		CheckEnemyCollisions();
 
 		if (direction != Vector3.Zero)
 		{
@@ -231,14 +233,7 @@ public partial class PlayerMovement : CharacterBody3D
 			Shoot(RayCast);
 		}
 	}
-
-	//hitmarkers
-	public void takehit()
-	{
-		HP -= 10;
-		HP = Mathf.Max(HP, 0);
-		hpLabel.Text = $"HP: {HP}";
-	}
+	
 	public void Ammolabel(bool reloading)
 	{
 		if (reloading == true) { ammolabel.Text = "Reloading..."; }
@@ -258,50 +253,86 @@ public partial class PlayerMovement : CharacterBody3D
 
 	public async void Shoot(RayCast3D raycast)
 	{
-		if (GunEmpty || GunCouldown) return;
-		GunCouldown = true;
-		raycast.ForceRaycastUpdate();
+    if (GunEmpty || GunCouldown) return;
+    GunCouldown = true;
+    raycast.ForceRaycastUpdate();
 
-		if (raycast.IsColliding())
-		{
-			var collider = raycast.GetCollider();
+    if (raycast.IsColliding())
+    {
+        var collider = raycast.GetCollider();
 
-			if (collider is Testenemy enemy)
-			{
-				enemy.TakeDamage(10);
+        if (collider is Node3D hitNode)
+        {
+            if (hitNode.IsInGroup("Enemy"))
+            {
+                GD.Print($"Raycast raakte direct vijand: {hitNode.Name}");
+                hitNode.Call("TakeHit");
+            }
+            else if (hitNode.GetParent() is Node3D parentNode && parentNode.IsInGroup("Enemy"))
+            {
+                GD.Print($"Raycast raakte child van vijand: {hitNode.Name}, parent is {parentNode.Name}");
+                parentNode.Call("TakeHit");
+            }
+        }
+    }
+
+    raycast.Visible = true;
+    --Ammo;
+    Ammolabel(false);
+    if (Ammo <= 0)
+    {
+        GunEmpty = true;
+    }
+
+    await ToSignal(GetTree().CreateTimer(0.15f), SceneTreeTimer.SignalName.Timeout);
+
+    raycast.Visible = false;
+    GunCouldown = false;
+}
+
+
+	//playerdamage
+	public void takehit()
+	{
+		HP -= 10;
+		HP = Mathf.Max(HP, 0);
+		hpLabel.Text = $"HP: {HP}";
+	}
+	private void CheckEnemyCollisions()
+	{
+		if (!canTakeDamage) return;
+    	for (int i = 0; i < GetSlideCollisionCount(); i++)
+    	{
+        	KinematicCollision3D collision = GetSlideCollision(i);
+        	GodotObject collider = collision.GetCollider();
+
+        	if (collider is Node3D other)
+        	{
+        		if (other.IsInGroup("Enemy"))
+        		{
+					GD.Print($"player hit by enemy: {other}");
+            		TriggerDamageCooldown();
+            		break;
+        		}
 			}
-			else if (collider is Node3D node && node.GetParent() is Testenemy parentEnemy)
-			{
-				parentEnemy.TakeDamage(10);
-			}
-		}
-		raycast.Visible = true;
-		--Ammo;
-		Ammolabel(false);
-		if (Ammo <= 0)
-		{
-			GunEmpty = true;
-		}
-
-		await ToSignal(GetTree().CreateTimer(0.15f), SceneTreeTimer.SignalName.Timeout);
-
-		raycast.Visible = false;
-		GunCouldown = false;
+    	}
 	}
 
+	private async void TriggerDamageCooldown()
+	{
+    	canTakeDamage = false;
+    
+    	takehit();
+
+    	await ToSignal(GetTree().CreateTimer(DamageCooldown), SceneTreeTimer.SignalName.Timeout);
+    
+    	canTakeDamage = true;
+   		GD.Print("Speler kan weer schade oplopen!");
+	}
 
 	//playerswitchsignal
 	public void OnPlayerSwitchActive()
 	{
 		PlayerSwitch = true;
-	}
-
-	public void _on_hurtbox_body_entered(Node3D other)
-	{
-		if (other.IsInGroup("Enemy"))
-		{
-			GD.Print("player hit by enemy");
-			takehit();
-		}
 	}
 }

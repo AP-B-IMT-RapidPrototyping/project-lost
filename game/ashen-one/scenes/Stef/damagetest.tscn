@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dn2kdni8fhe6x" path="res://scenes/Stef/testenemy.tscn" id="2_j8nvj"]
 [ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="3_1n5x3"]
+[ext_resource type="PackedScene" uid="uid://crf4bja2itcao" path="res://scenes/Jorgan/EnemyMelee.tscn" id="3_vpmam"]
+[ext_resource type="PackedScene" uid="uid://vnd18v7o5jap" path="res://scenes/Jorgan/EnemyFlying.tscn" id="4_ivc3v"]
+[ext_resource type="PackedScene" uid="uid://dcnu6qsyo78us" path="res://scenes/Jorgan/EnemyBoss.tscn" id="4_pqxon"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qo3sd"]
 
@@ -26,3 +29,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59857535, 1, 6.7516956)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=10039319]
 transform = Transform3D(1, 0, 0, 0, 0.60978556, 0.7925665, 0, -0.7925665, 0.60978556, 0, 0.96543884, 0)
+
+[node name="EnemyFlying" parent="." unique_id=1681722864 instance=ExtResource("4_ivc3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.561123, 0, -3.4102473)
+
+[node name="ParrotEnemy" parent="EnemyFlying" index="0" unique_id=525386381 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
+[node name="EnemyBoss" parent="." unique_id=1115813718 instance=ExtResource("4_pqxon")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8807569, 0, 2.003385)
+
+[node name="ElephantEnemy" parent="EnemyBoss" index="0" unique_id=1736691198 node_paths=PackedStringArray("_player")]
+collision_mask = 3
+_player = NodePath("../../Player")
+
+[node name="EnemyMelee" parent="." unique_id=1455376485 instance=ExtResource("3_vpmam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.080561, 0, 7.5437965)
+
+[node name="KoalaEnemy" parent="EnemyMelee" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
+[editable path="EnemyFlying"]
+[editable path="EnemyFlying/ParrotEnemy/animal-parrot2"]
+[editable path="EnemyBoss"]
+[editable path="EnemyBoss/ElephantEnemy/animal-elephant2"]
+[editable path="EnemyMelee"]
+[editable path="EnemyMelee/KoalaEnemy/animal-koala2"]

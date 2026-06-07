@@ -12,7 +12,7 @@ size = Vector3(0.77856445, 0.852478, 0.75775146)
 [sub_resource type="BoxShape3D" id="BoxShape3D_buy67"]
 size = Vector3(0.60424805, 0.6114502, 0.6323242)
 
-[node name="EnemyMelee" type="Node3D" unique_id=1455376485]
+[node name="EnemyMelee" type="Node3D" unique_id=1455376485 groups=["Enemy"]]
 
 [node name="KoalaEnemy" type="CharacterBody3D" parent="." unique_id=977245451 node_paths=PackedStringArray("_animationPlayer", "_timer", "attackCollision") groups=["Enemy"]]
 collision_layer = 3
@@ -29,7 +29,7 @@ shape = SubResource("BoxShape3D_oyl5c")
 [node name="animal-koala2" parent="KoalaEnemy" unique_id=1007932516 instance=ExtResource("2_1gtdw")]
 transform = Transform3D(-0.6, 0, -9.059749e-08, 0, 0.6, 0, 9.059749e-08, 0, -0.6, 0, 0, 0)
 
-[node name="body" parent="KoalaEnemy/animal-koala2/animal-koala/root" parent_id_path=PackedInt32Array(1007932516, 1057729058) index="0" unique_id=643137600]
+[node name="body" parent="KoalaEnemy/animal-koala2/animal-koala/root" parent_id_path=PackedInt32Array(1007932516, 2026448080) index="0" unique_id=1636512394]
 transform = Transform3D(0.9824088, 0.17322516, 0.069756456, -0.17364816, 0.9848077, -4.656613e-10, -0.0686967, -0.01211308, 0.9975641, 1.5731821e-08, 0.18124998, -3.8083503e-08)
 
 [node name="Area3D" type="Area3D" parent="KoalaEnemy" unique_id=253489915]

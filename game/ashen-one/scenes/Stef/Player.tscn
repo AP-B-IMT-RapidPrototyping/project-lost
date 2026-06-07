@@ -71,12 +71,8 @@ _data = {
 radius = 0.20898438
 height = 0.7158203
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w4q4s"]
-radius = 0.32080078
-height = 0.7623291
-
 [node name="Player" type="CharacterBody3D" unique_id=474202964 node_paths=PackedStringArray("CameraPivot", "Camera", "hpLabel", "ammolabel", "MeleeMesh", "anMelee", "anweapon", "RangeMesh", "anRange", "MeleeCollisionShape", "_muzzle", "RayCast") groups=["Player"]]
-collision_layer = 255
+collision_layer = 5
 script = ExtResource("1_8sl8y")
 CameraPivot = NodePath("Node3D")
 Camera = NodePath("Node3D/SpringArm3D/Camera3D")
@@ -96,7 +92,7 @@ RayCast = NodePath("range/blaster-b2/RayCast3D")
 [node name="cooking-knife2" parent="melee" unique_id=353333536 instance=ExtResource("4_sy21a")]
 transform = Transform3D(-2.3378141e-15, -1, 4.371139e-08, -6.2233454e-08, -4.371139e-08, -1, 1.4237356, 0, -4.3711385e-08, 0.27715826, 0.10844579, -0.48193467)
 
-[node name="StaticBody3D" parent="melee/cooking-knife2/cooking-knife" parent_id_path=PackedInt32Array(353333536, 1503654625) index="0" unique_id=39486830 groups=["Playerweapon"]]
+[node name="StaticBody3D" parent="melee/cooking-knife2/cooking-knife" parent_id_path=PackedInt32Array(353333536, 2143313397) index="0" unique_id=134628836 groups=["Playerweapon"]]
 collision_layer = 2
 
 [node name="weaponanimation" type="AnimationPlayer" parent="melee/cooking-knife2" unique_id=269689770]
@@ -104,9 +100,8 @@ root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_0ly60")
 
 [node name="range" parent="." unique_id=1512543393 instance=ExtResource("4_w4q4s")]
-visible = false
 
-[node name="Skeleton3D" parent="range/character-male-e" parent_id_path=PackedInt32Array(1512543393, 144178661) index="0" unique_id=224988816]
+[node name="Skeleton3D" parent="range/character-male-e" parent_id_path=PackedInt32Array(1512543393, 272057408) index="0" unique_id=1194428894]
 bones/4/rotation = Quaternion(0, 0, -0.38268346, 0.9238795)
 bones/5/rotation = Quaternion(0, 0, 0.3826835, 0.92387956)
 
@@ -114,11 +109,10 @@ bones/5/rotation = Quaternion(0, 0, 0.3826835, 0.92387956)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23718375, 0.38927734, -0.17615269)
 
 [node name="RayCast3D" type="RayCast3D" parent="range/blaster-b2" unique_id=39480912 groups=["Playerweapon"]]
-transform = Transform3D(1, 0, 0, 0, -0.07025879, -0.999987, 0, 1607333.6, -4.3710816e-08, 0, 0.013840139, -0.19573589)
+transform = Transform3D(3, 0, 0, 0, -9.537388e-07, -3, 0, 21.819, -1.3113416e-07, 0, 0.013840139, -0.23682491)
 collision_mask = 2
-collide_with_areas = true
 
-[node name="Marker3D" type="Marker3D" parent="range/blaster-b2" unique_id=1400405357]
+[node name="Marker3D" type="Marker3D" parent="range/blaster-b2" unique_id=1400405357 groups=["Playerweapon"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0103728175, -0.2559176)
 
 [node name="Timer" type="Timer" parent="range/blaster-b2" unique_id=17259332]
@@ -171,14 +165,6 @@ offset_bottom = -15.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "10/10"
-
-[node name="Area3D" type="Area3D" parent="." unique_id=1864833208]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1704957245]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.322937, 0)
-shape = SubResource("CapsuleShape3D_w4q4s")
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_hurtbox_body_entered"]
 
 [editable path="melee"]
 [editable path="melee/cooking-knife2"]

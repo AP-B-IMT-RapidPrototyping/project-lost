@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://coyau0ktjcd83"]
+
+[ext_resource type="Script" uid="uid://bfmopr3bajm06" path="res://scripts/Stef/Testspeler.cs" id="1_160bq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gbn4r"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_160bq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_un75m"]
+
+[node name="Testspeler" type="CharacterBody3D" unique_id=470540220]
+script = ExtResource("1_160bq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1676916546]
+shape = SubResource("CapsuleShape3D_gbn4r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=425505936]
+mesh = SubResource("CapsuleMesh_160bq")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1410908702]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7469904, 1.9207951)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=683183030]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0960895)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=106288897]
+shape = SubResource("BoxShape3D_un75m")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

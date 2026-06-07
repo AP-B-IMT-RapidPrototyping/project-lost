@@ -26,10 +26,10 @@ public partial class Testenemy : Node3D
 
 	public void TakeDamage(int amount)
 	{
-		if (_isDead) return; // Geen schade incasseren als je al dood bent
+		if (_isDead) return;
 
 		HP -= amount;
-		HP = Mathf.Max(HP, 0); // Zorgt dat HP niet onder de 0 zakt
+		HP = Mathf.Max(HP, 0);
 		GD.Print($"Enemy geraakt! HP is nu: {HP}");
 	}
 

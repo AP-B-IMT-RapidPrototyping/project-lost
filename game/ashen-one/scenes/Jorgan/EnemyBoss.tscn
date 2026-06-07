@@ -11,7 +11,7 @@ size = Vector3(1.2607422, 1.4179688, 1.253418)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dc6ld"]
 
-[node name="EnemyBoss" type="Node3D" unique_id=1115813718]
+[node name="EnemyBoss" type="Node3D" unique_id=1115813718 groups=["Enemy"]]
 
 [node name="ElephantEnemy" type="CharacterBody3D" parent="." unique_id=1736691198 node_paths=PackedStringArray("_animationPlayer", "_timer", "attackCollision") groups=["Enemy"]]
 collision_layer = 3
@@ -27,10 +27,10 @@ shape = SubResource("BoxShape3D_qgqa5")
 [node name="animal-elephant2" parent="ElephantEnemy" unique_id=573294421 instance=ExtResource("1_2vpib")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 
-[node name="body" parent="ElephantEnemy/animal-elephant2/animal-elephant/root" parent_id_path=PackedInt32Array(573294421, 1523309003) index="0" unique_id=857157366]
+[node name="body" parent="ElephantEnemy/animal-elephant2/animal-elephant/root" parent_id_path=PackedInt32Array(573294421, 439915946) index="0" unique_id=1763451125]
 transform = Transform3D(0.9824088, 0.17322516, 0.069756456, -0.17364816, 0.9848077, -4.656613e-10, -0.0686967, -0.01211308, 0.9975641, 1.573182e-08, 0.18124998, -3.8083503e-08)
 
-[node name="tail" parent="ElephantEnemy/animal-elephant2/animal-elephant/root/body" index="0" unique_id=1235729004]
+[node name="tail" parent="ElephantEnemy/animal-elephant2/animal-elephant/root/body" index="0" unique_id=1151268447]
 transform = Transform3D(0.9396926, -0.34202015, 0, 0.34202015, 0.9396926, 0, 0, 0, 1, 0, 0.46311063, 0.625)
 
 [node name="Area3D" type="Area3D" parent="ElephantEnemy" unique_id=1555631476]
@@ -43,7 +43,8 @@ shape = SubResource("BoxShape3D_31egq")
 
 [node name="Area3D2" type="Area3D" parent="ElephantEnemy" unique_id=514008792 groups=["Enemy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5412612, -1.0482007)
-collision_layer = 2
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ElephantEnemy/Area3D2" unique_id=318927977]
 shape = SubResource("BoxShape3D_dc6ld")

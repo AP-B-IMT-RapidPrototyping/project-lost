@@ -8,13 +8,16 @@ radius = 0.064941406
 height = 0.18615723
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6xq86"]
-radius = 0.06933594
-height = 0.19116211
+radius = 0.06640625
+height = 0.19073486
 
 [node name="Node3D" type="Node3D" unique_id=1508303698]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=711816832]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=711816832 node_paths=PackedStringArray("MeleeCollisionshape") groups=["Enemy"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_6xq86")
+MeleeCollisionshape = NodePath("Area3D/CollisionShape3D")
 
 [node name="egg2" parent="CharacterBody3D" unique_id=1092608494 instance=ExtResource("2_6ls6i")]
 
@@ -22,9 +25,8 @@ script = ExtResource("1_6xq86")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0836792, 0)
 shape = SubResource("CapsuleShape3D_562ur")
 
-[node name="Area3D" type="Area3D" parent="CharacterBody3D" unique_id=1000925564 groups=["Enemy"]]
-collision_mask = 2
+[node name="Area3D" type="Area3D" parent="CharacterBody3D" unique_id=1557027286 groups=["Enemy"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/Area3D" unique_id=1825662410]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07775879, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/Area3D" unique_id=1179577320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08383179, 0)
 shape = SubResource("CapsuleShape3D_6xq86")

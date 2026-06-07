@@ -10,11 +10,18 @@ public partial class ElephantEnemy : CharacterBody3D
 	[Export] public AnimationPlayer _animationPlayer;
 	[Export] public Timer _timer;
 	[Export] public int health = 25;
+	[Export] public CollisionShape3D attackCollision;
 
 	public void TakeHit()
 	{
 		health -= 5;
 	}
+
+    public override void _Ready()
+    {
+        attackCollision.Disabled = true;
+    }
+
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -50,9 +57,7 @@ public partial class ElephantEnemy : CharacterBody3D
 		{
 			if (_timer.IsStopped())
 			{
-				_animationPlayer.PlaySection("eat", 0, 0.5);
-				_timer.Start();
-				GD.Print("Elephant attacked");
+				Attack();
 			}
 		}
 
@@ -72,5 +77,14 @@ public partial class ElephantEnemy : CharacterBody3D
 				GD.Print("enemy hit by player");
 				TakeHit();
 		}
+	}
+
+	public void Attack()
+	{
+		attackCollision.Disabled = false;
+		_animationPlayer.PlaySection("eat", 0, 0.5);
+		GD.Print("Elephant attacked");
+		attackCollision.Disabled = true;
+		_timer.Start();
 	}
 }

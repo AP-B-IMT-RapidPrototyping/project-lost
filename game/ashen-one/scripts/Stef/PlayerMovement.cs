@@ -295,4 +295,13 @@ public partial class PlayerMovement : CharacterBody3D
 	{
 		PlayerSwitch = true;
 	}
+
+	public void _on_hurtbox_body_entered(Node3D other)
+	{
+		if (other.IsInGroup("Enemy"))
+		{
+			GD.Print("player hit by enemy");
+			takehit();
+		}
+	}
 }

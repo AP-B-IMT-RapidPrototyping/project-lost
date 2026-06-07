@@ -71,6 +71,10 @@ _data = {
 radius = 0.20898438
 height = 0.7158203
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w4q4s"]
+radius = 0.32080078
+height = 0.7623291
+
 [node name="Player" type="CharacterBody3D" unique_id=474202964 node_paths=PackedStringArray("CameraPivot", "Camera", "hpLabel", "ammolabel", "MeleeMesh", "anMelee", "anweapon", "RangeMesh", "anRange", "MeleeCollisionShape", "_muzzle", "RayCast") groups=["Player"]]
 collision_layer = 255
 script = ExtResource("1_8sl8y")
@@ -167,6 +171,14 @@ offset_bottom = -15.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "10/10"
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1864833208]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1704957245]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.322937, 0)
+shape = SubResource("CapsuleShape3D_w4q4s")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_hurtbox_body_entered"]
 
 [editable path="melee"]
 [editable path="melee/cooking-knife2"]

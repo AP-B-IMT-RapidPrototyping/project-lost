@@ -46,11 +46,32 @@ UnlockNextLevel = true
 [node name="EnemyMelee" parent="." unique_id=1455376485 instance=ExtResource("5_yexqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
+[node name="KoalaEnemy" parent="EnemyMelee" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
 [node name="EnemyMelee3" parent="." unique_id=76703800 instance=ExtResource("5_yexqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -14)
+
+[node name="KoalaEnemy" parent="EnemyMelee3" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
 
 [node name="EnemyMelee4" parent="." unique_id=1261774304 instance=ExtResource("5_yexqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 15)
 
+[node name="KoalaEnemy" parent="EnemyMelee4" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
 [node name="EnemyMelee5" parent="." unique_id=1572439932 instance=ExtResource("5_yexqm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -12)
+
+[node name="KoalaEnemy" parent="EnemyMelee5" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
+[editable path="EnemyMelee"]
+[editable path="EnemyMelee/KoalaEnemy/animal-koala2"]
+[editable path="EnemyMelee3"]
+[editable path="EnemyMelee3/KoalaEnemy/animal-koala2"]
+[editable path="EnemyMelee4"]
+[editable path="EnemyMelee4/KoalaEnemy/animal-koala2"]
+[editable path="EnemyMelee5"]
+[editable path="EnemyMelee5/KoalaEnemy/animal-koala2"]

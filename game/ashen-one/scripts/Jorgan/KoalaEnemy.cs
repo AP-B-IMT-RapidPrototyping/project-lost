@@ -1,7 +1,5 @@
 using Godot;
 using System;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
 
 public partial class KoalaEnemy : CharacterBody3D
 {
@@ -12,6 +10,9 @@ public partial class KoalaEnemy : CharacterBody3D
 	[Export] public AnimationPlayer _animationPlayer;
 	[Export] public Timer _timer;
 	[Export] public int health = 10;
+
+	// De fysieke attackCollision hebben we via deze methode niet eens meer nodig voor schade,
+	// maar we laten hem staan als je teamgenoot hem ergens anders voor gebruikt.
 	[Export] public CollisionShape3D attackCollision;
 
 	public void TakeHit()
@@ -19,43 +20,41 @@ public partial class KoalaEnemy : CharacterBody3D
 		health -= 5;
 	}
 
-    public override void _Ready()
-    {
-        attackCollision.Disabled = true;
-    }
-
+	public override void _Ready()
+	{
+		if (attackCollision != null) attackCollision.Disabled = true;
+	}
 
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector3 velocity = Vector3.Zero;
 
-		// Add the gravity.
 		if (!IsOnFloor())
 		{
 			velocity += GetGravity() * (float)delta;
 		}
 
-		// 2. Bereken de richting op het horizontale vlak (X en Z)
-		// We negeren de Y om te voorkomen dat de vijand de grond in kijkt/beweegt
 		Vector3 lookTarget = new Vector3(_player.GlobalPosition.X, GlobalPosition.Y, _player.GlobalPosition.Z);
 
-		// Laat de vijand naar de speler kijken
 		if (GlobalPosition.DistanceTo(lookTarget) > 0.1f)
 		{
 			LookAt(lookTarget, Vector3.Up);
 		}
 
-		if (GlobalPosition.DistanceSquaredTo(_player.GlobalPosition) < DetectionDistance * DetectionDistance && GlobalPosition.DistanceSquaredTo(_player.GlobalPosition) > AttackDistance * AttackDistance)
-		{
-			// Bereken de richting-vector
-			Vector3 direction = (lookTarget - GlobalPosition).Normalized();
+		// Bewegen naar de speler
+		float distanceToPlayerSq = GlobalPosition.DistanceSquaredTo(_player.GlobalPosition);
+		float attackDistSq = AttackDistance * AttackDistance;
 
+		if (distanceToPlayerSq < DetectionDistance * DetectionDistance && distanceToPlayerSq > attackDistSq)
+		{
+			Vector3 direction = (lookTarget - GlobalPosition).Normalized();
 			velocity.X = direction.X * Speed;
 			velocity.Z = direction.Z * Speed;
 			_animationPlayer.Play("run");
 		}
 
-		if (GlobalPosition.DistanceSquaredTo(_player.GlobalPosition) < AttackDistance * AttackDistance)
+		// Aanvallen triggeren via de timer
+		if (distanceToPlayerSq <= attackDistSq)
 		{
 			if (_timer.IsStopped())
 			{
@@ -63,7 +62,7 @@ public partial class KoalaEnemy : CharacterBody3D
 			}
 		}
 
-		if (health == 0)
+		if (health <= 0)
 		{
 			QueueFree();
 		}
@@ -76,17 +75,33 @@ public partial class KoalaEnemy : CharacterBody3D
 	{
 		if (other.IsInGroup("Playerweapon"))
 		{
-				GD.Print("enemy hit by player");
-				TakeHit();
+			GD.Print("enemy hit by player");
+			TakeHit();
 		}
 	}
 
-	public void Attack()
+	// De vernieuwde actieve Attack functie
+	public async void Attack()
 	{
-		attackCollision.Disabled = false;
-		_animationPlayer.PlaySection("eat", 0, 0.5);
-		GD.Print("Koala attacked");
-		attackCollision.Disabled = true;
+		// Start de timer (cooldown) direct zodat hij niet elke frame een aanval start
 		_timer.Start();
+
+		GD.Print("Koala start animatie...");
+		_animationPlayer.PlaySection("eat", 0, 0.5);
+
+		// Optioneel: Wacht een fractie van een seconde tot de animatie op het "raak-moment" is
+		await ToSignal(GetTree().CreateTimer(0.15f), SceneTreeTimer.SignalName.Timeout);
+
+		// HIER IS DE FIX: Controleer direct of de speler nog steeds binnen bereik staat
+		float currentDistanceSq = GlobalPosition.DistanceSquaredTo(_player.GlobalPosition);
+		if (currentDistanceSq <= AttackDistance * AttackDistance)
+		{
+			// Als je speler het PlayerMovement script heeft, delen we DIRECT schade uit
+			if (_player.HasMethod("takehit"))
+			{
+				GD.Print("Koala deelt schade uit!");
+				_player.Call("takehit"); // Verandert de HP van de speler met 10
+			}
+		}
 	}
 }

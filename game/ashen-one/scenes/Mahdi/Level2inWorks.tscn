@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://d06kgbwryr6ir"]
+[gd_scene format=3 uid="uid://bkqla4fauao1o"]
 
 [ext_resource type="PackedScene" uid="uid://de6cspsr6b7t6" path="res://scenes/Mahdi/GroundLevel2.tscn" id="1_m8kl5"]
+[ext_resource type="Script" uid="uid://ds128r0kf0kk2" path="res://scripts/Anas/LevelManager.cs" id="1_yx4s1"]
 [ext_resource type="PackedScene" uid="uid://bcppud4w5e86v" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/rocks.glb" id="2_eattk"]
 [ext_resource type="PackedScene" uid="uid://bvm7kn8kvb7ki" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/stones.glb" id="3_u6dpd"]
 [ext_resource type="PackedScene" uid="uid://bqqovcse4apsh" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/stairs.glb" id="4_p0hlq"]
@@ -28,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="25_w8vmi"]
 [ext_resource type="PackedScene" uid="uid://ddxkre7jx1357" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/barrel.glb" id="27_u6dpd"]
 [ext_resource type="PackedScene" uid="uid://qsgoo5hmnxx" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/floor.glb" id="28_p0hlq"]
+[ext_resource type="PackedScene" uid="uid://bwqg1xamt7l4a" path="res://scenes/Anas/Portal.tscn" id="30_a83jk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_stcwf"]
 sky_top_color = Color(0.087456666, 0.12178143, 0.5174171, 1)
@@ -75,6 +77,7 @@ cache/0/20/0/scale = 1.0
 
 [node name="level2inWorks" type="Node3D" unique_id=858032492]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_yx4s1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2045402581]
 environment = SubResource("Environment_yexqm")
@@ -520,9 +523,6 @@ text = "Level: 2"
 transform = Transform3D(-0.0058119576, 0, -0.99998313, 0, 1, 0, 0.99998313, 0, -0.0058119576, 13.011751, 3.2553296, -4.2938685)
 
 [node name="Spawn_Level1" type="Node3D" parent="SpawnPoints" unique_id=1370107453]
-
-[node name="Player" parent="SpawnPoints" unique_id=474202964 instance=ExtResource("25_w8vmi")]
-transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 6.518778, 1.0000005, -0.14343643)
 
 [node name="stairs9" parent="." unique_id=1375324013 instance=ExtResource("6_eattk")]
 transform = Transform3D(0.0011615873, 9.263207e-05, -0.99999934, 0.00073898607, 1.2299997, 7.616905e-05, 0.99999905, -0.0009090611, 0.0011615313, 7, 0, -8)
@@ -2320,3 +2320,10 @@ transform = Transform3D(-4.371139e-08, 0.014101793, -0.9999006, 0, 0.9999006, 0.
 
 [node name="wall-narrow571" parent="." unique_id=1246561670 instance=ExtResource("6_km2kw")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14.004318, -11.000003, 27.051876)
+
+[node name="Player" parent="." unique_id=474202964 instance=ExtResource("25_w8vmi")]
+transform = Transform3D(0.49999157, 0, -0.002905957, 0, 0.5, 0, 0.002905957, 0, 0.49999157, 13.117298, 4.25533, 2.2256327)
+
+[node name="Portal" parent="." unique_id=1404359834 instance=ExtResource("30_a83jk")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.013988, -10.369762, 40.36001)
+TargetScenePath = "uid://ddw35mm4m1eit"

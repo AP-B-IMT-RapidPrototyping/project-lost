@@ -22,6 +22,8 @@ glow_enabled = true
 
 [node name="Level1" type="Node3D" unique_id=193566557]
 script = ExtResource("1_tk4vp")
+AllowCharacterSwitch = false
+StartAsMelee = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1601598250]
 environment = SubResource("Environment_tk4vp")

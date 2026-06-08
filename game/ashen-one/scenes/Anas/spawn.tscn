@@ -31,14 +31,8 @@ ambient_light_source = 2
 resource_local_to_scene = true
 size = Vector3(0.001, 7.3194056, 4.4833984)
 
-[sub_resource type="LabelSettings" id="LabelSettings_7ivus"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_nf1ox"]
 size = Vector3(4.2353516, 4.4101563, 16.422905)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gepln"]
-resource_local_to_scene = true
-load_path = "res://.godot/imported/5697440.png-5f10f04bf0ca586f62d277b348d838b6.ctex"
 
 [node name="Spawn" type="Node3D" unique_id=1732410728 groups=["Enemy"]]
 
@@ -46,7 +40,8 @@ load_path = "res://.godot/imported/5697440.png-5f10f04bf0ca586f62d277b348d838b6.
 environment = SubResource("Environment_rdwsh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1683792063]
-transform = Transform3D(0.19396228, -0.9798327, 0.0480272, 0.2573593, 0.098065555, 0.9613269, -0.9466493, -0.1741009, 0.27119005, -17.892456, 20.416971, 2.3883567)
+transform = Transform3D(0.19396228, -0.9798327, 0.0480272, 0.2573593, 0.098065555, 0.9613269, -0.9466493, -0.1741009, 0.27119005, -25.289772, 20.416971, 2.3883567)
+light_color = Color(1, 0.40392157, 0.36078432, 1)
 shadow_enabled = true
 
 [node name="template-floor2" parent="." unique_id=1819534128 instance=ExtResource("1_ji5h3")]
@@ -128,94 +123,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16,
 [node name="gate-door2" parent="." unique_id=5073485 instance=ExtResource("20_8dvd3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 4, -29)
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=1226498366]
-transparent_bg = true
-size = Vector2i(64, 64)
-
-[node name="Control" type="Control" parent="SubViewport" unique_id=301750306]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="SubViewport/Control" unique_id=1298622278]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Level 1"
-label_settings = SubResource("LabelSettings_7ivus")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SubViewport2" type="SubViewport" parent="." unique_id=998121966]
-transparent_bg = true
-size = Vector2i(64, 64)
-
-[node name="Control" type="Control" parent="SubViewport2" unique_id=1585227285]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="SubViewport2/Control" unique_id=1834739955]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Level 2
-"
-label_settings = SubResource("LabelSettings_7ivus")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SubViewport3" type="SubViewport" parent="." unique_id=68324143]
-transparent_bg = true
-size = Vector2i(64, 64)
-
-[node name="Control" type="Control" parent="SubViewport3" unique_id=1758879057]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="SubViewport3/Control" unique_id=707382158]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Level 3
-"
-label_settings = SubResource("LabelSettings_7ivus")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SubViewport4" type="SubViewport" parent="." unique_id=421663380]
-transparent_bg = true
-size = Vector2i(64, 64)
-
-[node name="Control" type="Control" parent="SubViewport4" unique_id=477889124]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="SubViewport4/Control" unique_id=1993750921]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Level 4
-"
-label_settings = SubResource("LabelSettings_7ivus")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Player" parent="." unique_id=474202964 instance=ExtResource("21_jlf3e")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.971808, 1.686068, 0.20666605)
 
@@ -241,37 +148,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.47594, 0, 16.5492)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.562439, 2.3879564, 5.6108418)
 shape = SubResource("BoxShape3D_nf1ox")
 
-[node name="Control" type="Control" parent="." unique_id=1562284446]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 560.0
-offset_bottom = 512.0
-
-[node name="Label" type="Label" parent="Control" unique_id=400656362]
-layout_mode = 0
-offset_left = 406.0
-offset_top = 366.0
-offset_right = 754.0
-offset_bottom = 641.0
-text = "Interact"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="Control/Label" unique_id=1776574254]
-modulate = Color(0.9515795, 0.95157963, 0.9515795, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.29900002
-anchor_top = 0.441
-anchor_right = 0.397
-anchor_bottom = 0.578
-offset_left = 0.9479904
-offset_top = -1.2750015
-offset_right = 5.843994
-offset_bottom = -7.949997
-texture = SubResource("CompressedTexture2D_gepln")
-expand_mode = 1
-
 [node name="stairs2" parent="." unique_id=218266420 instance=ExtResource("11_mcgvq")]
 transform = Transform3D(-1, -7.1054274e-15, 8.742278e-08, 7.1054274e-15, 1, 1.3372166e-15, -8.742278e-08, 8.067271e-15, -1, -26, -7.1525574e-07, -15)
 
@@ -280,21 +156,21 @@ transform = Transform3D(-8.261665e-08, 7.271735e-08, -1, -0.8317895, 0.5550913, 
 shape = SubResource("BoxShape3D_rdwsh")
 
 [node name="PortalLevel1" parent="." unique_id=652470010 instance=ExtResource("15_qimvs")]
-transform = Transform3D(-1.5298986e-07, -9.197099e-22, 3.5, 0, 3.5, 6.1374176e-22, -3.5, -1.6940659e-21, -1.5298986e-07, -35.272125, 1.8503699, 0.2818346)
+transform = Transform3D(-1.09278474e-07, -6.569356e-22, 2.5, 0, 2.5, 6.569356e-22, -2.5, 2.8715567e-29, -1.09278474e-07, -35.272125, 1.8503699, 0.2818346)
 TargetScenePath = "uid://c58h5p20lmtwm"
+StartAsMelee = false
 
-[node name="PortalLevel2" parent="." unique_id=1643463829 instance=ExtResource("15_qimvs")]
-transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -25.993809, -2.233287, 28.413393)
-TargetScenePath = "uid://cm4gogkcqi63k"
-SpawnName = "Spawn_Level1"
+[node name="PortalLevel2" parent="." unique_id=1404359834 instance=ExtResource("15_qimvs")]
+transform = Transform3D(-1.25, -3.284677e-22, -1.09278474e-07, -3.2846775e-22, 1.25, 3.2846782e-22, 1.09278474e-07, 3.2846787e-22, -1.25, -25.886303, -2.7403216, 28.968487)
+TargetScenePath = "uid://bkqla4fauao1o"
 
 [node name="PortalLevel3" parent="." unique_id=1911045935 instance=ExtResource("15_qimvs")]
-transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -16.902664, 5.703454, -22.937603)
+transform = Transform3D(-1.09278474e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278474e-07, -16.902664, 5.703454, -22.937603)
 TargetScenePath = "uid://ceimeascdmfu7"
 StartAsMelee = false
 
-[node name="PortalLevel4" parent="." unique_id=1404359834 instance=ExtResource("15_qimvs")]
-transform = Transform3D(-1.5298986e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, -1.5298986e-07, -38.520943, 5.703454, -22.937603)
+[node name="PortalLevel4" parent="." unique_id=581873085 instance=ExtResource("15_qimvs")]
+transform = Transform3D(-1.09278474e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278474e-07, -38.520943, 5.703454, -22.937603)
 TargetScenePath = "uid://rwt54gkketog"
 
 [node name="gate-door-window3" parent="." unique_id=1916666316 instance=ExtResource("14_ioo4d")]

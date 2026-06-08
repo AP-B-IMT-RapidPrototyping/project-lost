@@ -45,7 +45,7 @@ public partial class Portal : Area3D
         {
             GameManager.CurrentLevel++;
 
-            GD.Print("NIVEL ACTUAL: " + GameManager.CurrentLevel);
+            GD.Print("ACTUAL LEVEL + " + GameManager.CurrentLevel);
         }
     }
 

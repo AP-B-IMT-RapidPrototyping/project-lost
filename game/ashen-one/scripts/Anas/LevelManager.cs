@@ -4,7 +4,7 @@ public partial class LevelManager : Node3D
 {
     [Export] public bool AllowCharacterSwitch = true;
 
-    [Export] public bool StartAsMelee = true;
+    [Export] public bool StartAsMelee = false;
     
 
     public override void _Ready()
@@ -15,13 +15,13 @@ public partial class LevelManager : Node3D
 
             if (GameManager.StartAsMelee)
             {
-                player.GetNode<Node3D>("MeleeMesh").Visible = true;
-                player.GetNode<Node3D>("RangeMesh").Visible = false;
+                player.GetNode<Node3D>("MeleeMesh").Visible = false;
+                player.GetNode<Node3D>("RangeMesh").Visible = true;
             }
             else
             {
-                player.GetNode<Node3D>("MeleeMesh").Visible = false;
-                player.GetNode<Node3D>("RangeMesh").Visible = true;
+                player.GetNode<Node3D>("MeleeMesh").Visible = true;
+                player.GetNode<Node3D>("RangeMesh").Visible = false;
             }   
 
         // configurar personaje permitido

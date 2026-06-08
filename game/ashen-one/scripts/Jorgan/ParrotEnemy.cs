@@ -33,9 +33,11 @@ public partial class ParrotEnemy : CharacterBody3D
 			LookAt(lookTarget, Vector3.Up);
 		}
 
-		if (GlobalPosition.DistanceSquaredTo(_player.GlobalPosition) < DetectionDistance * DetectionDistance && GlobalPosition.DistanceSquaredTo(_player.GlobalPosition) > AttackDistance + 0.1f * AttackDistance + 0.1f)
+		// Bewegen naar de speler toe
+		float distanceToPlayerSq = GlobalPosition.DistanceSquaredTo(_player.GlobalPosition);
+
+		if (distanceToPlayerSq < DetectionDistance * DetectionDistance && distanceToPlayerSq > AttackDistance * AttackDistance)
 		{
-			// Bereken de richting-vector
 			Vector3 direction = (lookTarget - GlobalPosition).Normalized();
 
 			velocity.X = direction.X * Speed;
@@ -43,7 +45,8 @@ public partial class ParrotEnemy : CharacterBody3D
 			velocity.Y = direction.Y * Speed;
 		}
 
-		if (GlobalPosition.DistanceSquaredTo(_player.GlobalPosition) < AttackDistance * AttackDistance)
+		// Aanvallen
+		if (distanceToPlayerSq < AttackDistance * AttackDistance)
 		{
 			if (_timer.IsStopped())
 			{
@@ -54,6 +57,14 @@ public partial class ParrotEnemy : CharacterBody3D
 			}
 		}
 
+		// FIX: Controleer of de vogel dood is en verwijder hem uit de wereld!
+		if (health <= 0.0f)
+		{
+			GD.Print("Parrot is verslagen!");
+			QueueFree();
+			return; // Stop de process hier direct
+		}
+
 		Velocity = velocity;
 		MoveAndSlide();
 	}
@@ -61,6 +72,7 @@ public partial class ParrotEnemy : CharacterBody3D
 	public void TakeHit()
 	{
 		health -= 5.0f;
+		GD.Print($"Parrot hit! Resterende HP: {health}");
 	}
 
 	public void SpawnAttackAsset()
@@ -71,23 +83,17 @@ public partial class ParrotEnemy : CharacterBody3D
 			return;
 		}
 
-		// 1. Instantiate the scene
 		Node3D effect = AttackEffectScene.Instantiate<Node3D>();
-
-		// 2. Add it to the root scene so it stays in the world space
 		GetTree().Root.AddChild(effect);
-
-		// 3. Match the Marker3D's global position and rotation
 		effect.GlobalTransform = _strikePoint.GlobalTransform;
-
 	}
 
 	public void _on_hurtbox_body_entered(Node3D other)
 	{
 		if (other.IsInGroup("Playerweapon"))
 		{
-				GD.Print("enemy hit by player");
-				TakeHit();
+			GD.Print("enemy hit by player melee");
+			TakeHit();
 		}
 	}
 }

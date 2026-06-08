@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cx4ck70d2w0yh" path="res://models/Anas/kenney_modular-dungeon-kit_1.0/Models/GLB format/gate-metal-bars.glb" id="6_ee0wk"]
 [ext_resource type="PackedScene" uid="uid://cvmsf13rawdqf" path="res://scenes/Stef/Player.tscn" id="7_vk533"]
 [ext_resource type="PackedScene" uid="uid://bwqg1xamt7l4a" path="res://scenes/Anas/Portal.tscn" id="8_pu5fi"]
+[ext_resource type="PackedScene" uid="uid://crf4bja2itcao" path="res://scenes/Jorgan/EnemyMelee.tscn" id="9_cellc"]
+[ext_resource type="PackedScene" uid="uid://vnd18v7o5jap" path="res://scenes/Jorgan/EnemyFlying.tscn" id="10_ee0wk"]
 
 [node name="Level3" type="Node3D" unique_id=1679484765]
 script = ExtResource("1_d2pwn")
@@ -53,3 +55,76 @@ UnlockNextLevel = true
 
 [node name="Player" parent="." unique_id=474202964 instance=ExtResource("7_vk533")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.518778, 1.0000005, -0.14343643)
+
+[node name="EnemyMelee" parent="." unique_id=1455376485 instance=ExtResource("9_cellc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+
+[node name="KoalaEnemy" parent="EnemyMelee" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
+[node name="EnemyMelee2" parent="." unique_id=185778629 instance=ExtResource("9_cellc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+
+[node name="KoalaEnemy" parent="EnemyMelee2" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
+[node name="EnemyMelee3" parent="." unique_id=367358667 instance=ExtResource("9_cellc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+
+[node name="KoalaEnemy" parent="EnemyMelee3" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
+[node name="EnemyMelee4" parent="." unique_id=2060543919 instance=ExtResource("9_cellc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 1)
+
+[node name="KoalaEnemy" parent="EnemyMelee4" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
+[node name="EnemyFlying" parent="." unique_id=1681722864 instance=ExtResource("10_ee0wk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="ParrotEnemy" parent="EnemyFlying" index="0" unique_id=525386381 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
+[node name="EnemyMelee5" parent="." unique_id=1124665872 instance=ExtResource("9_cellc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -4, 4)
+
+[node name="KoalaEnemy" parent="EnemyMelee5" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
+[node name="EnemyMelee6" parent="." unique_id=804543334 instance=ExtResource("9_cellc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.725708, -4.000001, 0.40240985)
+
+[node name="KoalaEnemy" parent="EnemyMelee6" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
+[node name="EnemyMelee7" parent="." unique_id=2083470266 instance=ExtResource("9_cellc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -4, -3)
+
+[node name="KoalaEnemy" parent="EnemyMelee7" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
+[node name="EnemyMelee8" parent="." unique_id=483937819 instance=ExtResource("9_cellc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.677254, -4, -0.33855903)
+
+[node name="KoalaEnemy" parent="EnemyMelee8" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
+[editable path="EnemyMelee"]
+[editable path="EnemyMelee/KoalaEnemy/animal-koala2"]
+[editable path="EnemyMelee2"]
+[editable path="EnemyMelee2/KoalaEnemy/animal-koala2"]
+[editable path="EnemyMelee3"]
+[editable path="EnemyMelee3/KoalaEnemy/animal-koala2"]
+[editable path="EnemyMelee4"]
+[editable path="EnemyMelee4/KoalaEnemy/animal-koala2"]
+[editable path="EnemyFlying"]
+[editable path="EnemyFlying/ParrotEnemy/animal-parrot2"]
+[editable path="EnemyMelee5"]
+[editable path="EnemyMelee5/KoalaEnemy/animal-koala2"]
+[editable path="EnemyMelee6"]
+[editable path="EnemyMelee6/KoalaEnemy/animal-koala2"]
+[editable path="EnemyMelee7"]
+[editable path="EnemyMelee7/KoalaEnemy/animal-koala2"]
+[editable path="EnemyMelee8"]
+[editable path="EnemyMelee8/KoalaEnemy/animal-koala2"]

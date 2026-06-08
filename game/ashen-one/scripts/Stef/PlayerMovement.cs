@@ -34,6 +34,9 @@ public partial class PlayerMovement : CharacterBody3D
 	bool Forced = false;
 	bool canDodge = true;
 	int HP = 100;
+	float regentimer = 0.0f;
+	float LastHitTime = 0.0f;
+
 	bool canTakeDamage = true;
 	[Export] public float DamageCooldown = 1.0f;
 
@@ -73,6 +76,27 @@ public partial class PlayerMovement : CharacterBody3D
 			GD.Print("Player died");
 			GetTree().ChangeSceneToFile("res://scenes/Stef/death screen.tscn");
 		}
+		LastHitTime += (float)delta;
+
+		if (LastHitTime >= 20.0f && HP < 100)
+		{
+			regentimer += (float)delta;
+			if (regentimer >= 1.0f)
+			{
+				HP += 1;
+				HP = Mathf.Min(HP, 100);
+				hpLabel.Text = $"HP: {HP}";
+
+				regentimer = 0.0f;
+				GD.Print($"HP passief hersteld! Huidig HP: {HP}");
+			}
+		}
+		else
+		{
+			regentimer = 0.0f;
+		}
+
+
 		if (Input.IsActionJustPressed("switch_character") && PlayerSwitch == true)
 		{
 			SwitchCharacter();
@@ -235,7 +259,7 @@ public partial class PlayerMovement : CharacterBody3D
 			Shoot(RayCast);
 		}
 	}
-	
+
 	public void Ammolabel(bool reloading)
 	{
 		if (reloading == true) { ammolabel.Text = "Reloading..."; }
@@ -255,51 +279,51 @@ public partial class PlayerMovement : CharacterBody3D
 
 	public async void Shoot(RayCast3D raycast)
 	{
-    if (GunEmpty || GunCouldown) return;
-    GunCouldown = true;
-    raycast.ForceRaycastUpdate();
-	showmesh();
+		if (GunEmpty || GunCouldown) return;
+		GunCouldown = true;
+		raycast.ForceRaycastUpdate();
+		showmesh();
 
-    if (raycast.IsColliding())
-    {
-        var collider = raycast.GetCollider();
+		if (raycast.IsColliding())
+		{
+			var collider = raycast.GetCollider();
 
 
-        if (collider is Node3D hitNode)
-        {
-            if (hitNode.IsInGroup("Enemy"))
-            {
-                GD.Print($"Raycast raakte direct vijand: {hitNode.Name}");
-                hitNode.Call("TakeHit");
-            }
-            else if (hitNode.GetParent() is Node3D parentNode && parentNode.IsInGroup("Enemy"))
-            {
-                GD.Print($"Raycast raakte child van vijand: {hitNode.Name}, parent is {parentNode.Name}");
-                parentNode.Call("TakeHit");
-            }
-        }
-		
-    }
-	async void showmesh()
+			if (collider is Node3D hitNode)
+			{
+				if (hitNode.IsInGroup("Enemy"))
+				{
+					GD.Print($"Raycast raakte direct vijand: {hitNode.Name}");
+					hitNode.Call("TakeHit");
+				}
+				else if (hitNode.GetParent() is Node3D parentNode && parentNode.IsInGroup("Enemy"))
+				{
+					GD.Print($"Raycast raakte child van vijand: {hitNode.Name}, parent is {parentNode.Name}");
+					parentNode.Call("TakeHit");
+				}
+			}
+
+		}
+		async void showmesh()
 		{
 			bulletmesh.Visible = true;
 			await ToSignal(GetTree().CreateTimer(0.1f), SceneTreeTimer.SignalName.Timeout);
 			bulletmesh.Visible = false;
 		}
 
-    raycast.Visible = true;
-    --Ammo;
-    Ammolabel(false);
-    if (Ammo <= 0)
-    {
-        GunEmpty = true;
-    }
+		raycast.Visible = true;
+		--Ammo;
+		Ammolabel(false);
+		if (Ammo <= 0)
+		{
+			GunEmpty = true;
+		}
 
-    await ToSignal(GetTree().CreateTimer(0.15f), SceneTreeTimer.SignalName.Timeout);
+		await ToSignal(GetTree().CreateTimer(0.15f), SceneTreeTimer.SignalName.Timeout);
 
-    raycast.Visible = false;
-    GunCouldown = false;
-}
+		raycast.Visible = false;
+		GunCouldown = false;
+	}
 
 
 	//playerdamage
@@ -312,33 +336,33 @@ public partial class PlayerMovement : CharacterBody3D
 	private void CheckEnemyCollisions()
 	{
 		if (!canTakeDamage) return;
-    	for (int i = 0; i < GetSlideCollisionCount(); i++)
-    	{
-        	KinematicCollision3D collision = GetSlideCollision(i);
-        	GodotObject collider = collision.GetCollider();
+		for (int i = 0; i < GetSlideCollisionCount(); i++)
+		{
+			KinematicCollision3D collision = GetSlideCollision(i);
+			GodotObject collider = collision.GetCollider();
 
-        	if (collider is Node3D other)
-        	{
-        		if (other.IsInGroup("Enemy"))
-        		{
+			if (collider is Node3D other)
+			{
+				if (other.IsInGroup("Enemy"))
+				{
 					GD.Print($"player hit by enemy: {other}");
-            		TriggerDamageCooldown();
-            		break;
-        		}
+					TriggerDamageCooldown();
+					break;
+				}
 			}
-    	}
+		}
 	}
 
 	private async void TriggerDamageCooldown()
 	{
-    	canTakeDamage = false;
-    
-    	takehit();
+		canTakeDamage = false;
 
-    	await ToSignal(GetTree().CreateTimer(DamageCooldown), SceneTreeTimer.SignalName.Timeout);
-    
-    	canTakeDamage = true;
-   		GD.Print("Speler kan weer schade oplopen!");
+		takehit();
+
+		await ToSignal(GetTree().CreateTimer(DamageCooldown), SceneTreeTimer.SignalName.Timeout);
+
+		canTakeDamage = true;
+		GD.Print("Speler kan weer schade oplopen!");
 	}
 
 	//playerswitchsignal

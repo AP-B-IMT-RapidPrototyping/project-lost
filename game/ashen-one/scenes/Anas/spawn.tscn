@@ -145,7 +145,7 @@ transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -19.229372, 0, -7.06750
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.47594, 0, 16.5492)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1702000792]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.562439, 2.3879564, 5.6108418)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5725555, 2.3879569, 5.5976086)
 shape = SubResource("BoxShape3D_nf1ox")
 
 [node name="stairs2" parent="." unique_id=218266420 instance=ExtResource("11_mcgvq")]

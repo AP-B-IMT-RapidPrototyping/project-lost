@@ -2342,38 +2342,20 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12, -11, 32.5)
 [node name="EnemyMelee" parent="." unique_id=1455376485 instance=ExtResource("31_ejbgr")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12, -11, 32.5)
 
-[node name="KoalaEnemy" parent="EnemyMelee" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
-_player = NodePath("../../SpawnPoints/Player")
-
 [node name="EnemyFlying" parent="." unique_id=1681722864 instance=ExtResource("32_r7gwi")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9, -11, 35.5)
-
-[node name="ParrotEnemy" parent="EnemyFlying" index="0" unique_id=525386381 node_paths=PackedStringArray("_player")]
-_player = NodePath("../../SpawnPoints/Player")
 
 [node name="EnemyMelee2" parent="." unique_id=1209237112 instance=ExtResource("31_ejbgr")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2, -11, 38.5)
 
-[node name="KoalaEnemy" parent="EnemyMelee2" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
-_player = NodePath("../../SpawnPoints/Player")
-
 [node name="EnemyFlying2" parent="." unique_id=410952478 instance=ExtResource("32_r7gwi")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.5, -11, 15)
-
-[node name="ParrotEnemy" parent="EnemyFlying2" index="0" unique_id=525386381 node_paths=PackedStringArray("_player")]
-_player = NodePath("../../SpawnPoints/Player")
 
 [node name="EnemyBoss" parent="." unique_id=1115813718 instance=ExtResource("33_k2gfx")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, -11, 27)
 
-[node name="ElephantEnemy" parent="EnemyBoss" index="0" unique_id=1736691198 node_paths=PackedStringArray("_player")]
-_player = NodePath("../../SpawnPoints/Player")
-
 [node name="EnemyFlying3" parent="." unique_id=1700815620 instance=ExtResource("32_r7gwi")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.5, -11, 15.5)
-
-[node name="ParrotEnemy" parent="EnemyFlying3" index="0" unique_id=525386381 node_paths=PackedStringArray("_player")]
-_player = NodePath("../../SpawnPoints/Player")
 
 [node name="Node3D2" parent="." unique_id=1272943962 instance=ExtResource("30_dem4k")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7, 0, 10)
@@ -2381,26 +2363,14 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7, 0, 10)
 [node name="EnemyMelee3" parent="." unique_id=1270262136 instance=ExtResource("31_ejbgr")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4, 0, 6.5)
 
-[node name="KoalaEnemy" parent="EnemyMelee3" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
-_player = NodePath("../../SpawnPoints/Player")
-
 [node name="EnemyMelee4" parent="." unique_id=741413507 instance=ExtResource("31_ejbgr")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4, 0, -6)
-
-[node name="KoalaEnemy" parent="EnemyMelee4" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
-_player = NodePath("../../SpawnPoints/Player")
 
 [node name="EnemyFlying4" parent="." unique_id=984313801 instance=ExtResource("32_r7gwi")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.5, 0, -2.5)
 
-[node name="ParrotEnemy" parent="EnemyFlying4" index="0" unique_id=525386381 node_paths=PackedStringArray("_player")]
-_player = NodePath("../../SpawnPoints/Player")
-
 [node name="EnemyFlying5" parent="." unique_id=916239087 instance=ExtResource("32_r7gwi")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.7191943, 0, 15.0505295)
-
-[node name="ParrotEnemy" parent="EnemyFlying5" index="0" unique_id=525386381 node_paths=PackedStringArray("_player")]
-_player = NodePath("../../SpawnPoints/Player")
 
 [node name="crypt-a3" parent="." unique_id=1454552511 instance=ExtResource("10_udqib")]
 transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 10.5, -11, 31)
@@ -2491,6 +2461,9 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7.5, -11, 31)
 
 [node name="pillar-obelisk3" parent="." unique_id=501046941 instance=ExtResource("40_xm72j")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.5, -11, 36.5)
+
+[node name="Player" parent="." unique_id=474202964 instance=ExtResource("25_w8vmi")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 13, 4, 2)
 
 [editable path="EnemyMelee"]
 [editable path="EnemyMelee/KoalaEnemy/animal-koala2"]

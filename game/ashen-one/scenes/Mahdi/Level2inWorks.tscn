@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bkqla4fauao1o"]
 
-[ext_resource type="PackedScene" uid="uid://de6cspsr6b7t6" path="res://scenes/Mahdi/GroundLevel2.tscn" id="1_m8kl5"]
+[ext_resource type="PackedScene" uid="uid://bpdbk6eupe3p5" path="res://scenes/Mahdi/GroundLevel2.tscn" id="1_m8kl5"]
 [ext_resource type="Script" uid="uid://ds128r0kf0kk2" path="res://scripts/Anas/LevelManager.cs" id="1_yx4s1"]
 [ext_resource type="PackedScene" uid="uid://bcppud4w5e86v" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/rocks.glb" id="2_eattk"]
 [ext_resource type="PackedScene" uid="uid://bvm7kn8kvb7ki" path="res://models/Anas/kenney_mini-dungeon/Models/GLB format/stones.glb" id="3_u6dpd"]
@@ -41,6 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://ocfe08akbovm" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/pumpkin.glb" id="38_o74m2"]
 [ext_resource type="PackedScene" uid="uid://cd057a5o50luw" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/pillar-square.glb" id="39_g7dyt"]
 [ext_resource type="PackedScene" uid="uid://jobylfksalom" path="res://models/Anas/kenney_graveyard-kit_5.0/Models/GLB format/pillar-obelisk.glb" id="40_xm72j"]
+[ext_resource type="PackedScene" uid="uid://bwqg1xamt7l4a" path="res://scenes/Anas/Portal.tscn" id="42_o74m2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_stcwf"]
 sky_top_color = Color(0.087456666, 0.12178143, 0.5174171, 1)
@@ -2342,20 +2343,38 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12, -11, 32.5)
 [node name="EnemyMelee" parent="." unique_id=1455376485 instance=ExtResource("31_ejbgr")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12, -11, 32.5)
 
+[node name="KoalaEnemy" parent="EnemyMelee" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
 [node name="EnemyFlying" parent="." unique_id=1681722864 instance=ExtResource("32_r7gwi")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9, -11, 35.5)
+
+[node name="ParrotEnemy" parent="EnemyFlying" index="0" unique_id=525386381 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
 
 [node name="EnemyMelee2" parent="." unique_id=1209237112 instance=ExtResource("31_ejbgr")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2, -11, 38.5)
 
+[node name="KoalaEnemy" parent="EnemyMelee2" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
 [node name="EnemyFlying2" parent="." unique_id=410952478 instance=ExtResource("32_r7gwi")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 9.5, -11, 15)
+
+[node name="ParrotEnemy" parent="EnemyFlying2" index="0" unique_id=525386381 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
 
 [node name="EnemyBoss" parent="." unique_id=1115813718 instance=ExtResource("33_k2gfx")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.5, -11, 27)
 
+[node name="ElephantEnemy" parent="EnemyBoss" index="0" unique_id=1736691198 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
 [node name="EnemyFlying3" parent="." unique_id=1700815620 instance=ExtResource("32_r7gwi")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.5, -11, 15.5)
+
+[node name="ParrotEnemy" parent="EnemyFlying3" index="0" unique_id=525386381 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
 
 [node name="Node3D2" parent="." unique_id=1272943962 instance=ExtResource("30_dem4k")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7, 0, 10)
@@ -2363,14 +2382,26 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7, 0, 10)
 [node name="EnemyMelee3" parent="." unique_id=1270262136 instance=ExtResource("31_ejbgr")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4, 0, 6.5)
 
+[node name="KoalaEnemy" parent="EnemyMelee3" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
 [node name="EnemyMelee4" parent="." unique_id=741413507 instance=ExtResource("31_ejbgr")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4, 0, -6)
+
+[node name="KoalaEnemy" parent="EnemyMelee4" index="0" unique_id=977245451 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
 
 [node name="EnemyFlying4" parent="." unique_id=984313801 instance=ExtResource("32_r7gwi")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.5, 0, -2.5)
 
+[node name="ParrotEnemy" parent="EnemyFlying4" index="0" unique_id=525386381 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
+
 [node name="EnemyFlying5" parent="." unique_id=916239087 instance=ExtResource("32_r7gwi")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.7191943, 0, 15.0505295)
+
+[node name="ParrotEnemy" parent="EnemyFlying5" index="0" unique_id=525386381 node_paths=PackedStringArray("_player")]
+_player = NodePath("../../Player")
 
 [node name="crypt-a3" parent="." unique_id=1454552511 instance=ExtResource("10_udqib")]
 transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 10.5, -11, 31)
@@ -2464,6 +2495,10 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.5, -11, 36.5)
 
 [node name="Player" parent="." unique_id=474202964 instance=ExtResource("25_w8vmi")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 13, 4, 2)
+
+[node name="Portal" parent="." unique_id=1404359834 instance=ExtResource("42_o74m2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6474552, -10.078837, 40.369457)
+TargetScenePath = "uid://ddw35mm4m1eit"
 
 [editable path="EnemyMelee"]
 [editable path="EnemyMelee/KoalaEnemy/animal-koala2"]
